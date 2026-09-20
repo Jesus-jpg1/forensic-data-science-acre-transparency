@@ -1,0 +1,253 @@
+\documentclass[
+    12pt,
+    openright,
+    oneside,
+    a4paper,
+    chapter=TITLE,
+    sumario=tradicional,
+    english,
+    brazilian,
+ ]{abntex2}
+
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{indentfirst}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{datetime}
+\usepackage{pgfgantt}
+
+% Sistema (Autor, data) padrão
+\usepackage[alf,abnt-emphasize=bf, abnt-etal-text=it]{abntex2cite}
+
+\usepackage{mathptmx}
+\renewcommand{\ABNTEXchapterfont}{\rmfamily\bfseries}
+\renewcommand{\ABNTEXchapterfontsize}{\normalsize}
+\renewcommand{\ABNTEXsectionfontsize}{\normalsize}
+\renewcommand{\ABNTEXsubsectionfontsize}{\normalsize}
+\renewcommand{\ABNTEXsubsubsectionfontsize}{\normalsize}
+\renewcommand{\ABNTEXsubsubsubsectionfontsize}{\normalsize}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning, shapes}
+\usepackage[outdir=./]{epstopdf}
+\usepackage{epsfig}
+
+% Pacote removido para garantir compilação standalone sem erro de arquivo não encontrado
+% \usepackage{abntex2-UFAC} 
+
+\usepackage{pgfplots, pgfplotstable}
+\pgfplotsset{compat=1.15} 
+\usepackage{xcolor}
+\usepackage{microtype} 
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage{pgf-pie}
+\usepackage{float}
+\newfloat{quadro}{htbp}{loq}
+\floatname{quadro}{Quadro}
+\newcommand{\listofquadrosname}{Lista de quadros}
+\newcommand{\listofquadros}{\listof{quadro}{\listofquadrosname}}
+
+% Termos latinos em itálico
+\renewcommand{\apudname}{\textit{apud}}
+\renewcommand{\passimname}{\textit{passim}}
+\renewcommand{\Idemname}{\textit{Id.}}
+\renewcommand{\Ibidemname}{\textit{Ibid.}}
+\renewcommand{\opcitname}{\textit{op.\ cit.}}
+\renewcommand{\loccitname}{\textit{loc.\ cit.}}
+\renewcommand{\cfcitename}{\textit{Cf.}}
+\renewcommand{\etseqname}{\textit{et seq.}}
+
+% ----------------------------------------------------------
+% DADOS DO PROJETO E CAPA
+% ----------------------------------------------------------
+\titulo{Ciência de Dados Aplicada à Detecção de Anomalias em Portais de Transparência: Um Estudo de Caso do Governo do Estado do Acre}
+\autor{Guilherme de Jesus Carvalho}
+\local{Rio Branco}
+\data{\the\year}
+
+\orientador{Prof.ª Dr.ª Laura Costa Sarkis}
+\coorientador{Prof.ª Dr.ª Lorena Caceres Tomaya}
+
+\instituicao{Universidade Federal do Acre (UFAC) \par Centro de Ciências Exatas e Tecnológicas \par Bacharelado em Sistemas de Informação}
+
+\preambulo{Trabalho de Conclusão de Curso apresentado ao Curso de Bacharelado em Sistemas de Informação da Universidade Federal do Acre como requisito parcial para obtenção do título de Bacharel em Sistemas de Informação.}
+
+\makeatletter
+\hypersetup{
+    pdftitle={\@title},
+    pdfauthor={\@author},
+    pdfsubject={\imprimirpreambulo},
+    pdfcreator={LaTeX with abnTeX2},
+    colorlinks=false,
+    linkcolor=black,
+    citecolor=black,
+    filecolor=black,
+    urlcolor=black,
+    bookmarksdepth=4,
+}
+\makeatother
+
+% --- Customização da Capa (Brasão no Topo) ---
+\renewcommand{\imprimircapa}{%
+  \begin{capa}%
+    \center
+    \includegraphics[width=2.5cm]{brasaoufac.png} \\
+    \vspace{0.5cm}
+    {\ABNTEXchapterfont\large\imprimirinstituicao}
+    
+    \vspace{3cm} 
+    
+    {\ABNTEXchapterfont\large\imprimirautor}
+    
+    \vspace*{\fill}
+    \begin{center}
+    \ABNTEXchapterfont\bfseries\Large\imprimirtitulo
+    \end{center}
+    \vspace*{\fill}
+    
+    {\large\imprimirlocal}
+    \par
+    {\large\imprimirdata}
+    
+    \vspace*{1cm}
+  \end{capa}
+}
+% ---------------------------------------------
+
+\begin{document}
+\frenchspacing
+
+% ----------------------------------------------------------
+% ELEMENTOS PRÉ-TEXTUAIS
+% ----------------------------------------------------------
+\pretextual
+
+\imprimircapa
+\imprimirfolhaderosto
+
+\pdfbookmark[0]{\listfigurename}{lof}
+\listoffigures*
+\cleardoublepage
+
+\pdfbookmark[0]{\listofquadrosname}{loq}
+\listofquadros*
+\cleardoublepage
+
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\cleardoublepage
+
+\newcounter{equationCont} 
+
+% ----------------------------------------------------------
+% ELEMENTOS TEXTUAIS
+% ----------------------------------------------------------
+\textual
+\pagestyle{simple}
+
+\chapter{APRESENTAÇÃO}\label{sec:introducao}
+
+\chapter{PROBLEMA DA PESQUISA}\label{sec:problema}
+
+\chapter{OBJETIVOS DA PESQUISA}\label{sec:objetivos}
+Nesta seção estão estabelecidos os objetivos desta pesquisa, definindo o propósito central do estudo e as etapas metodológicas necessárias para alcançá-lo.
+
+\section{OBJETIVO GERAL}
+
+O objetivo geral desta pesquisa é demonstrar a aplicação e a eficácia de técnicas de Ciência de Dados na construção de um Sistema de Suporte à Decisão (DSS) focado na detecção e triagem de anomalias em despesas públicas do Governo do Estado do Acre, utilizando como estudo de caso um recorte na base de dados do Portal da Transparência do Estado do Acre (2020 a 2025).
+
+\section{OBJETIVOS ESPECÍFICOS}
+
+Para alcançar o objetivo geral, foram traçados os seguintes objetivos específicos, fundamentados nas etapas de Descoberta de Conhecimento em Bases de Dados (KDD):
+
+\begin{enumerate}
+    \item \textbf{Extrair e pré-processar microdados:} Realizar a coleta, higienização e parametrização de 100\% da base de dados contábeis do Portal da Transparência do Acre, adequando os registros brutos para a esteira analítica.
+    \item \textbf{Aplicar modelagem estatística paramétrica:} Implementar testes de conformidade baseados na Lei de Newcomb-Benford (como o cálculo de $Z$-score) para identificar divergências matemáticas e anomalias populacionais na distribuição de valores.
+    \item \textbf{Desenvolver filtros de Processamento de Linguagem Natural (NLP):} Construir algoritmos baseados em expressões regulares (Regex) para analisar os históricos de empenho, com o intuito de mitigar falsos positivos gerados por regras de negócio e limites legais do estado.
+    \item \textbf{Estruturar arquiteturas de redes complexas:} Mapear relacionalmente os credores (CNPJs) e as Unidades Gestoras por meio da Teoria dos Grafos, a fim de expor a centralização atípica de contratos e identificar potenciais oligopólios legais no ecossistema governamental.
+    \item \textbf{Integrar sistemas externos sob demanda:} Conectar as entidades classificadas como de alto risco pelo modelo a Interfaces de Programação de Aplicações (APIs) públicas federais, enriquecendo o diagnóstico forense com dados cadastrais e de penalidades.
+\end{enumerate}
+
+\chapter{JUSTIFICATIVA DA PESQUISA}\label{sec:justificativa}
+
+\chapter{FUNDAMENTAÇÃO TEÓRICA}\label{sec:fundamentacao}
+Nesta seção serão abordados alguns conceitos fundamentais para a realização deste trabalho.
+
+\section{Assunto 1}
+\section{Assunto 2}
+\section{Assunto 3}
+
+\section{Trabalhos Relacionados}\label{sec:TrabRel}
+
+A aplicação de técnicas de Ciência de Dados no contexto da auditoria governamental vem ganhando tração na literatura científica brasileira, especialmente na transição de métodos baseados em amostragens manuais para análises populacionais automatizadas.
+
+No âmbito da estatística forense, \citeonline{cavalcanti} avaliou a aplicação da Lei de Newcomb-Benford (LNB) como ferramenta probabilística para identificar irregularidades nos gastos com Cartões de Pagamento do Governo Federal (CPGF). O autor demonstrou que a LNB atua como um poderoso sinalizador (\textit{red flag}) para guiar o poder discricionário de fiscalização, identificando anomalias estruturais e picos em dígitos iniciais específicos. Contudo, o estudo alerta para a alta sensibilidade matemática de testes como o $Z$-score em bases de dados extensas (superiores a 25.000 registros), gerando falsos positivos decorrentes de práticas comerciais ou limites legais de dispensa de licitação. 
+
+Esta limitação apontada por \citeonline{cavalcanti} justifica diretamente a arquitetura metodológica do presente trabalho. Ao processar populacionalmente os dados do Estado do Acre, a camada estatística apontou desvios extremos ($Z = +9,97$ e $Z = +25,66$). Para mitigar a sensibilidade documentada na literatura e não tratar o desvio puramente como fraude, este Sistema de Suporte à Decisão incorporou algoritmos de Processamento de Linguagem Natural (NLP) aos históricos contábeis, diagnosticando com precisão que tais anomalias representavam, de fato, valores tabelados padronizados (falsos positivos normativos).
+
+Na vertente do Aprendizado Não Supervisionado, \citeonline{nunes2021} investigaram algoritmos capazes de sinalizar transações anômalas no CPGF sem a intervenção prévia de um especialista. O estudo comparou métodos tradicionais de agrupamento (K-means) com uma abordagem baseada em Redes Complexas. Os autores concluíram que a modelagem por grafos foi superior ao atuar como um "termômetro" automatizado para isolar \textit{outliers} na série temporal de gastos.
+
+Enquanto \citeonline{nunes2021} utilizaram Redes Complexas para agrupar variações temporais utilizando janelas deslizantes (\textit{sliding windows}), o presente trabalho avança essa aplicação para a esfera relacional no escopo estadual. O modelo aqui proposto utiliza Teoria dos Grafos para mapear matrizes bipartidas de co-ocorrência, ligando diretamente credores (CNPJs) às Unidades Gestoras. Essa adaptação metodológica permitiu transcender a detecção de anomalias isoladas para expor falhas sistêmicas de concorrência, mapeando visual e matematicamente os oligopólios estruturais formados pelo uso intensivo de Atas de Registro de Preço.
+
+Dessa forma, este trabalho integra e expande as conclusões de ambos os autores, unindo a triagem probabilística da Lei de Benford \cite{cavalcanti} e o poder de mapeamento de Grafos \cite{nunes2021} a uma camada de mineração de texto, propondo uma esteira forense inédita adaptada às realidades dos dados abertos do Estado do Acre.
+
+\chapter{PROCEDIMENTOS METODOLÓGICOS}
+
+% ----------------------------------------------------------
+% NOVO CAPÍTULO DE RESULTADOS
+% ----------------------------------------------------------
+\chapter{RESULTADOS}\label{sec:resultados}
+
+\section{Pipeline KDD e Cobertura Populacional}
+\begin{itemize}
+    \item Processamento automatizado de 100\% da base de dados do Portal da Transparência do Acre.
+    \item Análise abrangendo mais de 429 mil registros de despesas públicas no período compreendido entre 2020 e 2025, executada através de scripts em Python.
+\end{itemize}
+
+\section{Filtro Estatístico de Benford e Z-Score (Diagnóstico de Falsos Positivos)}
+\begin{itemize}
+    \item Detecção de anomalias estatísticas expressivas localizadas nos Dígitos 4 ($Z = +9,97$) e 7 ($Z = +25,66$).
+    \item A análise qualitativa de texto (NLP) revelou que os picos detectados não representavam fraudes mascaradas.
+    \item Confirmação de que as anomalias numéricas eram, na verdade, "falsos positivos" causados por padronizações normativas, correspondendo a valores tabelados de diárias civis e militares originárias do Fundo Penitenciário.
+\end{itemize}
+
+\section{Redes de Grafos e Oligopólios Estruturais}
+\begin{itemize}
+    \item Mapeamento de matrizes de co-ocorrência construídas por meio das bibliotecas NetworkX e PyVis.
+    \item Evidência visual e matemática de altíssima centralização de mercado na esfera pública estadual.
+    \item Identificação de um núcleo isolado e reduzido de empresas que atuam simultaneamente em até 28 secretarias através do uso intensivo de Atas de Registro de Preço ("Caronas").
+\end{itemize}
+
+\section{Algoritmo de Smurfing e o Estudo de Caso 4Health}
+\begin{itemize}
+    \item O algoritmo de varredura desenvolvido para fracionamento identificou R\$ 12,07 milhões alocados em 9 repasses para a empresa 4Health Serviços Médicos Ltda no Fundo Estadual de Saúde (FUNDES/SESACRE).
+    \item A inspeção aprofundada dos históricos contábeis (processos SEI e Contratos 677/2023 e 862/2024) revelou a prestação continuada de serviços de anestesiologia utilizando a modalidade de dispensa de licitação ao longo de 3 anos consecutivos (2023 a 2025).
+\end{itemize}
+
+\subsection{Diagnóstico Forense}
+\begin{itemize}
+    \item O modelo demonstrou capacidade de extrapolar a detecção do fracionamento comum de pequeno valor.
+    \item Exposição analítica de um cenário de "emergência fabricada" ou inércia administrativa, respaldado pela escassez crônica de médicos anestesiologistas e pela renovação de dispensas amparada em sucessivos decretos de emergência climática no Estado do Acre.
+\end{itemize}
+
+\chapter{ESBOÇO DOS CAPÍTULOS E SEÇÕES}\label{sec:esboco}
+
+\chapter{CRONOGRAMA}\label{sec:cronograma}
+
+% ----------------------------------------------------------
+% ELEMENTOS PÓS-TEXTUAIS
+% ----------------------------------------------------------
+\postextual
+
+\begin{thebibliography}{9}
+
+\bibitem[Cavalcanti(2014)]{cavalcanti} CAVALCANTI, Gustavo Henrique de Vasconcellos. \textit{Aplicação da Lei de Newcomb-Benford na Identificação de Irregularidades: o exemplo dos gastos com cartões de pagamento do governo federal – CPGF}. Dissertação de Mestrado -- Controladoria-Geral da União (CGU), Brasília, 2014.
+
+\bibitem[Nunes \textit{et al.}(2021)]{nunes2021} NUNES, Breno Oliveira \textit{et al.} Anomaly Detection in Brazilian Federal Government Purchase Cards Through Unsupervised Learning Techniques. \textit{IEEE Access}, v. 9, p. 1--15, 2021.
+
+\end{thebibliography}
+
+\end{document}

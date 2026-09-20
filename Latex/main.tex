@@ -1,0 +1,290 @@
+%%=================================================================
+%% UFAC-modelo-TCC.tex (UTF-8 format), v1.0
+%%
+%% Adaptação do Modelo de Trabalho de Conclusão de Curso (TCC) do
+%% curso de Bacharelado em Sistemas de Informação da Universidade
+%% Federal do Acre em LaTeX utilizando o pacote abnTeX2
+%% (http://abnTeX2.googlecode.com).
+%%=================================================================
+
+\documentclass[
+    % -- opções da classe memoir --
+    12pt,               % Tamanho da fonte
+    openright,          % Capítulos começam em pág. ímpar (insere página vazia caso preciso)
+    oneside,            % Impressão apenas no anverso. Oposto a opção "twoside"
+    a4paper,            % Tamanho do papel
+    % -- opções do pacote abntex2 --
+    chapter=TITLE,      % Títulos de capítulos, de elementos pré-textuais e pós-textuais em maiúsculas
+    sumario=tradicional,% Sumário padrão memoir. Oposto a opção "abnt-6027-2012"
+    % -- opções do pacote babel --
+    english,            % Idioma adicional para hifenização
+    brazilian,          % Idioma principal do documento (Corrigido para evitar o warning)
+ ]{abntex2}
+
+
+%% CONFIGURAÇÕES DE PACOTES
+
+% Pacotes básicos
+\usepackage{lmodern}            % Usa a fonte Latin Modern
+\usepackage[T1]{fontenc}        % Seleção de códigos de fonte de saída
+\usepackage[utf8]{inputenc}     % Codificação do documento (conversão automática dos acentos)
+\usepackage{indentfirst}        % Indenta o primeiro parágrafo de cada seção
+\usepackage{graphicx}           % Inclusão de gráficos e figuras
+\usepackage{booktabs}           % \toprule, \midrule e \bottomrule para tabelas
+\usepackage{pgfgantt}           % para usar o gráfico de gant
+
+% Sistema (Autor, data) com títulos das referências em negrito e termo latino "et al." escrito em itálico
+\usepackage[alf,abnt-emphasize=bf, abnt-etal-text=it]{abntex2cite}
+\bibliographystyle{abntex2-alf.bst}
+
+% Títulos em fonte Times
+\usepackage{mathptmx}
+\renewcommand{\ABNTEXchapterfont}{\rmfamily\bfseries}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning, shapes}
+% Leitura de figuras .eps, compilação para PDF
+\usepackage[outdir=./]{epstopdf}
+\usepackage{epsfig}
+
+%\usepackage{abntex2-UFAC}       % Personalização de ESTILO para a Universidade Federal do Acre
+
+% Pacotes adicionais
+\usepackage{pgfplots, pgfplotstable}
+\pgfplotsset{compat=1.15}
+
+\usepackage{xcolor}             % Controle das cores
+\usepackage{microtype}          % Para aprimoramento do arranjo visual do texto na ferramenta OVERLEAF
+\usepackage{amsmath}            % Pacote para controle de equações matemáticas
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage{pgf-pie}
+
+\newfloat{quadro}{htbp}{loq}
+\floatname{quadro}{Quadro}
+\newcommand{\listofquadrosname}{Lista de quadros}
+\newcommand{\listofquadros}{\listof{quadro}{\listofquadrosname}}
+
+% Termos latinos para serem escritos em itálico
+\renewcommand{\apudname}{\textit{apud}}
+\renewcommand{\passimname}{\textit{passim}}
+\renewcommand{\Idemname}{\textit{Id.}}
+\renewcommand{\Ibidemname}{\textit{Ibid.}}
+\renewcommand{\opcitname}{\textit{op.\ cit.}}
+\renewcommand{\loccitname}{\textit{loc.\ cit.}}
+\renewcommand{\cfcitename}{\textit{Cf.}}
+\renewcommand{\etseqname}{\textit{et seq.}}
+% ---
+
+%% Informações de dados para CAPA e FOLHA DE ROSTO
+\titulo{Ciência de Dados Forense Aplicada à Despesa Pública: Um Sistema de Suporte à Decisão (2020-2025)}
+
+\autor{Guilherme de Jesus Carvalho}
+
+\local{Rio Branco}
+
+\data{\the\year}
+
+\orientador{Prof. Dra. Laura Costa Sarkis}
+\coorientador{Prof. Dra. Lorena Caceres Tomaya}
+
+% AQUI ESTÁ O TRUQUE PARA FORÇAR A SUA IMAGEM NA CAPA
+\instituicao{Universidade Federal do Acre}
+
+\makeatletter
+\renewcommand{\imprimircapa}{%
+  \begin{capa}%
+    \center
+    \includegraphics[width=2.5cm]{brasaoufac.png}\par
+    \vspace{0.5cm}
+    {\ABNTEXchapterfont\large\imprimirinstituicao}
+
+    \vspace{2cm}
+    {\ABNTEXchapterfont\large\imprimirautor}
+
+    \vspace*{\fill}
+    \begin{center}
+      \ABNTEXchapterfont\bfseries\Large\imprimirtitulo
+    \end{center}
+    \vspace*{\fill}
+
+    {\large\imprimirlocal}
+    \par
+    {\large\imprimirdata}
+
+    \vspace*{1cm}
+  \end{capa}%
+}
+\makeatother
+
+%% Configurações de aparência do PDF final
+\makeatletter
+\hypersetup{
+    pdftitle={\@title},
+    pdfauthor={\@author},
+    pdfsubject={\imprimirpreambulo},
+    pdfcreator={LaTeX with abnTeX2},
+    colorlinks=false,           % false: links em frame; true: links coloridos
+    linkcolor=black,            % cor dos links no documento
+    citecolor=black,            % cor dos links para a bibliografia
+    filecolor=black,            % cor dos links para arquivos
+    urlcolor=black,             % cor dos links para sites
+    bookmarksdepth=4,           % profundidade do sumário do PDF
+}
+\makeatother
+% ---
+
+\begin{document}
+\frenchspacing
+
+% ----------------------------------------------------------
+% ELEMENTOS PRÉ-TEXTUAIS
+% ----------------------------------------------------------
+\pretextual
+
+%% Capa
+\imprimircapa
+% ---
+
+%% Folha de rosto
+\imprimirfolhaderosto
+% ---
+
+%% Lista de ilustrações
+\pdfbookmark[0]{\listfigurename}{lof}
+\listoffigures*
+\cleardoublepage
+
+%% Lista de quadros
+\pdfbookmark[0]{\listofquadrosname}{loq}
+\listofquadros*
+\cleardoublepage
+
+%% Sumário
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\cleardoublepage
+% ---
+
+%% Inicializado contadores
+\newcounter{equationCont}
+% ---
+
+% ----------------------------------------------------------
+% ELEMENTOS TEXTUAIS
+% ----------------------------------------------------------
+\textual
+
+\pagestyle{simple}
+
+%% Introdução
+\chapter{APRESENTAÇÃO}\label{sec:introducao}
+
+\chapter{PROBLEMA DA PESQUISA}\label{sec:problema}
+
+\chapter{OBJETIVOS DA PESQUISA}\label{sec:objetivos}
+Nesta seção estão estabelecidos os objetivos desta pesquisa, tanto de forma geral quanto de forma específica.
+
+\section{OBJETIVO GERAL}\label{sec:ObjGeral}
+
+\section{OBJETIVOS ESPECÍFICOS}\label{sec:ObjEspec}
+\begin{enumerate}
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+\end{enumerate}
+
+\chapter{JUSTIFICATIVA DA PESQUISA}\label{sec:justificativa}
+
+\chapter{FUNDAMENTAÇÃO TEÓRICA}\label{sec:fundamentacao}
+Nesta seção serão abordados alguns conceitos fundamentais para a realização deste trabalho, tais como: 
+
+\section{Assunto 1}
+\section{Assunto 2}
+\section{Asssunto 3}
+\section{Trabalhos Relacionados}\label{sec:TrabRel}
+
+\chapter{PROCEDIMENTOS METODOLÓGICOS}
+
+% ----------------------------------------------------------
+% RESULTADOS 
+% ----------------------------------------------------------
+\chapter{RESULTADOS}\label{sec:resultados}
+
+\section{PIPELINE KDD E COBERTURA POPULACIONAL}
+\begin{itemize}
+    \item Processamento automatizado de 100\% da base de dados do Portal da Transparência do Acre via scripts em Python.
+    \item Análise abrangente contemplando mais de 429 mil registros de despesas públicas no período entre 2020 e 2025.
+\end{itemize}
+
+\section{FILTRO ESTATÍSTICO DE BENFORD E Z-SCORE}
+\subsection{Diagnóstico de Falsos Positivos}
+\begin{itemize}
+    \item Detecção de anomalias estatísticas expressivas localizadas nos Dígitos 4 ($Z = +9,97$) e 7 ($Z = +25,66$).
+    \item A análise qualitativa de texto (NLP) revelou que esses picos não representavam fraudes mascaradas.
+    \item Constatou-se a presença de "falsos positivos" causados diretamente por padronizações normativas, especificamente os valores tabelados de diárias civis e militares oriundos do Fundo Penitenciário.
+\end{itemize}
+
+\section{REDES DE GRAFOS E OLIGOPÓLIOS ESTRUTURAIS}
+\begin{itemize}
+    \item Mapeamento de matrizes de co-ocorrência utilizando as bibliotecas \textit{NetworkX} e \textit{PyVis}.
+    \item Evidenciou-se uma altíssima centralização de mercado na administração estadual.
+    \item Identificação de um núcleo reduzido de empresas atuando simultaneamente em até 28 secretarias de estado, viabilizado pelo uso intensivo de Atas de Registro de Preço (prática de "Caronas").
+\end{itemize}
+
+\section{ALGORITMO DE SMURFING E O ESTUDO DE CASO 4HEALTH}
+\begin{itemize}
+    \item O algoritmo de varredura projetado para detectar dispensa de licitação identificou um total de R\$ 12,07 milhões distribuídos em 9 repasses.
+    \item Destinatária dos recursos: 4Health Serviços Médicos Ltda, através do Fundo Estadual de Saúde (FUNDES/SESACRE).
+    \item A inspeção dos históricos contábeis, baseada nos processos SEI e nos Contratos 677/2023 e 862/2024, revelou a prestação continuada de serviços de anestesiologia via dispensa de licitação ao longo de 3 anos consecutivos (2023 a 2025).
+\end{itemize}
+
+\section{DIAGNÓSTICO FORENSE}
+\begin{itemize}
+    \item O modelo analítico demonstrou capacidade robusta de extrapolar a detecção do fracionamento comum de pequeno valor (\textit{smurfing}).
+    \item Exposição de um cenário caracterizado por "emergência fabricada" ou inércia administrativa.
+    \item O contexto anômalo detectado é respaldado pela escassez crônica de médicos anestesiologistas na região e pelos sucessivos decretos de emergência climática emitidos no Acre.
+\end{itemize}
+
+\chapter{CRONOGRAMA}\label{sec:cronograma}
+O processo de escrita desta monografia seguirá o cronograma explicitado no Quadro 1.
+
+\begin{quadro}[!ht]
+    \centering
+    \caption{Cronograma de execução da pesquisa.}
+    \label{qua:cronograma}
+    
+    \begin{tabular}{|p{2.2cm}|l|p{1.2cm}|p{7cm}|} \hline
+        % Títulos
+        \textbf{Mês} & \textbf{Data} & \textbf{Dias} & \textbf{Atividade} \\ \hline
+        % Linhas do cronograma
+        Novembro & 03-11-2025 até 17-11-2025 & 15 & Escrita do \textbf{Capítulo 1 - Introdução}. \\ \hline
+        Novembro & 18-11-2025 até 30-11-2025 & 13 & Início da escrita do \textbf{Capítulo 2 - Fundamentação Teórica}. \\ \hline
+        Dezembro & 01-12-2025 até 15-12-2025 & 15 & Conclusão da escrita do \textbf{Capítulo 2 - Fundamentação Teórica}. \\ \hline
+        Dezembro & 16-12-2025 até 23-12-2025 & 8 & \textbf{Etapa 1 e 2 (Planejamento e Identificação):} Início da busca/seleção de estudos e redação do \textbf{Capítulo 3 - Metodologia}. \\ \hline
+        Janeiro & 03-01-2026 até 12-01-2026 & 10 & Conclusão da \textbf{Etapa 1 e 2} e da redação do \textbf{Capítulo 3}. \\ \hline
+        Janeiro & 13-01-2026 até 31-01-2026 & 19 & \textbf{Etapa 3 e 4 (Extração e Visualização):} Análise dos dados e início da redação do \textbf{Capítulo 4 - Resultados}. \\ \hline
+        Fevereiro & 01-02-2026 até 06-02-2026 & 6 & Conclusão da redação do \textbf{Capítulo 4 - Resultados}. \\ \hline
+        Fevereiro & 07-02-2026 até 15-02-2026 & 9 & \textbf{Etapa 5 (Relatório):} Redação do \textbf{Capítulo 5 - Considerações Finais} e entrega da versão completa para a orientadora. \\ \hline
+        Fevereiro & 16-02-2026 até 28-02-2026 & 13 & Período de revisão e aplicação dos ajustes finais. \\ \hline
+        Março & A definir em 03/2026 & - & Preparação da apresentação e \textbf{Defesa do Trabalho de Conclusão de Curso}. \\ \hline
+    \end{tabular}
+    
+    \fonte{Elaboração própria.}
+\end{quadro}
+
+
+% ----------------------------------------------------------
+% ELEMENTOS PÓS-TEXTUAIS
+% ----------------------------------------------------------
+\postextual
+
+%% Referências bibliográficas
+\begin{thebibliography}{9}
+\bibitem[Cavalcanti(2014)]{cavalcanti} CAVALCANTI, Gustavo Henrique de Vasconcellos. \textit{Aplicação da Lei de Newcomb-Benford na Identificação de Irregularidades: o exemplo dos gastos com cartões de pagamento do governo federal – CPGF}. Dissertação de Mestrado -- Controladoria-Geral da União (CGU), Brasília, 2014.
+\bibitem[Nunes \textit{et al.}(2021)]{nunes2021} NUNES, Breno Oliveira \textit{et al.} Anomaly Detection in Brazilian Federal Government Purchase Cards Through Unsupervised Learning Techniques. \textit{IEEE Access}, v. 9, p. 1--15, 2021.
+\bibitem[Pereira(2025)]{pereira2025} PEREIRA, João Paulo Teodoro. \textit{Ciência de Dados Aplicada na Detecção de Fraude em Demonstrações Financeiras}. Trabalho de Conclusão de Curso -- PUC Goiás, Goiânia, 2025.
+\end{thebibliography}
+
+\end{document}
