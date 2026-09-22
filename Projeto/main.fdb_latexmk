@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1789916344.88022 "c:/Users/guilh/forensic-data-science-acre-transparency/Latex/main.tex" "main.pdf" "main" 1789916348.21752 0
-  "C:/Users/guilh/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1789845249 82507 a9eef8696c92627b87e9975edea03b2a ""
+["pdflatex"] 1790041397.47908 "c:/Users/guilh/forensic-data-science-acre-transparency/Latex/main.tex" "main.pdf" "main" 1790041400.94282 0
+  "C:/Users/guilh/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1789954625 82507 a9eef8696c92627b87e9975edea03b2a ""
   "C:/Users/guilh/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1789844928 13333528 9cc26080e4a3aef9a300fb8de79ed79b ""
   "C:/Users/guilh/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc" 1458473887 4993 80dc9bab7f31fb78a000ccfed0e27cab ""
   "C:/Users/guilh/AppData/Local/Programs/MiKTeX/fonts/tfm/adobe/symbol/psyr.tfm" 1136790254 1408 5937f58aa508ea2cea4901c07d10f5fe ""
@@ -268,12 +268,12 @@
   "C:/Users/guilh/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
   "C:/Users/guilh/AppData/Local/Programs/MiKTeX/tex/latex/xpatch/xpatch.sty" 1585221260 8510 7803f78066c4f9d008405191a4b43073 ""
   "brasaoufac.png" 1789773269 234135 1bba90a765826bdb71c98afb8815e3ea ""
-  "c:/Users/guilh/forensic-data-science-acre-transparency/Latex/main.tex" 1789916338 11825 2506ec3ff210eb645d5c4bf68a214097 ""
-  "main.aux" 1789916347 11704 c3fe19e7c7a4326d82b0d880d79df528 "pdflatex"
-  "main.lof" 1789916347 29 9a4c7bc9daf7936d0a55d1536c7c4aff "pdflatex"
-  "main.loq" 1789916347 108 1c7a7686d5f56cf55ddf0a7078276328 "pdflatex"
-  "main.tex" 1789916338 11825 2506ec3ff210eb645d5c4bf68a214097 ""
-  "main.toc" 1789916347 1835 e764a2fac3e0edd9a908a4f031e5bbf6 "pdflatex"
+  "c:/Users/guilh/forensic-data-science-acre-transparency/Latex/main.tex" 1790041396 12279 8a46c4ea5fe09b7fd467209f21bf2769 ""
+  "main.aux" 1790041400 11704 28c6ba8a79455224aabf7dc3a5c86622 "pdflatex"
+  "main.lof" 1790041400 29 9a4c7bc9daf7936d0a55d1536c7c4aff "pdflatex"
+  "main.loq" 1790041400 108 1c7a7686d5f56cf55ddf0a7078276328 "pdflatex"
+  "main.tex" 1790041396 12279 8a46c4ea5fe09b7fd467209f21bf2769 ""
+  "main.toc" 1790041400 1835 e764a2fac3e0edd9a908a4f031e5bbf6 "pdflatex"
   (generated)
   "main.aux"
   "main.lof"
