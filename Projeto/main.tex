@@ -194,19 +194,32 @@ A crescente digitalização da administração pública e a consolidação dos p
 Dessa forma, esta pesquisa contribui para a literatura de Ciência de Dados Aplicada ao demonstrar como técnicas computacionais não supervisionadas podem servir como instrumentos de inteligência institucional, revelando dinâmicas organizacionais, gargalos normativos e padrões de alocação de recursos no Estado do Acre.
 
 \chapter{PROBLEMA DA PESQUISA}\label{sec:problema}
+A garantia da transparência pública e o fortalecimento do controle social no Brasil foram impulsionados pela promulgação da Lei de Acesso à Informação (Lei nº 12.527/2011) e pela Lei de Responsabilidade Fiscal (Lei Complementar nº 101/2000). Esses marcos normativos obrigaram os entes federativos a disponibilizarem, em meios eletrônicos, informações detalhadas sobre a execução orçamentária em tempo real. No entanto, os portais de transparência governamentais abrigam bases dinâmicas com milhões de lançamentos contínuos acumulados ao longo dos anos. Essa escala massiva frequentemente resulta no fenômeno da "opacidade por excesso" (\textit{information overload}), no qual a simples publicação bruta de dados não estruturados cria barreiras para a interpretação pública \cite{cavalcanti2014, pereira2025}. No âmbito do controle institucional, órgãos formais como a Controladoria-Geral da União (CGU) e os Tribunais de Contas Estaduais (TCE) dispõem de auditores especializados e sistemas proprietários de inteligência para fiscalização interna. Contudo, essas ferramentas restritas não estão acessíveis à sociedade civil, a jornalistas de dados e à comunidade acadêmica, que dependem exclusivamente dos microdados abertos publicados nos portais. Para este público, a análise manual de bases massivas mostra-se inviável, demandando metodologias abertas de Ciência de Dados para a automação da triagem e extração de conhecimento \cite{nunes2021}. No contexto da pesquisa \textbf{"Ciência de Dados Aplicada na Detecção de Anomalias em Portais de Transparência: Um Estudo de Caso do Governo do Estado do Acre"}, a análise foca no recorte populacional de mais de 429 mil registros financeiros referentes ao período de 2020 a 2025. A partir desse ecossistema de dados abertos, emergem desafios centrais de Ciência de Dados e Aprendizado de Máquina (\textit{Machine Learning}):\begin{enumerate}
+    \item \textbf{Ausência de Rotulagem (\textit{Unlabelled Data}):} Os dados abertos dos portais de transparência não possuem rotulação prévia (\textit{ground truth}) que identifique empenhos normais ou anômalos. A inexistência de um gabarito inviabiliza o uso direto de modelos supervisionados (como SVM e Árvores de Decisão), exigindo o emprego de algoritmos de \textbf{Aprendizado Não Supervisionado} (\textit{Isolation Forest} -- ISO, \textit{Local Outlier Factor} -- LOF e \textit{DBSCAN}) aliados a testes de distribuição estatística (Lei de Benford e $Z$-Score) \cite{nunes2021, goldschmidt2005};
+    \item \textbf{Complexidade Normativa e Falsos Positivos:} O uso isolado de testes estatísticos pode gerar falsos positivos ao identificar concentrações de pagamentos perfeitamente legítimos, mas tabelados por decretos (como diárias e auxílios operacionais). A superação desse gargalo exige a integração de técnicas de Processamento de Linguagem Natural (NLP) sobre os históricos contábeis para contextualizar o texto livre das despesas \cite{cavalcanti2014};
+    \item \textbf{Ineditismo e Lacuna de Pesquisa na Região Acreana:} A literatura nacional sobre Ciência de Dados e transparência pública concentra suas aplicações predominantemente na esfera federal ou em estados do Sul e Sudeste \cite{cavalcanti2014, nunes2021}. O levantamento exploratório confirma a escassez de estudos computacionais dedicados à infraestrutura e aos microdados do Portal da Transparência do Estado do Acre, evidenciando uma lacuna científica regional que justifica a realização deste estudo de caso.
+\end{enumerate}
+Diante dessa problemática, formula-se a seguinte \textbf{Pergunta de Pesquisa} que orienta este trabalho:\begin{quote}
+\textit{Em que medida a aplicação de um pipeline de Ciência de Dados baseado em Aprendizado Não Supervisionado (\textit{Isolation Forest}, \textit{Local Outlier Factor} e \textit{DBSCAN}), testes estatísticos descritivos (Lei de Benford e $Z$-Score) e Processamento de Linguagem Natural permite identificar, filtrar e interpretar anomalias e padrões socioadministrativos nos microdados abertos do Portal da Transparência do Estado do Acre (2020--2025), sem a necessidade de dados previamente rotulados?}
+\end{quote}
 
 \chapter{OBJETIVOS DA PESQUISA}\label{sec:objetivos}
-Nesta seção estão estabelecidos os objetivos desta pesquisa, tanto de forma geral quanto de forma específica.
+Com o intuito de responder à pergunta de pesquisa formulada e viabilizar a análise computacional dos microdados abertos do setor público, este capítulo delimita o objetivo geral e os objetivos específicos que norteiam o desenvolvimento deste trabalho.
 
-\section{OBJETIVO GERAL}\label{sec:ObjGeral}
+\section{Objetivo Geral}\label{sec:objetivo_geral}
+Desenvolver e avaliar uma metodologia baseada em técnicas de Ciência de Dados e Aprendizado de Máquina para detectar padrões anômalos nas despesas públicas registradas no Portal da Transparência e relacionadas ao Estado do Acre, identificando transações ou grupos de transações que apresentem comportamento atípico em relação aos padrões históricos de execução da despesa.
 
-\section{OBJETIVOS ESPECÍFICOS}\label{sec:ObjEspec}
+\section{Objetivos Específicos}\label{sec:objetivos_especificos}
+Para o alcance do objetivo geral, estabelecem-se os seguintes objetivos específicos:
 \begin{enumerate}
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
+    \item \textbf{Obtenção e Pré-processamento de Dados:} Obter, organizar e realizar o pré-processamento dos dados de despesas públicas relacionadas ao Estado do Acre disponíveis no Portal da Transparência, considerando as variáveis financeiras, temporais, institucionais e cadastrais disponíveis;
+    \item \textbf{Caracterização Estatística Exploratória:} Caracterizar estatisticamente o comportamento das despesas, avaliando sua distribuição, concentração, variabilidade e evolução temporal segundo órgão, unidade gestora, favorecido, natureza da despesa e demais categorias disponíveis;
+    \item \textbf{Engenharia de Atributos (\textit{Feature Engineering}):} Construir atributos capazes de representar comportamentos potencialmente atípicos das despesas, considerando, além do valor da transação, características como frequência, recorrência, concentração por favorecido e variação temporal;
+    \item \textbf{Modelagem Não Supervisionada:} Aplicar técnicas de Aprendizado de Máquina Não Supervisionado para identificar observações ou padrões anômalos nas despesas analisadas;
+    \item \textbf{Comparação e Concordância Algorítmica:} Comparar o desempenho e a concordância entre diferentes métodos de detecção de anomalias, identificando despesas classificadas como atípicas por uma ou mais técnicas;
+    \item \textbf{Investigação Socioadministrativa dos Padrões:} Investigar a distribuição das anomalias identificadas segundo órgãos, favorecidos, categorias de despesa e períodos de execução, buscando reconhecer padrões recorrentes;
+    \item \textbf{Construção de Escore de Priorização:} Desenvolver um escore ou classificação de prioridade das observações detectadas, de forma a auxiliar na seleção das despesas que mereçam análise mais detalhada;
+    \item \textbf{Avaliação de Impacto e Aplicabilidade:} Avaliar a aplicabilidade das técnicas de Ciência de Dados como instrumento complementar de transparência e controle dos gastos públicos.
 \end{enumerate}
 
 \chapter{JUSTIFICATIVA DA PESQUISA}\label{sec:justificativa}

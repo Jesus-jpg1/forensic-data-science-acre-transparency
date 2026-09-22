@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex main"] 1790102108.44053 "main.aux" "main.bbl" "main" 1790102113.41102 0
+["bibtex main"] 1790113627.15729 "main.aux" "main.bbl" "main" 1790113632.47643 0
   "./abntex2-alf.bst" 1789853822 60150 114f283331031e72b33b71f76c514223 ""
-  "./referencias.bib" 1790102076 1945 146f01639bc8ce9e2d81c1dfdad20319 ""
+  "./referencias.bib" 1790103932 1945 146f01639bc8ce9e2d81c1dfdad20319 ""
   "C:/Users/guilh/AppData/Local/Programs/MiKTeX/bibtex/bib/abntex2/abntex2-options.bib" 1543103229 5396 4eb260dac60f150ae608d45252853090 ""
-  "main.aux" 1790102111 13031 3a98c9f2a9240b51d5e83c40c282b30d "pdflatex"
+  "main.aux" 1790113630 13243 3a7174172000c2a5d19dc02ff90e2ad3 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1790102108.98352 "c:/Users/guilh/forensic-data-science-acre-transparency/Projeto/main.tex" "main.pdf" "main" 1790102113.41177 0
+["pdflatex"] 1790113627.71297 "c:/Users/guilh/forensic-data-science-acre-transparency/Projeto/main.tex" "main.pdf" "main" 1790113632.47827 0
   "C:/Users/guilh/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1789954625 82507 a9eef8696c92627b87e9975edea03b2a ""
   "C:/Users/guilh/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1789844928 13333528 9cc26080e4a3aef9a300fb8de79ed79b ""
   "C:/Users/guilh/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc" 1458473887 4993 80dc9bab7f31fb78a000ccfed0e27cab ""
@@ -17,6 +17,8 @@
   "C:/Users/guilh/AppData/Local/Programs/MiKTeX/fonts/tfm/adobe/times/ptmb7t.tfm" 1136790254 2172 fd0c924230362ff848a33632ed45dc23 ""
   "C:/Users/guilh/AppData/Local/Programs/MiKTeX/fonts/tfm/adobe/times/ptmb8r.tfm" 1136790254 4524 6bce29db5bc272ba5f332261583fee9c ""
   "C:/Users/guilh/AppData/Local/Programs/MiKTeX/fonts/tfm/adobe/times/ptmb8t.tfm" 1136790254 6880 f19b8995b61c334d78fc734065f6b4d4 ""
+  "C:/Users/guilh/AppData/Local/Programs/MiKTeX/fonts/tfm/adobe/times/ptmbi8r.tfm" 1136790254 4480 10409ed8bab5aea9ec9a78028b763919 ""
+  "C:/Users/guilh/AppData/Local/Programs/MiKTeX/fonts/tfm/adobe/times/ptmbi8t.tfm" 1136790254 6784 37b32cc10800b5afa030d935c393695a ""
   "C:/Users/guilh/AppData/Local/Programs/MiKTeX/fonts/tfm/adobe/times/ptmr8c.tfm" 1136790254 1352 fa28a7e6d323c65ce7d13d5342ff6be2 ""
   "C:/Users/guilh/AppData/Local/Programs/MiKTeX/fonts/tfm/adobe/times/ptmr8r.tfm" 1136790254 4408 25b74d011a4c66b7f212c0cc3c90061b ""
   "C:/Users/guilh/AppData/Local/Programs/MiKTeX/fonts/tfm/adobe/times/ptmr8t.tfm" 1136790254 6672 e3ab9e37e925f3045c9005e6d1473d56 ""
@@ -34,9 +36,11 @@
   "C:/Users/guilh/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1247596667 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
   "C:/Users/guilh/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1247596667 35752 024fb6c41858982481f6968b5fc26508 ""
   "C:/Users/guilh/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb" 1136871348 44729 fea0975e20ec51c992338362f05f1146 ""
+  "C:/Users/guilh/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb" 1136871348 44656 0cbca70e0534538582128f6b54593cca ""
   "C:/Users/guilh/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb" 1136871348 46026 687528a208fbfc1f00832bb96cccebbb ""
   "C:/Users/guilh/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb" 1136871348 45458 504e2b06fa82109d168c7a0afb09e145 ""
   "C:/Users/guilh/AppData/Local/Programs/MiKTeX/fonts/vf/adobe/times/ptmb8t.vf" 1136790254 2340 df9c920cc5688ebbf16a93f45ce7bdd3 ""
+  "C:/Users/guilh/AppData/Local/Programs/MiKTeX/fonts/vf/adobe/times/ptmbi8t.vf" 1136790254 2324 51908dae6e03953a90119973962f0e4d ""
   "C:/Users/guilh/AppData/Local/Programs/MiKTeX/fonts/vf/adobe/times/ptmr8c.vf" 1136790254 3556 8a9a6dcbcd146ef985683f677f4758a6 ""
   "C:/Users/guilh/AppData/Local/Programs/MiKTeX/fonts/vf/adobe/times/ptmr8t.vf" 1136790254 2348 91706c542228501c410c266421fbe30c ""
   "C:/Users/guilh/AppData/Local/Programs/MiKTeX/fonts/vf/adobe/times/ptmri8t.vf" 1136790254 2328 6cd7df782b09b29cfc4d93e55b6b9a59 ""
@@ -277,13 +281,13 @@
   "C:/Users/guilh/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
   "C:/Users/guilh/AppData/Local/Programs/MiKTeX/tex/latex/xpatch/xpatch.sty" 1585221260 8510 7803f78066c4f9d008405191a4b43073 ""
   "brasaoufac.png" 1789773269 234135 1bba90a765826bdb71c98afb8815e3ea ""
-  "c:/Users/guilh/forensic-data-science-acre-transparency/Projeto/main.tex" 1790102097 15884 172b3bfb12c52a16fc7f6d981ff657d9 ""
-  "main.aux" 1790102111 13031 3a98c9f2a9240b51d5e83c40c282b30d "pdflatex"
-  "main.bbl" 1790102108 2113 6e54999a05dc687c87d60e52d32f38c0 "bibtex main"
-  "main.lof" 1790102111 29 9a4c7bc9daf7936d0a55d1536c7c4aff "pdflatex"
-  "main.loq" 1790102111 108 e19c2629dcf240333eb7ef3580f9f397 "pdflatex"
-  "main.tex" 1790102097 15884 172b3bfb12c52a16fc7f6d981ff657d9 ""
-  "main.toc" 1790102111 1840 19fb62bd50ecb6624a4aa3c73813a6e2 "pdflatex"
+  "c:/Users/guilh/forensic-data-science-acre-transparency/Projeto/main.tex" 1790113620 22744 a32892b0324b552f65b2e1378dea1e65 ""
+  "main.aux" 1790113630 13243 3a7174172000c2a5d19dc02ff90e2ad3 "pdflatex"
+  "main.bbl" 1790113627 2113 6e54999a05dc687c87d60e52d32f38c0 "bibtex main"
+  "main.lof" 1790113630 29 9a4c7bc9daf7936d0a55d1536c7c4aff "pdflatex"
+  "main.loq" 1790113630 108 c919f440afa2e1bff87623bd100b8d3a "pdflatex"
+  "main.tex" 1790113620 22744 a32892b0324b552f65b2e1378dea1e65 ""
+  "main.toc" 1790113630 1841 491d0e9d720d036a997628365c47d09c "pdflatex"
   (generated)
   "main.aux"
   "main.lof"
