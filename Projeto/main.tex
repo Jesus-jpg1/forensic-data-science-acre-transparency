@@ -40,6 +40,13 @@
 % Títulos em fonte Times
 \usepackage{mathptmx}
 \renewcommand{\ABNTEXchapterfont}{\rmfamily\bfseries}
+\renewcommand{\ABNTEXchapterfontsize}{\LARGE}
+\renewcommand{\ABNTEXsectionfont}{\rmfamily\bfseries}
+\renewcommand{\ABNTEXsectionfontsize}{\Large}
+\renewcommand{\ABNTEXsubsectionfont}{\rmfamily\bfseries}
+\renewcommand{\ABNTEXsubsectionfontsize}{\small}
+\renewcommand{\ABNTEXsubsubsectionfont}{\rmfamily\bfseries}
+\renewcommand{\ABNTEXsubsubsectionfontsize}{\small}
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta, positioning, shapes}
 % Leitura de figuras .eps, compilação para PDF
@@ -178,6 +185,13 @@
 
 %% Introdução
 \chapter{APRESENTAÇÃO}\label{sec:introducao}
+A crescente digitalização da administração pública e a consolidação dos portais de transparência governamentais têm disponibilizado volumes massivos de microdados sobre a execução orçamentária e financeira do setor público no Brasil. Contudo, a simples publicação bruta desses dados em tabelas e relatórios nem sempre se traduz em conhecimento acessível para a sociedade ou em insights estratégicos para a Gestão Pública, dada a elevada complexidade e assimetria das transações financeiras \cite{cavalcanti2014, pereira2025}. Neste cenário, a Ciência de Dados e o processo de Descoberta de Conhecimento em Bases de Dados (\textit{Knowledge Discovery in Databases} -- KDD) emergem como campos interdisciplinares fundamentais para transformar grandes volumes de dados não estruturados em conhecimento útil e interpretável \cite{goldschmidt2005}. Em vez de recorrer a técnicas tradicionais de amostragem restrita, a aplicação de algoritmos computacionais permite o processamento populacional integral (100\% dos registros), garantindo uma análise holística da dinâmica dos gastos públicos \cite{pereira2025}. Como a base de dados do Portal da Transparência é composta por dados abertos não rotulados (\textit{unlabelled data}) --- isto é, sem a indicação prévia do que constitui um lançamento regular ou uma anomalia ---, a aplicação de modelos de aprendizado de máquina supervisionado (como SVM e algoritmos de classificação) torna-se inviável na prática. Por essa razão, este projeto de pesquisa adota rigorosamente a abordagem de \textbf{Aprendizado de Máquina Não Supervisionado} (\textit{Unsupervised Machine Learning}) e estatística descritiva, permitindo a descoberta de padrões ocultos e agrupamentos sem a necessidade de um gabarito prévio \cite{nunes2021}. O presente projeto de Trabalho de Conclusão de Curso (TCC) propõe o desenvolvimento de um pipeline computacional aplicado sobre a base populacional de despesas do Portal da Transparência do Estado do Acre, englobando mais de 429 mil registros financeiros referentes ao período de 2020 a 2025. O objetivo central deste estudo não reside na acusação criminal ou auditoria investigativa de ilícitos, mas sim no uso da Ciência de Dados para mapear, visualizar e compreender os fenômenos socioadministrativos reais que moldam a gestão pública acreana. Para a fase de execução e implementação da proposta, a metodologia do trabalho integrará os seguintes pilares analíticos:\begin{enumerate}
+    \item \textbf{Filtro Estatístico Paramétrico (Lei de Benford e $Z$-Score):} Utilizado como linha de base estatística para analisar a distribuição natural dos dígitos financeiros e identificar padronizações normativas, tais como a concentração de valores tabelados em diárias operacionais e auxílios institucionais \cite{cavalcanti2014, nigrini2012};
+    \item \textbf{Algoritmos Não Supervisionados de Detecção de Anomalias:} Aplicação planejada dos algoritmos \textit{Isolation Forest} (ISO) \cite{liu2008isolation} e \textit{Local Outlier Factor} (LOF) \cite{breunig2000lof} para o isolamento computacional de desvios e pontos discrepantes na distribuição dos gastos;
+    \item \textbf{Mineração de Texto e Agrupamento (NLP e DBSCAN):} Emprego de técnicas de Processamento de Linguagem Natural combinadas com algoritmos de agrupamento baseados em densidade para analisar os históricos contábeis e identificar contratos continuados em serviços essenciais;
+    \item \textbf{Representação Relacional Complementar:} Uso secundário de estruturas de redes para a representação visual da topologia de fornecedores e secretarias estaduais \cite{nunes2021}.
+\end{enumerate}
+Dessa forma, esta pesquisa contribui para a literatura de Ciência de Dados Aplicada ao demonstrar como técnicas computacionais não supervisionadas podem servir como instrumentos de inteligência institucional, revelando dinâmicas organizacionais, gargalos normativos e padrões de alocação de recursos no Estado do Acre.
 
 \chapter{PROBLEMA DA PESQUISA}\label{sec:problema}
 
@@ -281,10 +295,6 @@ O processo de escrita desta monografia seguirá o cronograma explicitado no Quad
 \postextual
 
 %% Referências bibliográficas
-\begin{thebibliography}{9}
-\bibitem[Cavalcanti(2014)]{cavalcanti} CAVALCANTI, Gustavo Henrique de Vasconcellos. \textit{Aplicação da Lei de Newcomb-Benford na Identificação de Irregularidades: o exemplo dos gastos com cartões de pagamento do governo federal – CPGF}. Dissertação de Mestrado -- Controladoria-Geral da União (CGU), Brasília, 2014.
-\bibitem[Nunes \textit{et al.}(2021)]{nunes2021} NUNES, Breno Oliveira \textit{et al.} Anomaly Detection in Brazilian Federal Government Purchase Cards Through Unsupervised Learning Techniques. \textit{IEEE Access}, v. 9, p. 1--15, 2021.
-\bibitem[Pereira(2025)]{pereira2025} PEREIRA, João Paulo Teodoro. \textit{Ciência de Dados Aplicada na Detecção de Fraude em Demonstrações Financeiras}. Trabalho de Conclusão de Curso -- PUC Goiás, Goiânia, 2025.
-\end{thebibliography}
+\bibliography{referencias}
 
 \end{document}

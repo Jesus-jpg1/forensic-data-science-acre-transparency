@@ -1,0 +1,49 @@
+\providecommand{\abntreprintinfo}[1]{%
+ \citeonline{#1}}
+\setlength{\labelsep}{0pt}\begin{thebibliography}{}
+\providecommand{\abntrefinfo}[3]{}
+\providecommand{\abntbstabout}[1]{}
+\abntbstabout{v<VERSION> }
+
+\bibitem[Breunig \textit{et al.} 2000]{breunig2000lof}
+\abntrefinfo{Breunig \textit{et al.}}{Breunig \textit{et al.}}{2000}
+{BREUNIG, M.~M. \textit{et al.} Lof: Identifying density-based local outliers.
+\textbf{ACM SIGMOD Record}, v.~29, n.~2, p. 93--104, 2000.}
+
+\bibitem[Cavalcanti 2014]{cavalcanti2014}
+\abntrefinfo{Cavalcanti}{Cavalcanti}{2014}
+{CAVALCANTI, G. H. d.~V.
+\textbf{Aplicação da Lei de Newcomb-Benford na Identificação de
+  Irregularidades: o exemplo dos gastos com cartões de pagamento do governo
+  federal -- CPGF}.
+Tese (Doutorado) --- Controladoria-Geral da União (CGU), Brasília, 2014.}
+
+\bibitem[Goldschmidt 2005]{goldschmidt2005}
+\abntrefinfo{Goldschmidt}{Goldschmidt}{2005}
+{GOLDSCHMIDT, R. \textbf{Data Mining e Gestão Pública}. São Paulo: Editora
+  XYZ, 2005.}
+
+\bibitem[Liu, Ting e Zhou 2008]{liu2008isolation}
+\abntrefinfo{Liu, Ting e Zhou}{Liu; Ting; Zhou}{2008}
+{LIU, F.~T.; TING, K.~M.; ZHOU, Z.-H. Isolation forest. In:
+  \textbf{Proceedings of the 8th IEEE International Conference on Data Mining}.
+  Pisa: IEEE, 2008.}
+
+\bibitem[Nigrini 2012]{nigrini2012}
+\abntrefinfo{Nigrini}{Nigrini}{2012}
+{NIGRINI, M.~J. \textbf{Benford's Law: Applications for Forensic Accounting,
+  Auditing, and Fraud Detection}. New Jersey: Wiley, 2012.}
+
+\bibitem[Nunes \textit{et al.} 2021]{nunes2021}
+\abntrefinfo{Nunes \textit{et al.}}{Nunes \textit{et al.}}{2021}
+{NUNES, B.~O. \textit{et al.} Anomaly detection in brazilian federal government
+  purchase cards through unsupervised learning techniques.
+\textbf{IEEE Access}, v.~9, p. 1--15, 2021.}
+
+\bibitem[Pereira 2025]{pereira2025}
+\abntrefinfo{Pereira}{Pereira}{2025}
+{PEREIRA, J. P.~T. \textbf{Ciência de Dados Aplicada na Detecção de Fraude
+  em Demonstrações Financeiras}. Goiânia: [s.n.], 2025. Trabalho de
+  Conclusão de Curso -- PUC Goiás.}
+
+\end{thebibliography}
