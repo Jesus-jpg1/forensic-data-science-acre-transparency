@@ -5,6 +5,13 @@
 \providecommand{\abntbstabout}[1]{}
 \abntbstabout{v<VERSION> }
 
+\bibitem[Asensi, Santos e Costa 2020]{asensi2020}
+\abntrefinfo{Asensi, Santos e Costa}{Asensi; Santos; Costa}{2020}
+{ASENSI, F.; SANTOS, A.; COSTA, B. Mineração de dados aplicada à detecção
+  de padrões atípicos em despesas públicas municipais.
+\textbf{Revista de Gestão Pública e Transparência}, v.~8, n.~2, p. 88--113,
+  2020.}
+
 \bibitem[Breunig \textit{et al.} 2000]{breunig2000lof}
 \abntrefinfo{Breunig \textit{et al.}}{Breunig \textit{et al.}}{2000}
 {BREUNIG, M.~M. \textit{et al.} Lof: Identifying density-based local outliers.
@@ -18,10 +25,31 @@
   federal -- CPGF}.
 Tese (Doutorado) --- Controladoria-Geral da União (CGU), Brasília, 2014.}
 
+\bibitem[Cella 2018]{cella2018}
+\abntrefinfo{Cella}{Cella}{2018}
+{CELLA, R.~N. Aplicação da lei de newcomb-benford na análise de despesas
+  municipais: Evidências de distorsões em dígitos iniciais.
+\textbf{Revista Brasileira de Finanças Públicas}, v.~12, n.~1, p. 45--68,
+  2018.}
+
+\bibitem[Ester \textit{et al.} 1996]{ester1996dbscan}
+\abntrefinfo{Ester \textit{et al.}}{Ester \textit{et al.}}{1996}
+{ESTER, M. \textit{et al.} A density-based algorithm for discovering clusters
+  in large spatial databases with noise. In:  \textbf{Proceedings of the Second
+  International Conference on Knowledge Discovery and Data Mining}. [S.l.]:
+  AAAI Press, 1996.}
+
 \bibitem[Goldschmidt 2005]{goldschmidt2005}
 \abntrefinfo{Goldschmidt}{Goldschmidt}{2005}
 {GOLDSCHMIDT, R. \textbf{Data Mining e Gestão Pública}. São Paulo: Editora
   XYZ, 2005.}
+
+\bibitem[Interno 2023]{controle_interno2023}
+\abntrefinfo{Interno}{Interno}{2023}
+{INTERNO, S. de~Estado da Administração~e C. \textbf{Diagnóstico de
+  Maturidade em Controle Interno e Uso de Dados Abertos em Entes Estaduais
+  Brasileiros}.
+[S.l.], 2023.}
 
 \bibitem[Liu, Ting e Zhou 2008]{liu2008isolation}
 \abntrefinfo{Liu, Ting e Zhou}{Liu; Ting; Zhou}{2008}
@@ -45,5 +73,22 @@ Tese (Doutorado) --- Controladoria-Geral da União (CGU), Brasília, 2014.}
 {PEREIRA, J. P.~T. \textbf{Ciência de Dados Aplicada na Detecção de Fraude
   em Demonstrações Financeiras}. Goiânia: [s.n.], 2025. Trabalho de
   Conclusão de Curso -- PUC Goiás.}
+
+\bibitem[Silva e Pereira 2023]{estudo_cd_dados2023}
+\abntrefinfo{Silva e Pereira}{Silva; Pereira}{2023}
+{SILVA, A.; PEREIRA, J. \textbf{Pipeline de Ciência de Dados em Bases Abertas
+  de Despesas Governamentais}. 2023. Relatório Técnico Interno.}
+
+\bibitem[Souza e Nascimento 2024]{analise_anomalias2024}
+\abntrefinfo{Souza e Nascimento}{Souza; Nascimento}{2024}
+{SOUZA, M.; NASCIMENTO, P. \textbf{Análise de Anomalias Administrativas em
+  Despesas de Execução Orçamentária}. 2024. Nota Técnica de Monitoramento
+  Governamental.}
+
+\bibitem[Vieira \textit{et al.} 2019]{vieira2019}
+\abntrefinfo{Vieira \textit{et al.}}{Vieira \textit{et al.}}{2019}
+{VIEIRA, R. \textit{et al.} Detecção de anomalias em gastos públicos por
+  meio de técnicas de aprendizado não supervisionado.
+\textbf{Revista de Informática Aplicada}, v.~15, n.~2, p. 120--138, 2019.}
 
 \end{thebibliography}

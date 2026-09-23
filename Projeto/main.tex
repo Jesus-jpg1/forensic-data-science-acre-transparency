@@ -255,12 +255,146 @@ Em segundo lugar, a exequibilidade computacional do trabalho apoia-se no uso da 
 Por fim, a viabilidade cronológica é corroborada pela fase adiantada de preparação da base de dados. O processo de extração, limpeza e padronização do recorte populacional do Estado do Acre (2020--2025) — englobando mais de 429 mil registros financeiros — já se encontra concluído e validado em ambiente computacional. Esse amadurecimento técnico prévio mitiga riscos operacionais e assegura o cumprimento rigoroso do cronograma acadêmico estipulado para a execução do TCC.
 
 \chapter{FUNDAMENTAÇÃO TEÓRICA}\label{sec:fundamentacao}
-Nesta seção serão abordados alguns conceitos fundamentais para a realização deste trabalho, tais como: 
 
-\section{Assunto 1}
-\section{Assunto 2}
-\section{Asssunto 3}
-\section{Trabalhos Relacionados}\label{sec:TrabRel}
+Neste capítulo, apresentam-se os conceitos teóricos, modelos estatísticos, algoritmos computacionais e estudos correlatos que sustentam o desenvolvimento desta pesquisa.
+
+\section{Transparência Pública, Dados Abertos e Controle Social}\label{sec:transparencia_dados_abertos}
+
+A consolidação da transparência na administração pública brasileira é resultado de um processo histórico de aperfeiçoamento institucional e normativo, impulsionado pela promulgação da Lei de Responsabilidade Fiscal (Lei Complementar nº 101/2000) e pela Lei de Acesso à Informação (Lei nº 12.527/2011 -- LAI). Esses marcos legalmente formalizaram a transição do modelo tradicional de sigilo administrativo para o paradigma da transparência ativa, no qual a publicidade passa a ser a regra geral e o sigilo, a exceção. Como decorrência, os entes federativos passaram a ser obrigados a disponibilizar, em portais de acesso público na internet, dados em tempo real sobre a execução orçamentária, financeira e operacional do setor público \cite{cavalcanti2014, pereira2025}.
+
+Entretanto, a disponibilização bruta de dados nos portais de transparência governamentais expõe uma limitação crítica da transparência passiva e ativa não mediadas por ferramentas analíticas. Na literatura de Ciência da Informação e Gestão Pública, esse fenômeno é denominado "opacidade por excesso" (\textit{information overload}). A publicação de tabelas com centenas de milhares de linhas, caracterizadas por descrições contábeis genéricas, ausência de metadados consolidados e falta de filtros inteligentes, cria uma barreira cognitiva para o cidadão comum, para jornalistas de dados e para a comunidade acadêmica \cite{cavalcanti2014, nunes2021}. Embora o dado esteja formalmente acessível do ponto de vista jurídico, ele permanece ininteligível do ponto de vista prático e social.
+
+A superação desse obstáculo é condição fundamental para o pleno exercício do controle social — mecanismo pelo qual a sociedade civil organizada participa da fiscalização e do acompanhamento da aplicação dos recursos públicos. Conforme destacado por Nunes \textit{et al.} (2021), a efetividade da transparência governamental não reside na mera exibição técnica de dados de despesas, mas na transformação desses microdados em conhecimento estruturado, capaz de apontar autonomamente comportamentos atípicos e sinalizar padrões de alocação de recursos que exijam análise aprofundada \cite{nunes2021}.
+
+Assim, o uso da Ciência de Dados e de sistemas computacionais abertos posiciona-se como uma ponte entre a disponibilidade legal do dado público e o seu aproveitamento prático pelo controle social, viabilizando a automação do processo de triagem sobre bases populacionais volumosas sem depender exclusivamente de auditorias analógicas ou de conhecimento especializado contábil \cite{nunes2021, pereira2025}.
+
+\section{O Processo KDD (\textit{Knowledge Discovery in Databases}) e a Análise Populacional}\label{sec:kdd_analise_populacional}
+
+A extração de conhecimento a partir de grandes volumes de dados brutos exige a aplicação de metodologias estruturadas que orientem o tratamento da informação desde a sua coleta até a interpretação dos resultados. Na Ciência de Dados e na Mineração de Dados (\textit{Data Mining}), o modelo conceitual amplamente aceito para essa finalidade é o processo de Descoberta de Conhecimento em Bases de Dados (\textit{Knowledge Discovery in Databases} -- KDD) \cite{goldschmidt2005, pereira2025}.
+
+O ciclo KDD caracteriza-se por ser uma abordagem iterativa e sequencial, composta por cinco etapas fundamentais \cite{goldschmidt2005}:
+\begin{enumerate}
+    \item \textbf{Seleção:} Identificação e extração do conjunto de dados relevante (\textit{dataset}) a partir das fontes operacionais brutas;
+    \item \textbf{Pré-processamento e Limpeza:} Higienização da base mediante o tratamento de valores ausentes, remoção de inconsistências, eliminação de duplicatas e correção de ruídos de formatação;
+    \item \textbf{Transformação:} Padronização dos tipos de dados, engenharia de atributos (\textit{feature engineering}) e adequação das variáveis para os formatos exigidos pelos algoritmos analíticos;
+    \item \textbf{Mineração de Dados (\textit{Data Mining}):} Aplicação de modelos estatísticos e algoritmos computacionais para o mapeamento e extração de padrões, agrupamentos e anomalias;
+    \item \textbf{Pós-processamento e Interpretação:} Validação, visualização e consolidação dos padrões descobertos em conhecimento útil e compreensível para o domínio de aplicação.
+\end{enumerate}
+
+No contexto da gestão pública e do controle de gastos, a adoção do arcabouço KDD viabiliza uma mudança paradigmática fundamental: a transição das revisões analógicas baseadas em amostragem estatística restrita para a \textbf{Análise Populacional Integral (100\% da base de dados)} \cite{pereira2025}. As abordagens tradicionais de auditoria contábil frequentemente dependem de cortes amostrais arbitrários, o que cria pontos cegos e aumenta o risco de omissão de eventos atípicos pulverizados ou fracionados.
+
+Por outro lado, o processamento da totalidade dos registros financeiros disponibilizados no Portal da Transparência elimina o viés de seleção amostral, assegurando que todas as transações passem pelo mesmo crivo analítico. Conforme demonstrado por Pereira (2025), a combinação da análise populacional com o pipeline KDD otimiza a alocação de esforços humanos de fiscalização, atuando como um filtro prévio automatizado que direciona a atenção dos analistas estritamente para as observações com elevados indicadores de atipicidade \cite{pereira2025}.
+
+\section{Filtros Estatísticos de Distribuição: Lei de Benford e $Z$-Score}\label{sec:benford_zscore}
+
+A análise da distribuição de frequências dos dígitos numéricos em bases de dados financeiras constitui uma técnica clássica da contabilidade forense e da Ciência de Dados para a identificação primária de anomalias estatísticas. O pilar fundamental dessa abordagem é a Lei de Newcomb-Benford (também conhecida como a Lei do Primeiro Dígito Significativo), descrita originalmente pelo astrônomo Simon Newcomb em 1881 e redescoberta pelo físico Frank Benford em 1938 \cite{nigrini2012, pereira2025}.
+
+Diferentemente da intuição comum, que pressupõe uma distribuição uniforme na qual cada dígito de 1 a 9 teria 11,1\% de probabilidade de ocupar a primeira posição em um número, a Lei de Benford demonstra que dados numéricos decorrentes de fenômenos naturais, sociais e econômicos não manipulados obedecem a uma distribuição logarítmica. Matematicamente, a probabilidade $P(d)$ de um número iniciar com o dígito $d \in \{1, 2, \dots, 9\}$ é dada pela Equação \ref{eq:benford}:
+
+\begin{equation}\label{eq:benford}
+P(d) = \log_{10}\left(1 + \frac{1}{d}\right)
+\end{equation}
+
+Conforme essa distribuição, o dígito 1 possui a maior probabilidade teórica de ocorrência (aproximadamente $30,1\%$), enquanto o dígito 9 apresenta a menor probabilidade (aproximadamente $4,6\%$). Quando dados financeiros sofrem manipulação humana deliberada ou ajustes artificiais — como o fracionamento de compras para burlar limites de licitação (\textit{smurfing}) —, a distribuição natural dos dígitos tende a ser distorcida, gerando um desvio detectável frente à curva teórica \cite{nigrini2012, cavalcanti2014}.
+
+Para avaliar a conformidade de uma base de dados pública frente à Lei de Benford, a literatura estabelece dois testes estatísticos complementares \cite{nigrini2012, pereira2025}:
+\begin{enumerate}
+    \item \textbf{Teste Qui-Quadrado ($\chi^2$):} Utilizado para testar a hipótese nula ($H_0$) de aderência global da base de dados, determinando se a distribuição observada dos dígitos desvia significativamente da distribuição teórica esperada em nível macro;
+    \item \textbf{Teste $Z$-Score:} Empregado para avaliar o desvio atômico e localizado de cada dígito individualmente, medindo quantos desvios-padrão a frequência observada dista da frequência teórica de Benford.
+\end{enumerate}
+
+No entanto, a aplicação da Lei de Benford sobre microdados abertos da administração pública exige cautela analítica para evitar interpretações equivocadas. Como ressaltado por Cavalcanti (2014), picos de frequência observados em dígitos específicos (medidos por $Z$-Scores elevados) nem sempre sinalizam irregularidades ou fraudes intencionais. No setor público, desvios estatísticos severos frequentemente decorrem de regras de negócio rígidas e padronizações normativas — tais como concessões de diárias operacionais com valores fixados por decreto, reembolsos padronizados e tabelamento de auxílios. Portanto, o filtro estatístico de Benford deve ser compreendido como um mecanismo descritivo de sinalização de atipicidade (\textit{red flag}), cuja validação requer a integração com técnicas contextuais de mineração de texto e aprendizado de máquina \cite{cavalcanti2014, nunes2021}.
+
+\section{Aprendizado de Máquina Não Supervisionado na Detecção de Anomalias}\label{sec:aprendizado_nao_supervisionado}
+
+O Aprendizado de Máquina (\textit{Machine Learning}) é a subárea da Inteligência Artificial dedicada ao desenvolvimento de algoritmos capazes de extrair conhecimento, identificar padrões e tomar decisões de forma automatizada a partir de dados históricos \cite{goldschmidt2005}. No domínio da detecção de anomalias, as técnicas de aprendizado dividem-se fundamentalmente em duas abordagens: \textbf{supervisionadas} e \textbf{não supervisionadas} \cite{nunes2021}.
+
+Nas abordagens supervisionadas (como \textit{Support Vector Machines} -- SVM, Árvores de Decisão e Regressão Logística), o modelo exige um conjunto de dados previamente rotulado (\textit{labelled dataset}), no qual cada registro é formalmente classificado entre "regular" ou "anômalo" (\textit{ground truth}). Contudo, como ressaltado por Nunes \textit{et al.} (2021), a aplicação de modelos supervisionados sobre dados de finanças públicas é inviável na prática, uma vez que os microdados abertos dos portais de transparência não possuem rotulagem prévia de auditoria \cite{nunes2021}.
+
+Diante da ausência de rótulos, a extração de atipicidades fundamenta-se no \textbf{Aprendizado de Máquina Não Supervisionado} (\textit{Unsupervised Learning}). Essa abordagem assume que a imensa maioria dos registros da base representa transações normais e legítimas, enquanto as anomalias correspondem a observações raras que se distanciam estruturalmente do comportamento padrão \cite{goldschmidt2005, nunes2021}. Para a execução deste projeto, destacam-se dois algoritmos não supervisionados consolidados na literatura:
+
+\subsection{\textit{Isolation Forest} (ISO)}
+
+Proposto originalmente por Liu, Ting e Zhou (2008), o \textit{Isolation Forest} (ISO) adota uma abordagem distinta dos algoritmos tradicionais baseados em distância ou densidade. Em vez de construir perfis de dados normais para posterior identificação de desvios, o ISO foca no \textbf{isolamento explícito das anomalias} \cite{liu2008isolation}.
+
+O algoritmo opera mediante a construção de um conjunto de árvores de decisão aleatórias (\textit{iTrees}). Em cada nó da árvore, uma variável é selecionada aleatoriamente, seguida pela escolha de um ponto de corte arbitrário entre os valores mínimo e máximo dessa variável. Como as anomalias possuem atributos quantitativos atípicos ou frequências reduzidas, elas exigem poucas partições para serem completamente isoladas nas folhas mais rasas da árvore \cite{liu2008isolation}.
+
+Matematicamente, a pontuação de anomalia $s(x, n)$ de uma observação $x$ em uma base de tamanho $n$ é definida pela Equação \ref{eq:iso_score}:
+
+\begin{equation}\label{eq:iso_score}
+s(x, n) = 2^{-\frac{E(h(x))}{c(n)}}
+\end{equation}
+
+Em que $E(h(x))$ representa a média do comprimento do caminho de busca de $x$ ao longo da floresta de árvores, e $c(n)$ é a extensão média de busca sem sucesso em uma árvore binária de busca construída com $n$ nós. Quanto mais próximo de $1$ for o escore $s$, maior é a probabilidade de a observação constituir uma anomalia isolada \cite{liu2008isolation}. A grande vantagem do \textit{Isolation Forest} em relação a outros algoritmos não supervisionados reside na sua baixa complexidade computacional e linearidade ($O(n \log n)$), tornando-o altamente eficiente para o processamento de bases populacionais volumosas como a do Portal da Transparência do Acre \cite{liu2008isolation, pereira2025}.
+
+\subsection{\textit{Local Outlier Factor} (LOF)}
+
+Desenvolvido por Breunig \textit{et al.} (2000), o \textit{Local Outlier Factor} (LOF) é um algoritmo de detecção de anomalias baseado em densidade local que emprega a técnica dos $k$-vizinhos mais próximos ($k$-NN) \cite{breunig2000lof}. O pilar conceitual do LOF fundamenta-se na premissa de que a anomalia não deve ser definida apenas pela sua distância global ao centro da base, mas sim pelo seu grau de isolamento relativo em relação à densidade da sua vizinhança local \cite{breunig2000lof, vieira2019}.
+
+Para cada ponto $p$ da base, o algoritmo calcula a sua densidade de acessibilidade local (\textit{local reachability density} -- $lrd_k(p)$), comparando-a subsequentemente com a densidade de acessibilidade média dos seus $k$-vizinhos mais próximos. A razão entre essas densidades determina o fator de \textit{outlier} local ($LOF_k(p)$), expresso pela Equação \ref{eq:lof_score}:
+
+\begin{equation}\label{eq:lof_score}
+LOF_k(p) = \frac{\sum_{o \in N_k(p)} \frac{lrd_k(o)}{lrd_k(p)}}{|N_k(p)|}
+\end{equation}
+
+Em que $N_k(p)$ representa o conjunto dos $k$-vizinhos mais próximos do ponto $p$. A interpretação do indicador LOF ocorre da seguinte forma \cite{breunig2000lof}:
+\begin{itemize}
+    \item $LOF \approx 1$: Indica que o ponto possui densidade similar à de seus vizinhos, pertencendo a um agrupamento denso e homogêneo (padrão normal);
+    \item $LOF < 1$: Representa observações localizadas no interior de agrupamentos muito densos;
+    \item $LOF \gg 1$: Sinaliza que a densidade do ponto é significativamente menor do que a de seus vizinhos, caracterizando-o como um \textit{outlier} local atípico.
+\end{itemize}
+
+A aplicação do LOF em dados da administração pública demonstra grande utilidade para identificar municípios ou órgãos cujos padrões de despesa destoam substancialmente de seus pares comparáveis (como demonstrado por Vieira, 2019 ao analisar repasses do SICONFI) \cite{vieira2019}. A integração combinada do \textit{Isolation Forest} e do \textit{Local Outlier Factor} permite capturar tanto anomalias globais quanto desvios locais de densidade na base orçamentária do Estado do Acre \cite{breunig2000lof, liu2008isolation}.
+
+\section{Mineração de Texto em Históricos Contábeis (NLP e DBSCAN)}\label{sec:nlp_dbscan}
+
+Enquanto os campos numéricos e cadastrais das despesas públicas possibilitam análises quantitativas diretas, a real intenção e o detalhamento das contratações governamentais residem no campo descritivo de texto livre, denominado \textbf{histórico do empenho/pagamento}. O tratamento analítico dessa variável impõe desafios adicionais à Ciência de Dados devido à ausência de padronização, presença de abreviações informais, ruídos de digitação e variações sintáticas \cite{goldschmidt2005, pereira2025}.
+
+Para converter esse conteúdo textual não estruturado em representações numéricas computáveis, utiliza-se a técnica de vetorização por Frequência do Termo--Inverso da Frequência nos Documentos (\textit{Term Frequency--Inverse Document Frequency} -- TF-IDF). A métrica TF-IDF pondera a relevância de uma palavra $t$ em um histórico $d$ pertencente a um conjunto de documentos $D$, penalizando termos excessivamente genéricos (como "referente", "pago", "aquisição") e valorizando termos discriminativos (como nomes de insumos, medicamentos ou serviços específicos) \cite{goldschmidt2005}. Matematicamente, a ponderação é calculada pela Equação \ref{eq:tfidf}:
+
+\begin{equation}\label{eq:tfidf}
+\text{TF-IDF}(t, d, D) = \text{TF}(t, d) \times \log\left(\frac{|D|}{|\{d \in D : t \in d\}|}\right)
+\end{equation}
+
+Uma vez obtida a matriz esparsa de vetores TF-IDF, emprega-se o algoritmo de agrupamento baseado em densidade \textbf{DBSCAN} (\textit{Density-Based Spatial Clustering of Applications with Noise}), proposto por Ester \textit{et al.} (1996) \cite{ester1996dbscan}. Ao contrário de algoritmos de particionamento como o K-Means, o DBSCAN oferece três vantagens cruciais para a análise de despesas públicas \cite{ester1996dbscan, vieira2019}:
+\begin{enumerate}
+    \item Não exige a definição prévia do número de agrupamentos ($k$);
+    \item Identifica agrupamentos de formatos geométricos arbitrários no espaço vetorial;
+    \item Isola autonomamente pontos de ruído (\textit{noise}), isto é, históricos atípicos que não possuem densidade similar a nenhum grupo.
+\end{enumerate}
+
+O DBSCAN é parametrizado pelo raio de vizinhança ($\varepsilon$) e pelo número mínimo de pontos ($MinPts$). Na auditoria contábil, a integração de TF-IDF com DBSCAN permite agrupar históricos de empenho com redações semanticamente equivalentes, viabilizando a identificação de variações atípicas de preços unitários em contratos similares, bem como a varredura automatizada de fracionamentos de licitação (\textit{smurfing}) \cite{nunes2021}.
+
+\section{Trabalhos Relacionados}\label{sec:trabalhos_relacionados}
+
+A consolidação da Ciência de Dados Forense aplicada ao setor público é evidenciada por um conjunto crescente de estudos que investigam a detecção de anomalias em bases orçamentárias brasileiras. O Quadro \ref{tab:trabalhos_relacionados} sintetiza os principais trabalhos correlatos da literatura, destacando seus objetivos, métodos e a lacuna preenchida pelo presente TCC.
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Quadro comparativo dos trabalhos relacionados na literatura nacional.}
+\label{tab:trabalhos_relacionados}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|p{3.2cm}|p{3.5cm}|p{4.2cm}|p{4.5cm}|}
+\hline
+\textbf{Autor / Documento} & \textbf{Domínio / Escopo} & \textbf{Metodologia Computacional} & \textbf{Diferencial / Foco Principal} \\ \hline
+Cavalcanti (2014) \cite{cavalcanti2014} & Cartão Corporativo (CPGF) -- Governo Federal (2013) & Lei de Benford, Teste $Z$-Score, Qui-Quadrado e DAM & Validação jurídica e discricionariedade do uso de filtros estatísticos em auditorias do CPGF. \\ \hline
+Cella (2018) \cite{cella2018} & Despesas Públicas Municipais -- Estado de Goiás & Lei de Newcomb-Benford e Testes de Aderência Estatística & Avaliação de conformidade em contas municipais e identificação de distorções em dígitos iniciais. \\ \hline
+Vieira (2019) \cite{vieira2019} & Gastos Municipais -- SICONFI / DATASUS / FIRJAN & Algoritmo LOF (\textit{Local Outlier Factor}) e Framework KDD & Unificação de bases fiscais e indicadores sociais para redução de falsos positivos em prefeituras. \\ \hline
+Asensi (2020) \cite{asensi2020} & Despesas Públicas Municipais & Mineração de Dados e Parametrização de Gastos & Parametrização de custos públicos e mapeamento de padrões atípicos de execução orçamentária. \\ \hline
+Nunes \textit{et al.} (2021) \cite{nunes2021} & Cartão Corporativo (CPGF) -- Exercícios 2018--2019 & K-Means, Agrupamento Hierárquico e Redes Complexas & Detecção de anomalias sem rotulagem prévia em gastos federais via topologia de redes. \\ \hline
+Pereira (2025) \cite{pereira2025} & Desembolsos Extraorçamentários -- Estado de Goiás (2024) & Pipeline KDD, Lei de Benford, $Z$-Score e Qui-Quadrado em Python & Validação populacional (100\% da base) do desvio no Dígito 1 como filtro inicial de triagem. \\ \hline
+Estudo de Controle Interno Estadual \cite{controle_interno2023} & Gestão e Controle Interno nos Estados Brasileiros & Levantamento de Práticas e Ciência de Dados & Mapeamento do nível de maturidade computacional e uso de dados abertos nas controladorias estaduais. \\ \hline
+Estudo de CD em Dados Públicos \cite{estudo_cd_dados2023} & Bases Abertas de Despesas Governamentais & Mineração Exploratória e Estatística Desritiva & Aplicação de pipelines de limpeza e transformação sobre bases orçamentárias heterogêneas. \\ \hline
+Análise de Anomalias Administrativas \cite{analise_anomalias2024} & Dados de Execução Orçamentária e Financeira & Detecção Estatística de Atipicidades & Mapeamento de desvios em empenhos e liquidações na administração pública subnacional. \\ \hline
+\end{tabular}%
+}
+\fonte{Elaborado pelo autor com base na literatura correlata (2026).}
+\end{table}
+
+A análise conjunta dos nove trabalhos relacionados sintetizados no Quadro \ref{tab:trabalhos_relacionados} evidencia uma evolução metodológica clara: enquanto os estudos seminais (como Cavalcanti, 2014 e Cella, 2018) focaram prioritariamente na validação da estatística descritiva de Benford, pesquisas subsequentes avançaram para a integração de algoritmos não supervisionados de densidade (Vieira, 2019) e topologia de redes (Nunes \textit{et al.}, 2021), culminando na adoção de pipelines populacionais integrais em ambiente Python (Pereira, 2025) e no diagnóstico da maturidade do controle interno estadual.
+
+A despeito desse panorama consolidado, constata-se uma lacuna no que tange à integração conjunta dessas técnicas (Benford, ISO, LOF e NLP) aplicada a bases populacionais subnacionais da Amazônia Sul-Ocidental, cenário que fundamenta a oportunidade e o ineditismo do presente estudo de caso no Estado do Acre.
 
 \chapter{PROCEDIMENTOS METODOLÓGICOS}
 
