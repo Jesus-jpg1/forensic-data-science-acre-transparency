@@ -396,7 +396,183 @@ A análise conjunta dos nove trabalhos relacionados sintetizados no Quadro \ref{
 
 A despeito desse panorama consolidado, constata-se uma lacuna no que tange à integração conjunta dessas técnicas (Benford, ISO, LOF e NLP) aplicada a bases populacionais subnacionais da Amazônia Sul-Ocidental, cenário que fundamenta a oportunidade e o ineditismo do presente estudo de caso no Estado do Acre.
 
-\chapter{PROCEDIMENTOS METODOLÓGICOS}
+\chapter{PROCEDIMENTOS METODOLÓGICOS}\label{sec:metodologia}
+
+Neste capítulo, apresentam-se os procedimentos metodológicos, a caracterização da pesquisa, o ambiente computacional, as fontes de dados e o detalhamento do pipeline de Ciência de Dados desenvolvido para a execução do estudo de caso no Governo do Estado do Acre.
+
+\section{Caracterização da Pesquisa}\label{sec:caracterizacao_pesquisa}
+
+A condução deste trabalho fundamenta-se nas diretrizes da metodologia científica aplicada aos Sistemas de Informação e à Ciência de Dados, sendo classificada segundo quatro dimensões principais:
+
+\begin{enumerate}
+    \item \textbf{Quanto à Natureza:} Classifica-se como uma \textbf{pesquisa aplicada}, pois visa produzir conhecimento direcionado à solução de um problema prático e concreto da gestão pública: a automação da triagem de despesas atípicas e a mitigação da "opacidade por excesso" nos dados abertos governamentais \cite{cavalcanti2014, pereira2025};
+
+    \item \textbf{Quanto à Abordagem do Problema:} Trata-se de uma \textbf{pesquisa quantitativa e computacional}. A análise apoia-se na extração de métricas numéricas, testes estatísticos de aderência (Lei de Benford, $Z$-Score e Qui-Quadrado) e algoritmos de Aprendizado de Máquina Não Supervisionado para o mapeamento de anomalias sobre bases de dados estruturadas \cite{goldschmidt2005, nunes2021};
+
+    \item \textbf{Quanto aos Objetivos:} Caracteriza-se como uma \textbf{pesquisa exploratória e descritiva}. Exploratória ao investigar padrões não rotulados nos microdados orçamentários do Estado do Acre, e descritiva ao caracterizar detalhadamente a distribuição temporal, institucional e categórica das despesas e dos desvios identificados;
+
+    \item \textbf{Quanto aos Procedimentos Análiticos:} Configura-se como um \textbf{estudo de caso computacional}, focado na infraestrutura de dados abertos e na execução orçamentária do Poder Executivo do Estado do Acre no período de 2020 a 2025.
+\end{enumerate}
+
+\section{Fonte de Dados, Recorte Populacional e Atributos}\label{sec:fonte_dados_atributos}
+
+A execução do estudo de caso fundamenta-se na extração e estruturação dos microdados financeiros abertos disponibilizados pelo Poder Executivo do Estado do Acre, por meio do seu Portal da Transparência.
+
+\subsection{Origem e Acesso aos Dados}\label{subsec:origem_dados}
+
+Os dados foram obtidos via requisições diretas e rotinas de \textit{web scraping}/ingestão de arquivos tabulares disponibilizados publicamente pela Controladoria-Geral do Estado do Acre (CGE-AC). Por se tratar de uma base de dados abertos governamentais submetida aos ditames da Lei de Acesso à Informação (Lei nº 12.527/2011), o acesso não exige credenciais restritas nem autorizações éticas específicas, garantindo a reprodutibilidade integral da coleta por órgãos de controle ou pela comunidade acadêmica.
+
+\subsection{Recorte Populacional e Temporal}\label{subsec:recorte_populacional}
+
+Diferentemente de abordagens auditivas convencionais que operam por amostragem probabilística ou seletiva, este trabalho adota o princípio da \textbf{Análise Populacional Integral}. O recorte temporal estipulado abrange os exercícios orçamentários de \textbf{2020 a 2025}, compreendendo um volume superior a \textbf{429 mil registros financeiros} (fases de empenho, liquidação e pagamento). Essa delimitação de 6 anos permite capturar ciclos orçamentários completos, incluindo períodos atípicos de gastos emergenciais (como o contexto da pandemia da COVID-19) e transições de gestão administrativa na esfera estadual.
+
+\subsection{Dicionário de Atributos e Seleção de Variáveis}\label{subsec:dicionario_attributos}
+
+Os microdados originais contêm múltiplas variáveis de natureza orçamentária, financeira e cadastral. Para a construção da esteira analítica e modelagem de anomalias, selecionou-se um conjunto prioritário de atributos, categorizados no Quadro \ref{tab:atributos_dados}:
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Dicionário de atributos selecionados da base de despesas públicas do Estado do Acre.}
+\label{tab:atributos_dados}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|p{3.5cm}|p{3.2cm}|p{4.0cm}|p{4.5cm}|}
+\hline
+\textbf{Categoria} & \textbf{Nome da Variável} & \textbf{Tipo de Dado} & \textbf{Descrição e Aplicação no Pipeline} \\ \hline
+\textbf{Financeira} & \texttt{valor\_empenho} / \texttt{valor\_pago} & Numérico Contínuo (\textit{float}) & Montante financeiro da transação. Base para extração do primeiro dígito (Benford), $Z$-Score e Isolation Forest. \\ \hline
+\textbf{Temporal} & \texttt{data\_emissao} / \texttt{exercicio} & Temporal (\textit{datetime}) / Inteiro & Data e ano do registro contábil. Permite análise de evolução temporal, sazonalidade e frequência de empenhos. \\ \hline
+\textbf{Institucional} & \texttt{orgao\_codigo} / \texttt{orgao\_nome} & Categórico (\textit{string}) & Identificação da Secretaria ou Órgão Estadual responsável pelo gasto. Utilizado em agrupamentos e no algoritmo LOF. \\ \hline
+\textbf{Cadastral} & \texttt{cpf\_cnpj\_credor} / \texttt{credor\_nome} & Categórico (\textit{string}) & Registro de identificação do fornecedor/favorecido. Base para grafos de rede, identificação de oligopólios e concentração. \\ \hline
+\textbf{Categorização} & \texttt{elemento\_despesa} / \texttt{modalidade} & Categórico (\textit{string}) & Classificação orçamentária da despesa e modalidade de licitação. Essencial para isolar falsos positivos de diárias e auxílios. \\ \hline
+\textbf{Textual} & \texttt{historico\_empenho} & Texto Livre (\textit{string}) & Descrição textual da finalidade do gasto. Processado via NLP (TF-IDF) e agrupado por densidade via DBSCAN. \\ \hline
+\end{tabular}%
+}
+\fonte{Elaborado pelo autor com base nos dados do Portal da Transparência do Estado do Acre (2026).}
+\end{table}
+
+\section{A Esteira de Processamento de Dados (Pipeline KDD)}\label{sec:pipeline_kdd}
+
+O processamento analítico dos microdados orçamentários do Estado do Acre segue rigorosamente as etapas do ciclo de Descoberta de Conhecimento em Bases de Dados (\textit{Knowledge Discovery in Databases} -- KDD) \cite{goldschmidt2005, pereira2025}. A esteira computacional foi estruturada modularmente em ambiente Python, articulando tratamentos estatísticos e modelos de algoritmos não supervisionados.
+
+\subsection{Pré-processamento e Higienização de Dados (\textit{Data Cleaning})}\label{subsec:limpeza_dados}
+
+A etapa inicial de pré-processamento foca na transformação dos arquivos brutos em uma estrutura tabular uniforme e livre de ruídos que possam comprometer a convergência dos algoritmos \cite{goldschmidt2005}. Executam-se as seguintes rotinas computacionais:
+
+\begin{enumerate}
+    \item \textbf{Tratamento de Valores Nulos e Inconsistentes:} Mapeamento e imputação/remoção de registros com variáveis essenciais ausentes (\texttt{NaN}), tais como valores zerados de empenho ou códigos de credor inconsistentes;
+    \item \textbf{Normalização de Identificadores Cadastrais:} Limpeza de caracteres especiais (pontos, traços e barras) nos campos de CPF e CNPJ dos favorecidos, aplicando preenchimento com zeros à esquerda (\textit{zfill}) para garantir o padrão numérico de 11 e 14 dígitos;
+    \item \textbf{Tratamento de Estornos e Operações Negativas:} Conversão dos valores contábeis de anulação e estorno para o seu módulo absoluto ($|x|$), rotulando a natureza da transação para evitar distorções nas métricas agregadas de despesa acumulada;
+    \item \textbf{Padronização Temporal e Textual:} Conversão de datas para o formato padrão ISO 8601 (\texttt{YYYY-MM-DD}) e conversão de todo o texto dos históricos de empenho para caracteres minúsculos, removendo acentuação e pontuação desnecessária.
+\end{enumerate}
+
+\subsection{Engenharia de Atributos (\textit{Feature Engineering})}\label{subsec:feature_engineering}
+
+Nesta fase, constroem-se novas variáveis sintéticas a partir dos atributos brutos, com o objetivo de capturar comportamentos atípicos e fornecer insumos específicos para os modelos quantitativos e qualitativos \cite{pereira2025}:
+
+\begin{enumerate}
+    \item \textbf{Extração do Primeiro Dígito Significativo (\texttt{primeiro\_digito}):} Isolamento do primeiro algoritmo diferente de zero do valor numérico do empenho, variável indispensável para a aplicação da Lei de Benford;
+    \item \textbf{Frequência Recorrente por Favorecido (\texttt{freq\_credor}):} Contagem automatizada do número de empenhos e liquidações emitidos para um mesmo CNPJ/CPF em janelas temporais de 30, 60 e 90 dias;
+    \item \textbf{Razão de Concentração do Favorecido (\texttt{razao\_concentracao}):} Percentual do orçamento de uma determinada unidade gestora direcionado a um único credor no exercício financeiro;
+    \item \textbf{Variabilidade da Despesa (\texttt{desvio\_relativo}):} Razão entre o valor de uma transação específica e a média histórica de pagamentos do mesmo elemento de despesa no órgão.
+\end{enumerate}
+
+\subsection{Módulo Estatístico Paramétrico: Lei de Benford e $Z$-Score}\label{subsec:modulo_benford}
+
+O primeiro filtro analítico atua sobre a variável \texttt{primeiro\_digito} de 100\% dos registros da base. O pipeline computacional executa dois testes formais de aderência \cite{nigrini2012, cavalcanti2014}:
+
+\begin{enumerate}
+    \item \textbf{Teste Qui-Quadrado ($\chi^2$):} Avalia a conformidade global da curva observada frente à distribuição teórica logarítmica de Benford. A rejeição da hipótese nula ($H_0$) ocorre para um nível de significância $\alpha = 0,05$ caso a estatística $Q$ supere o valor crítico da distribuição;
+    \item \textbf{Teste $Z$-Score para Dígitos Individuais:} Identifica quais dígitos específicos de $1$ a $9$ apresentam frequências estatisticamente explodidas. O cálculo é regido pela Equação \ref{eq:z_score_formula}: 
+    \begin{equation}\label{eq:z_score_formula}
+    Z_d = \frac{|p_o - p_e| - \frac{1}{2n}}{\sqrt{\frac{p_e (1 - p_e)}{n}}}
+    \end{equation}
+    Em que $p_o$ é a proporção observada do dígito $d$, $p_e$ é a proporção esperada por Benford, $n$ é o total de observações e $\frac{1}{2n}$ representa a correção de continuidade de Yates \cite{nigrini2012}. Valores de $Z_d > 2,57$ sinalizam desvios atípicos ao nível de confiança de 99\%.
+\end{enumerate}
+
+\subsection{Módulo de Aprendizado de Máquina Não Supervisionado: ISO e LOF}\label{subsec:modulo_ml}
+
+Para superar a dependência de análises unidimensionais e identificar anomalias multivariadas complexas em dados não rotulados, o pipeline aplica concorrentemente dois algoritmos de Aprendizado Não Supervisionado \cite{nunes2021}:
+
+\begin{enumerate}
+    \item \textbf{\textit{Isolation Forest} (ISO):} Treinado sobre o vetor de atributos quantitativos (valor, frequência, razão de concentração). Configura-se o parâmetro de contaminação (\textit{contamination}) em um limiar conservador de $0,01$ a $0,05$, isolando $1\%$ a $5\%$ das observações mais distantes na estrutura de árvores binárias \cite{liu2008isolation};
+    \item \textbf{\textit{Local Outlier Factor} (LOF):} Executado com hiperparâmetro de vizinhança $k = 20$, mensurando a densidade local de cada despesa em relação ao comportamento padrão do seu órgão de origem. Registros com escore $LOF > 1,5$ são formalmente rotulados como \textit{outliers} locais de densidade \cite{breunig2000lof}.
+\end{enumerate}
+
+\subsection{Módulo de NLP e Agrupamento Semântico (TF-IDF + DBSCAN)}\label{subsec:modulo_nlp}
+
+Como etapa de filtragem contextual e mitigação de falsos positivos causados por regras de negócio (como diárias e auxílios tabelados), o campo \texttt{historico\_empenho} passa por um pipeline de Processamento de Linguagem Natural \cite{goldschmidt2005, ester1996dbscan}:
+
+\begin{enumerate}
+    \item \textbf{Vetorização TF-IDF:} Remoção de \textit{stopwords} em português e construção da matriz esparsa de relevância de termos, limitando-se às 1.000 palavras mais discriminativas;
+    \item \textbf{Agrupamento com DBSCAN:} Aplicação do algoritmo DBSCAN sobre a matriz TF-IDF utilizando a métrica de distância do cosseno, com raio $\varepsilon = 0,3$ e $MinPts = 5$. O modelo agrupa automaticamente descrições padronizadas por decretos administrativos e isola observações rotuladas como ruído (\textit{label} $-1$), que indicam descrições atípicas ou suspeitas de fracionamento de licitação (\textit{smurfing}) \cite{ester1996dbscan, vieira2019}.
+\end{enumerate}
+
+\section{Análise de Redes Complexas e Topologia de Grafos}\label{sec:redes_complexas}
+
+Para além das abordagens estatísticas e algoritmos atômicos de amostragem, a estrutura de contratação pública do Estado do Acre apresenta uma dimensão relacional intrínseca: a conexão entre entes governamentais (órgãos/secretarias) e fornecedores privados (empresas/favorecidos). Para mapear essa dinâmica, o pipeline incorpora a \textbf{Teoria dos Grafos e a Análise de Redes Complexas} \cite{nunes2021}.
+
+\subsection{Modelagem de Rede Bipartida e Projeção}\label{subsec:rede_bipartida}
+
+A relação orçamentária é modelada como um grafo não direcionado e ponderado $G = (V_{org}, V_{cred}, E)$, em que $V_{org}$ representa o conjunto de nós dos órgãos públicos, $V_{cred}$ denota o conjunto de nós dos credores/fornecedores e $E$ representa as arestas de transação financeira, ponderadas pelo volume financeiro acumulado ($W_{ij}$) ou pelo número de empenhos celebrados:
+
+\begin{enumerate}
+    \item \textbf{Mapeamento Bipartido:} Construção da matriz de adjacência $A$, conectando cada secretaria aos seus respectivos fornecedores contratados;
+    \item \textbf{Projeção Unimodal de Credores:} Projeção do grafo sobre o conjunto $V_{cred}$, conectando fornecedores distintos que compartilham contratos simultâneos em duas ou mais secretarias estaduais. Essa projeção evidencia a formação de consórcios informais, matrizes de fornecimento cruzado e dependência administrativa.
+\end{enumerate}
+
+\subsection{Métricas de Centralidade e Mapeamento de Oligopólios}\label{subsec:metricas_centralidade}
+
+Para quantificar a relevância topológica e identificar a concentração de mercado no setor público do Acre, calculam-se duas métricas de rede via biblioteca \texttt{networkx} \cite{nunes2021}:
+
+\begin{enumerate}
+    \item \textbf{Centralidade de Grau (\textit{Degree Centrality}):} Mede o número de órgãos estaduais distintos atendidos por uma mesma empresa, identificando fornecedores hiperconectados na estrutura administrativa;
+    \item \textbf{Centralidade de Intermediação (\textit{Betweenness Centrality}):} Quantifica a frequência com que um credor atua como ponte de conexão no fluxo de empenhos entre diferentes setores governamentais.
+\end{enumerate}
+
+Essa modelagem relacional permite isolar padrões de \textbf{oligopólio legal} decorrentes do uso intensivo de Atas de Registro de Preço ("caronas" interinstitucionais), separando empresas com forte penetração orçamentária legítima daquelas com indícios de direcionamento ou captura de mercado.
+
+\section{Ambiente Computacional e Ferramentas}\label{sec:ambiente_computacional}
+
+A construção, validação e execução integral do pipeline analítico utilizam um ecossistema tecnológico baseado em linguagens, bibliotecas e plataformas de código aberto (\textit{open-source}), garantindo custo zero de licenciamento e auditabilidade total \cite{pereira2025}. A Tabela \ref{tab:ambiente_ferramentas} detalha a infraestrutura computacional empregada:
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Ambiente computacional e bibliotecas especializadas utilizadas na pesquisa.}
+\label{tab:ambiente_ferramentas}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|p{3.5cm}|p{3.8cm}|p{8.0cm}|}
+\hline
+\textbf{Camada} & \textbf{Tecnologia / Biblioteca} & \textbf{Finalidade e Aplicação no Pipeline} \\ \hline
+\textbf{Linguagem Base} & Python 3.10+ & Linguagem de programação científica para processamento e modelagem de dados. \\ \hline
+\textbf{Manipulação de Dados} & \texttt{pandas} / \texttt{numpy} & Leitura de arquivos tabulares, limpeza, filtragem populacional e engenharia de atributos. \\ \hline
+\textbf{Estatística Forense} & \texttt{scipy.stats} / \texttt{statsmodels} & Execução dos testes Qui-Quadrado ($\chi^2$), cálculo de $Z$-Score e distribuições de Benford. \\ \hline
+\textbf{Machine Learning} & \texttt{scikit-learn} & Implementação dos algoritmos \textit{Isolation Forest}, \textit{Local Outlier Factor} (LOF), DBSCAN e TF-IDF. \\ \hline
+\textbf{Análise de Redes} & \texttt{networkx} / \texttt{pyvis} & Modelagem topológica de grafos bipartidos e visualização interativa de redes de fornecedores. \\ \hline
+\textbf{Visualização} & \texttt{matplotlib} / \texttt{seaborn} & Geração de gráficos de distribuição, histogramas de dígitos e curvas de aderência. \\ \hline
+\textbf{Ambiente e Controle} & Google Colab / GitHub & Nuvem computacional de execução analítica e versionamento de código-fonte. \\ \hline
+\end{tabular}%
+}
+\fonte{Elaborado pelo autor (2026).}
+\end{table}
+
+\section{Escore Integrado de Risco e Validação dos Resultados}\label{sec:escore_risco_validacao}
+
+Para evitar que os analistas do controle público precisem interpretar os outputs de múltiplos modelos isolados, o pipeline consolida os resultados em um \textbf{Escore Integrado de Risco Forense} ($R_i$), normalizado no intervalo $[0, 100]$ \cite{nunes2021, pereira2025}.
+
+\subsection{Composição do Escore Integrado}\label{subsec:composicao_escore}
+
+O escore composto para cada transação $i$ é calculado como a soma ponderada das sinalizações emitidas por cada filtro da esteira, conforme a Equação \ref{eq:escore_risco}:
+
+\begin{equation}\label{eq:escore_risco}
+R_i = w_1 \cdot S_{\text{Benford}}(i) + w_2 \cdot S_{\text{ISO}}(i) + w_3 \cdot S_{\text{LOF}}(i) + w_4 \cdot S_{\text{DBSCAN}}(i) + w_5 \cdot S_{\text{Grafo}}(i)
+\end{equation}
+
+Em que $S(i) \in \{0, 1\}$ indica a presença ou ausência de sinalização em cada módulo analítico, e $w_k$ representa o peso atribuído a cada modelo com base na sua especificidade discriminativa. Registros que apresentam concordância multialgorítmica (sinalizados simultaneamente por Benford, ISO, LOF e DBSCAN) recebem pontuações de risco elevadas ($R_i > 75$), constituindo a amostra priorizada de triagem (\textit{red flags}) \cite{nunes2021}.
+
+\subsection{Validação Qualitativa e Filtro de Falsos Positivos}\label{subsec:validacao_falsos_positivos}
+
+A etapa final do procedimento metodológico consiste na \textbf{validação qualitativa do topo do escore de risco}. As despesas classificadas como de alto risco são submetidas a uma checagem contextual contra o arcabouço normativo governamental (decretos de diárias, tabelas de repasse e contratos públicos), verificando se a atipicidade identificada decorre de uma regra de negócio legítima (falso positivo) ou se constitui uma anomalia operacional que exige apuração pelos órgãos de controle \cite{cavalcanti2014, nunes2021}.
 
 % ----------------------------------------------------------
 % RESULTADOS 

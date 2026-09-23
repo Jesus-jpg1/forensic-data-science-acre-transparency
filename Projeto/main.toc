@@ -1,32 +1,50 @@
 \changetocdepth {4}
 \babel@toc {brazil}{}\relax 
-\contentsline {chapter}{\chapternumberline {1}APRESENTAÇÃO}{5}{chapter.1}%
-\contentsline {chapter}{\chapternumberline {2}PROBLEMA DA PESQUISA}{7}{chapter.2}%
-\contentsline {chapter}{\chapternumberline {3}OBJETIVOS DA PESQUISA}{9}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Objetivo Geral}{9}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Objetivos Específicos}{9}{section.3.2}%
-\contentsline {chapter}{\chapternumberline {4}JUSTIFICATIVA DA PESQUISA}{11}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Relevância Social e Prática}{11}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Relevância Científica e Acadêmica}{11}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Relevância Técnica e Tecnológica}{12}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Viabilidade da Pesquisa}{12}{section.4.4}%
-\contentsline {chapter}{\chapternumberline {5}FUNDAMENTAÇÃO TEÓRICA}{14}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Transparência Pública, Dados Abertos e Controle Social}{14}{section.5.1}%
-\contentsline {section}{\numberline {5.2}O Processo KDD (\textit {Knowledge Discovery in Databases}) e a Análise Populacional}{15}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Filtros Estatísticos de Distribuição: Lei de Benford e $Z$-Score}{16}{section.5.3}%
-\contentsline {section}{\numberline {5.4}Aprendizado de Máquina Não Supervisionado na Detecção de Anomalias}{17}{section.5.4}%
-\contentsline {subsection}{\numberline {5.4.1}\textit {Isolation Forest} (ISO)}{17}{subsection.5.4.1}%
-\contentsline {subsection}{\numberline {5.4.2}\textit {Local Outlier Factor} (LOF)}{18}{subsection.5.4.2}%
-\contentsline {section}{\numberline {5.5}Mineração de Texto em Históricos Contábeis (NLP e DBSCAN)}{19}{section.5.5}%
-\contentsline {section}{\numberline {5.6}Trabalhos Relacionados}{20}{section.5.6}%
-\contentsline {chapter}{\chapternumberline {6}PROCEDIMENTOS METODOLÓGICOS}{22}{chapter.6}%
-\contentsline {chapter}{\chapternumberline {7}RESULTADOS}{23}{chapter.7}%
-\contentsline {section}{\numberline {7.1}PIPELINE KDD E COBERTURA POPULACIONAL}{23}{section.7.1}%
-\contentsline {section}{\numberline {7.2}FILTRO ESTATÍSTICO DE BENFORD E Z-SCORE}{23}{section.7.2}%
-\contentsline {subsection}{\numberline {7.2.1}Diagnóstico de Falsos Positivos}{23}{subsection.7.2.1}%
-\contentsline {section}{\numberline {7.3}REDES DE GRAFOS E OLIGOPÓLIOS ESTRUTURAIS}{23}{section.7.3}%
-\contentsline {section}{\numberline {7.4}ALGORITMO DE SMURFING E O ESTUDO DE CASO 4HEALTH}{23}{section.7.4}%
-\contentsline {section}{\numberline {7.5}DIAGNÓSTICO FORENSE}{24}{section.7.5}%
-\contentsline {chapter}{\chapternumberline {8}CRONOGRAMA}{25}{chapter.8}%
+\contentsline {chapter}{\chapternumberline {1}APRESENTAÇÃO}{6}{chapter.1}%
+\contentsline {chapter}{\chapternumberline {2}PROBLEMA DA PESQUISA}{8}{chapter.2}%
+\contentsline {chapter}{\chapternumberline {3}OBJETIVOS DA PESQUISA}{10}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Objetivo Geral}{10}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Objetivos Específicos}{10}{section.3.2}%
+\contentsline {chapter}{\chapternumberline {4}JUSTIFICATIVA DA PESQUISA}{12}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Relevância Social e Prática}{12}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Relevância Científica e Acadêmica}{12}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Relevância Técnica e Tecnológica}{13}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Viabilidade da Pesquisa}{13}{section.4.4}%
+\contentsline {chapter}{\chapternumberline {5}FUNDAMENTAÇÃO TEÓRICA}{15}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Transparência Pública, Dados Abertos e Controle Social}{15}{section.5.1}%
+\contentsline {section}{\numberline {5.2}O Processo KDD (\textit {Knowledge Discovery in Databases}) e a Análise Populacional}{16}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Filtros Estatísticos de Distribuição: Lei de Benford e $Z$-Score}{17}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Aprendizado de Máquina Não Supervisionado na Detecção de Anomalias}{18}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}\textit {Isolation Forest} (ISO)}{18}{subsection.5.4.1}%
+\contentsline {subsection}{\numberline {5.4.2}\textit {Local Outlier Factor} (LOF)}{19}{subsection.5.4.2}%
+\contentsline {section}{\numberline {5.5}Mineração de Texto em Históricos Contábeis (NLP e DBSCAN)}{20}{section.5.5}%
+\contentsline {section}{\numberline {5.6}Trabalhos Relacionados}{21}{section.5.6}%
+\contentsline {chapter}{\chapternumberline {6}PROCEDIMENTOS METODOLÓGICOS}{23}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Caracterização da Pesquisa}{23}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Fonte de Dados, Recorte Populacional e Atributos}{23}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Origem e Acesso aos Dados}{24}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}Recorte Populacional e Temporal}{24}{subsection.6.2.2}%
+\contentsline {subsection}{\numberline {6.2.3}Dicionário de Atributos e Seleção de Variáveis}{24}{subsection.6.2.3}%
+\contentsline {section}{\numberline {6.3}A Esteira de Processamento de Dados (Pipeline KDD)}{24}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}Pré-processamento e Higienização de Dados (\textit {Data Cleaning})}{24}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}Engenharia de Atributos (\textit {Feature Engineering})}{25}{subsection.6.3.2}%
+\contentsline {subsection}{\numberline {6.3.3}Módulo Estatístico Paramétrico: Lei de Benford e $Z$-Score}{26}{subsection.6.3.3}%
+\contentsline {subsection}{\numberline {6.3.4}Módulo de Aprendizado de Máquina Não Supervisionado: ISO e LOF}{26}{subsection.6.3.4}%
+\contentsline {subsection}{\numberline {6.3.5}Módulo de NLP e Agrupamento Semântico (TF-IDF + DBSCAN)}{27}{subsection.6.3.5}%
+\contentsline {section}{\numberline {6.4}Análise de Redes Complexas e Topologia de Grafos}{27}{section.6.4}%
+\contentsline {subsection}{\numberline {6.4.1}Modelagem de Rede Bipartida e Projeção}{27}{subsection.6.4.1}%
+\contentsline {subsection}{\numberline {6.4.2}Métricas de Centralidade e Mapeamento de Oligopólios}{28}{subsection.6.4.2}%
+\contentsline {section}{\numberline {6.5}Ambiente Computacional e Ferramentas}{28}{section.6.5}%
+\contentsline {section}{\numberline {6.6}Escore Integrado de Risco e Validação dos Resultados}{28}{section.6.6}%
+\contentsline {subsection}{\numberline {6.6.1}Composição do Escore Integrado}{28}{subsection.6.6.1}%
+\contentsline {subsection}{\numberline {6.6.2}Validação Qualitativa e Filtro de Falsos Positivos}{29}{subsection.6.6.2}%
+\contentsline {chapter}{\chapternumberline {7}RESULTADOS}{30}{chapter.7}%
+\contentsline {section}{\numberline {7.1}PIPELINE KDD E COBERTURA POPULACIONAL}{30}{section.7.1}%
+\contentsline {section}{\numberline {7.2}FILTRO ESTATÍSTICO DE BENFORD E Z-SCORE}{30}{section.7.2}%
+\contentsline {subsection}{\numberline {7.2.1}Diagnóstico de Falsos Positivos}{30}{subsection.7.2.1}%
+\contentsline {section}{\numberline {7.3}REDES DE GRAFOS E OLIGOPÓLIOS ESTRUTURAIS}{30}{section.7.3}%
+\contentsline {section}{\numberline {7.4}ALGORITMO DE SMURFING E O ESTUDO DE CASO 4HEALTH}{30}{section.7.4}%
+\contentsline {section}{\numberline {7.5}DIAGNÓSTICO FORENSE}{31}{section.7.5}%
+\contentsline {chapter}{\chapternumberline {8}CRONOGRAMA}{32}{chapter.8}%
 \vspace {\cftbeforepartskip }
-\contentsline {chapter}{Refer\^encias}{26}{chapter*.8}%
+\contentsline {chapter}{Refer\^encias}{33}{chapter*.8}%
