@@ -6,19 +6,23 @@
 \contentsline {section}{\numberline {3.1}Objetivo Geral}{9}{section.3.1}%
 \contentsline {section}{\numberline {3.2}Objetivos Específicos}{9}{section.3.2}%
 \contentsline {chapter}{\chapternumberline {4}JUSTIFICATIVA DA PESQUISA}{11}{chapter.4}%
-\contentsline {chapter}{\chapternumberline {5}FUNDAMENTAÇÃO TEÓRICA}{12}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Assunto 1}{12}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Assunto 2}{12}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Asssunto 3}{12}{section.5.3}%
-\contentsline {section}{\numberline {5.4}Trabalhos Relacionados}{12}{section.5.4}%
-\contentsline {chapter}{\chapternumberline {6}PROCEDIMENTOS METODOLÓGICOS}{13}{chapter.6}%
-\contentsline {chapter}{\chapternumberline {7}RESULTADOS}{14}{chapter.7}%
-\contentsline {section}{\numberline {7.1}PIPELINE KDD E COBERTURA POPULACIONAL}{14}{section.7.1}%
-\contentsline {section}{\numberline {7.2}FILTRO ESTATÍSTICO DE BENFORD E Z-SCORE}{14}{section.7.2}%
-\contentsline {subsection}{\numberline {7.2.1}Diagnóstico de Falsos Positivos}{14}{subsection.7.2.1}%
-\contentsline {section}{\numberline {7.3}REDES DE GRAFOS E OLIGOPÓLIOS ESTRUTURAIS}{14}{section.7.3}%
-\contentsline {section}{\numberline {7.4}ALGORITMO DE SMURFING E O ESTUDO DE CASO 4HEALTH}{14}{section.7.4}%
-\contentsline {section}{\numberline {7.5}DIAGNÓSTICO FORENSE}{15}{section.7.5}%
-\contentsline {chapter}{\chapternumberline {8}CRONOGRAMA}{16}{chapter.8}%
+\contentsline {section}{\numberline {4.1}Relevância Social e Prática}{11}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Relevância Científica e Acadêmica}{11}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Relevância Técnica e Tecnológica}{12}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Viabilidade da Pesquisa}{12}{section.4.4}%
+\contentsline {chapter}{\chapternumberline {5}FUNDAMENTAÇÃO TEÓRICA}{14}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Assunto 1}{14}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Assunto 2}{14}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Asssunto 3}{14}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Trabalhos Relacionados}{14}{section.5.4}%
+\contentsline {chapter}{\chapternumberline {6}PROCEDIMENTOS METODOLÓGICOS}{15}{chapter.6}%
+\contentsline {chapter}{\chapternumberline {7}RESULTADOS}{16}{chapter.7}%
+\contentsline {section}{\numberline {7.1}PIPELINE KDD E COBERTURA POPULACIONAL}{16}{section.7.1}%
+\contentsline {section}{\numberline {7.2}FILTRO ESTATÍSTICO DE BENFORD E Z-SCORE}{16}{section.7.2}%
+\contentsline {subsection}{\numberline {7.2.1}Diagnóstico de Falsos Positivos}{16}{subsection.7.2.1}%
+\contentsline {section}{\numberline {7.3}REDES DE GRAFOS E OLIGOPÓLIOS ESTRUTURAIS}{16}{section.7.3}%
+\contentsline {section}{\numberline {7.4}ALGORITMO DE SMURFING E O ESTUDO DE CASO 4HEALTH}{16}{section.7.4}%
+\contentsline {section}{\numberline {7.5}DIAGNÓSTICO FORENSE}{17}{section.7.5}%
+\contentsline {chapter}{\chapternumberline {8}CRONOGRAMA}{18}{chapter.8}%
 \vspace {\cftbeforepartskip }
-\contentsline {chapter}{Refer\^encias}{17}{chapter*.8}%
+\contentsline {chapter}{Refer\^encias}{19}{chapter*.8}%

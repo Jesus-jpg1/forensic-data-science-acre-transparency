@@ -219,10 +219,40 @@ Para o alcance do objetivo geral, estabelecem-se os seguintes objetivos específ
     \item \textbf{Comparação e Concordância Algorítmica:} Comparar o desempenho e a concordância entre diferentes métodos de detecção de anomalias, identificando despesas classificadas como atípicas por uma ou mais técnicas;
     \item \textbf{Investigação Socioadministrativa dos Padrões:} Investigar a distribuição das anomalias identificadas segundo órgãos, favorecidos, categorias de despesa e períodos de execução, buscando reconhecer padrões recorrentes;
     \item \textbf{Construção de Escore de Priorização:} Desenvolver um escore ou classificação de prioridade das observações detectadas, de forma a auxiliar na seleção das despesas que mereçam análise mais detalhada;
-    \item \textbf{Avaliação de Impacto e Aplicabilidade:} Avaliar a aplicabilidade das técnicas de Ciência de Dados como instrumento complementar de transparência e controle dos gastos públicos.
+    \item \textbf{Avaliação de Impacto e Apli   cabilidade:} Avaliar a aplicabilidade das técnicas de Ciência de Dados como instrumento complementar de transparência e controle dos gastos públicos.
 \end{enumerate}
 
 \chapter{JUSTIFICATIVA DA PESQUISA}\label{sec:justificativa}
+
+A relevância deste Trabalho de Conclusão de Curso fundamenta-se na interseção entre a Ciência de Dados, a Ciência da Informação e a Gestão Pública, desdobrando-se nas dimensões social, científica, técnica e prática.
+
+\section{Relevância Social e Prática}\label{sec:relevancia_social}
+
+A consolidação do princípio constitucional da publicidade e os avanços promovidos pela Lei de Acesso à Informação (Lei nº 12.527/2011) garantiram o direito fundamental de acesso aos dados orçamentários do setor público brasileiro. Contudo, a simples publicação de relatórios contábeis extensos e dados brutos nos portais de transparência não assegura, por si só, a efetividade da transparência pública. Na prática, a sociedade civil, jornalistas de dados e a comunidade acadêmica enfrentam o fenômeno da "opacidade por excesso" (\textit{information overload}), no qual o volume massivo e desestruturado de informações impede a compreensão direta sobre como os recursos públicos estão sendo alocados \cite{cavalcanti2014, pereira2025}.
+
+Nesse contexto, a aplicação de técnicas de Ciência de Dados atua como um instrumento de democratização da informação e fortalecimento do controle social. Ao transformar microdados financeiros brutos em representações analíticas compreensíveis e padrões interpretáveis, a pesquisa contribui para reduzir a assimetria de informação entre a administração governamental e o cidadão. Além disso, no âmbito prático da gestão pública, o desenvolvimento de mecanismos abertos de triagem automatizada permite identificar gargalos normativos e padrões atípicos de execução orçamentária, fornecendo subsídios para o aprimoramento da eficiência administrativa e do planejamento de políticas públicas no Estado do Acre.
+
+\section{Relevância Científica e Acadêmica}\label{sec:relevancia_cientifica}
+
+Apesar da expansão de pesquisas dedicadas ao uso de técnicas computacionais e estatísticas na fiscalização de gastos públicos no Brasil, observa-se que a literatura científica nacional concentra suas aplicações predominantemente em dados federais — como o Cartão de Pagamento do Governo Federal (CPGF) e o SICONFI — ou em grandes metrópoles das regiões Sul e Sudeste \cite{cavalcanti2014, nunes2021}. Em contrapartida, o ecossistema de dados abertos dos entes subnacionais da Região Norte, em especial do Estado do Acre, permanece subexplorado pela pesquisa em Ciência de Dados e Sistemas de Informação.
+
+O ineditismo regional desta pesquisa reside justamente na aplicação e validação de um pipeline computacional não supervisionado sobre a base populacional de despesas do Poder Executivo do Estado do Acre. Do ponto de vista científico, o estudo preenche uma lacuna relevante na literatura ao investigar como modelos de detecção de anomalias e testes estatísticos de distribuição comportam-se diante das especificidades orçamentárias, normativas e fornecedoras de uma unidade federativa da Amazônia Sul-Ocidental. Assim, o trabalho amplia a validade externa das metodologias de Ciência de Dados aplicadas à transparência pública, fornecendo um arcabouço metodológico reprodutível e replicável para outros estados com dinâmicas administrativas semelhantes \cite{pereira2025}.
+
+\section{Relevância Técnica e Tecnológica}\label{sec:relevancia_tecnica}
+
+Do ponto de vista tecnológico e computacional, a justificativa deste trabalho assenta-se na superação dos limites impostos pelas abordagens analógicas e amostrais tradicionais de fiscalização. A análise populacional integral — que abrange 100\% dos mais de 429 mil registros do recorte temporal estipulado — garante que nenhum evento atípico seja omitido por viés de seleção ou corte arbitrário de dados, aumentando a confiabilidade da triagem \cite{pereira2025}.
+
+Ademais, a arquitetura metodológica proposta responde a um desafio técnico central na mineração de dados abertos governamentais: a ausência de rótulos prévios (\textit{unlabelled data}). Ao integrar modelos de Aprendizado de Máquina Não Supervisionado (\textit{Isolation Forest}, \textit{Local Outlier Factor} e \textit{DBSCAN}) a testes estatísticos de distribuição (Lei de Benford e $Z$-Score) e técnicas de Processamento de Linguagem Natural (NLP), a pesquisa estabelece um pipeline computacional capaz de identificar anomalias estruturais e isolar falsos positivos decorrentes de regras normativas da administração pública \cite{cavalcanti2014, nunes2021, goldschmidt2005}. Trata-se de uma solução tecnológica reprodutível e orientada à automação do processo de triagem contábil.
+
+\section{Viabilidade da Pesquisa}\label{sec:viabilidade}
+
+A viabilidade técnica, operacional e temporal deste projeto de pesquisa é plenamente assegurada pela conjugação de três fatores fundamentais: a disponibilidade de dados públicos abertos, o uso de ecossistemas computacionais de código aberto (\textit{open-source}) e o avanço prévio do pipeline de dados.
+
+Em primeiro lugar, a garantia de acesso aos microdados é respaldada pela legislação nacional de transparência (Lei nº 12.527/2011), uma vez que a totalidade das informações necessárias provém do Portal da Transparência do Estado do Acre, um ecossistema de dados abertos e de livre acesso que não impõe barreiras legais ou restrições de sigilo à extração de dados orçamentários.
+
+Em segundo lugar, a exequibilidade computacional do trabalho apoia-se no uso da linguagem de programação Python e do seu ecossistema científico especializado (\textit{pandas}, \textit{numpy}, \textit{scikit-learn}, \textit{seaborn} e \textit{networkx}). A opção por bibliotecas abertas e consolidadas elimina a dependência de licenças de software proprietário de alto custo e assegura a transparência e a reprodutibilidade integral do pipeline analítico \cite{pereira2025}.
+
+Por fim, a viabilidade cronológica é corroborada pela fase adiantada de preparação da base de dados. O processo de extração, limpeza e padronização do recorte populacional do Estado do Acre (2020--2025) — englobando mais de 429 mil registros financeiros — já se encontra concluído e validado em ambiente computacional. Esse amadurecimento técnico prévio mitiga riscos operacionais e assegura o cumprimento rigoroso do cronograma acadêmico estipulado para a execução do TCC.
 
 \chapter{FUNDAMENTAÇÃO TEÓRICA}\label{sec:fundamentacao}
 Nesta seção serão abordados alguns conceitos fundamentais para a realização deste trabalho, tais como: 
