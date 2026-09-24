@@ -574,46 +574,6 @@ Em que $S(i) \in \{0, 1\}$ indica a presença ou ausência de sinalização em c
 
 A etapa final do procedimento metodológico consiste na \textbf{validação qualitativa do topo do escore de risco}. As despesas classificadas como de alto risco são submetidas a uma checagem contextual contra o arcabouço normativo governamental (decretos de diárias, tabelas de repasse e contratos públicos), verificando se a atipicidade identificada decorre de uma regra de negócio legítima (falso positivo) ou se constitui uma anomalia operacional que exige apuração pelos órgãos de controle \cite{cavalcanti2014, nunes2021}.
 
-% ----------------------------------------------------------
-% RESULTADOS 
-% ----------------------------------------------------------
-\chapter{RESULTADOS}\label{sec:resultados}
-
-\section{PIPELINE KDD E COBERTURA POPULACIONAL}
-\begin{itemize}
-    \item Processamento automatizado de 100\% da base de dados do Portal da Transparência do Acre via scripts em Python.
-    \item Análise abrangente contemplando mais de 429 mil registros de despesas públicas no período entre 2020 e 2025.
-\end{itemize}
-
-\section{FILTRO ESTATÍSTICO DE BENFORD E Z-SCORE}
-\subsection{Diagnóstico de Falsos Positivos}
-\begin{itemize}
-    \item Detecção de anomalias estatísticas expressivas localizadas nos Dígitos 4 ($Z = +9,97$) e 7 ($Z = +25,66$).
-    \item A análise qualitativa de texto (NLP) revelou que esses picos não representavam fraudes mascaradas.
-    \item Constatou-se a presença de "falsos positivos" causados diretamente por padronizações normativas, especificamente os valores tabelados de diárias civis e militares oriundos do Fundo Penitenciário.
-\end{itemize}
-
-\section{REDES DE GRAFOS E OLIGOPÓLIOS ESTRUTURAIS}
-\begin{itemize}
-    \item Mapeamento de matrizes de co-ocorrência utilizando as bibliotecas \textit{NetworkX} e \textit{PyVis}.
-    \item Evidenciou-se uma altíssima centralização de mercado na administração estadual.
-    \item Identificação de um núcleo reduzido de empresas atuando simultaneamente em até 28 secretarias de estado, viabilizado pelo uso intensivo de Atas de Registro de Preço (prática de "Caronas").
-\end{itemize}
-
-\section{ALGORITMO DE SMURFING E O ESTUDO DE CASO 4HEALTH}
-\begin{itemize}
-    \item O algoritmo de varredura projetado para detectar dispensa de licitação identificou um total de R\$ 12,07 milhões distribuídos em 9 repasses.
-    \item Destinatária dos recursos: 4Health Serviços Médicos Ltda, através do Fundo Estadual de Saúde (FUNDES/SESACRE).
-    \item A inspeção dos históricos contábeis, baseada nos processos SEI e nos Contratos 677/2023 e 862/2024, revelou a prestação continuada de serviços de anestesiologia via dispensa de licitação ao longo de 3 anos consecutivos (2023 a 2025).
-\end{itemize}
-
-\section{DIAGNÓSTICO FORENSE}
-\begin{itemize}
-    \item O modelo analítico demonstrou capacidade robusta de extrapolar a detecção do fracionamento comum de pequeno valor (\textit{smurfing}).
-    \item Exposição de um cenário caracterizado por "emergência fabricada" ou inércia administrativa.
-    \item O contexto anômalo detectado é respaldado pela escassez crônica de médicos anestesiologistas na região e pelos sucessivos decretos de emergência climática emitidos no Acre.
-\end{itemize}
-
 \chapter{CRONOGRAMA}\label{sec:cronograma}
 O processo de escrita desta monografia seguirá o cronograma explicitado no Quadro 1.
 
