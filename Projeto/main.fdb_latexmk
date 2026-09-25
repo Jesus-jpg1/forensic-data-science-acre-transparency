@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex main"] 1790210107.61327 "main.aux" "main.bbl" "main" 1790210113.29276 0
+["bibtex main"] 1790345889.34378 "main.aux" "main.bbl" "main" 1790345897.53402 0
   "./abntex2-alf.bst" 1789853822 60150 114f283331031e72b33b71f76c514223 ""
   "./referencias.bib" 1790195358 4204 6a75ab209f15daa73f4ce47bd79d8978 ""
   "C:/Users/guilh/AppData/Local/Programs/MiKTeX/bibtex/bib/abntex2/abntex2-options.bib" 1543103229 5396 4eb260dac60f150ae608d45252853090 ""
-  "main.aux" 1790210111 37689 92336e5c83330b8cbdf37f87ce5edb64 "pdflatex"
+  "main.aux" 1790345895 38156 04f71f581af1684811eea0a7d6a73dc8 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1790210108.14901 "c:/Users/guilh/forensic-data-science-acre-transparency/Projeto/main.tex" "main.pdf" "main" 1790210113.29363 0
+["pdflatex"] 1790345889.96199 "c:/Users/guilh/forensic-data-science-acre-transparency/Projeto/main.tex" "main.pdf" "main" 1790345897.53614 0
   "C:/Users/guilh/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1789954625 82507 a9eef8696c92627b87e9975edea03b2a ""
   "C:/Users/guilh/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs10.tfm" 1790194476 688 37338d6ab346c2f1466b29e195316aa4 ""
   "C:/Users/guilh/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1789844928 13333528 9cc26080e4a3aef9a300fb8de79ed79b ""
@@ -296,14 +296,15 @@
   "C:/Users/guilh/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/guilh/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
   "C:/Users/guilh/AppData/Local/Programs/MiKTeX/tex/latex/xpatch/xpatch.sty" 1585221260 8510 7803f78066c4f9d008405191a4b43073 ""
-  "brasaoufac.png" 1789773269 234135 1bba90a765826bdb71c98afb8815e3ea ""
-  "c:/Users/guilh/forensic-data-science-acre-transparency/Projeto/main.tex" 1790210100 67469 dcde301f11e651f6e806ced69de8d3f6 ""
-  "main.aux" 1790210111 37689 92336e5c83330b8cbdf37f87ce5edb64 "pdflatex"
-  "main.bbl" 1790210108 4291 bf6358a451c9b891435b4f15d259c30f "bibtex main"
-  "main.lof" 1790210111 29 9a4c7bc9daf7936d0a55d1536c7c4aff "pdflatex"
-  "main.loq" 1790210111 108 372b2c83ef38e3d5153512d08ab6e88e "pdflatex"
-  "main.tex" 1790210100 67469 dcde301f11e651f6e806ced69de8d3f6 ""
-  "main.toc" 1790210111 4260 05a2daf26fd2c81d87c4fe987dadc8f7 "pdflatex"
+  "c:/Users/guilh/forensic-data-science-acre-transparency/Projeto/main.tex" 1790345869 69737 1c7aef25dd8fb5719365810179667ac8 ""
+  "figures/PTGV.png" 1790280161 91798 2d476b5fc441c39900a8ac28881e907e ""
+  "figures/brasaoufac.png" 1789773269 234135 1bba90a765826bdb71c98afb8815e3ea ""
+  "main.aux" 1790345895 38156 04f71f581af1684811eea0a7d6a73dc8 "pdflatex"
+  "main.bbl" 1790345889 4291 bf6358a451c9b891435b4f15d259c30f "bibtex main"
+  "main.lof" 1790345895 221 2a843192f2c74653bf0f3e6a22e59e28 "pdflatex"
+  "main.loq" 1790345895 108 11881b0457c2c35d14b2a313ca445392 "pdflatex"
+  "main.tex" 1790345869 69737 1c7aef25dd8fb5719365810179667ac8 ""
+  "main.toc" 1790345895 4260 3a1feb746bf229d0f0fd5b493cda9a09 "pdflatex"
   (generated)
   "main.aux"
   "main.lof"

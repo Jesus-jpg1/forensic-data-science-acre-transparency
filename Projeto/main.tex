@@ -30,6 +30,7 @@
 \usepackage[utf8]{inputenc}     % Codificação do documento (conversão automática dos acentos)
 \usepackage{indentfirst}        % Indenta o primeiro parágrafo de cada seção
 \usepackage{graphicx}           % Inclusão de gráficos e figuras
+\graphicspath{{figures/}}       % Diretório padrão para imagens do projeto
 \usepackage{booktabs}           % \toprule, \midrule e \bottomrule para tabelas
 \usepackage{pgfgantt}           % para usar o gráfico de gant
 
@@ -199,6 +200,24 @@ A garantia da transparência pública e o fortalecimento do controle social no B
     \item \textbf{Complexidade Normativa e Falsos Positivos:} O uso isolado de testes estatísticos pode gerar falsos positivos ao identificar concentrações de pagamentos perfeitamente legítimos, mas tabelados por decretos (como diárias e auxílios operacionais). A superação desse gargalo exige a integração de técnicas de Processamento de Linguagem Natural (NLP) sobre os históricos contábeis para contextualizar o texto livre das despesas \cite{cavalcanti2014};
     \item \textbf{Ineditismo e Lacuna de Pesquisa na Região Acreana:} A literatura nacional sobre Ciência de Dados e transparência pública concentra suas aplicações predominantemente na esfera federal ou em estados do Sul e Sudeste \cite{cavalcanti2014, nunes2021}. O levantamento exploratório confirma a escassez de estudos computacionais dedicados à infraestrutura e aos microdados do Portal da Transparência do Estado do Acre, evidenciando uma lacuna científica regional que justifica a realização deste estudo de caso.
 \end{enumerate}
+Um dos principais obstáculos para o controle social moderno reside no fenômeno denominado na literatura como \textbf{"Opacidade por Excesso"} (\textit{Information Overload}). Diferentemente do cenário histórico de escassez ou sigilo de dados públicos, o cenário contemporâneo é marcado pela publicação de tabelas com centenas de milhares de registros tabulares sem qualquer tipo de agregação analítica ou filtragem preditiva de risco \cite{cavalcanti2014, nunes2021}. A Figura \ref{fig:portal_transparencia_excesso} exemplifica essa problemática a partir da interface de consulta do Portal da Transparência.
+
+\begin{figure}[htbp]
+    \centering
+    \IfFileExists{figures/PTGV.png}{
+        \includegraphics[width=0.95\textwidth]{PTGV.png}
+    }{%
+        \fbox{\parbox[c][3cm][c]{0.8\textwidth}{\centering \textbf{Imagem PTGV.png}\newline\small{arquivo ainda não adicionado em figures/}}}
+    }
+    \caption{Interface do Portal da Transparência evidenciando a disponibilização de microdados brutos de despesas governamentais.}
+    \label{fig:portal_transparencia_excesso}
+    \fonte{Portal da Transparência do Governo (2026).}
+\end{figure}
+
+Como observado na Figura \ref{fig:portal_transparencia_excesso}, a consulta disponibiliza milhares de linhas contendo códigos orçamentários, favorecidos e históricos contábeis preenchidos em texto livre. Para um cidadão ou analista humano, a tentativa de identificar manualmente fracionamentos ilícitos de licitação (\textit{smurfing}), superfaturamentos ou concentrações de mercado em uma base com mais de 429 mil registros (como no caso do Estado do Acre entre 2020 e 2025) torna-se uma tarefa operacionalmente inviável.
+
+Nesse contexto, justifica-se a aplicação da \textbf{Ciência de Dados Forense} e do aprendizado de máquina não supervisionado. Em vez de exigir que o usuário navegue manualmente por tabelas extensas, a construção de um pipeline computacional automatizado atua como uma camada de inteligência analítica, capaz de triar a base populacional integral, reduzir o universo amostral de risco e apresentar sinalizadores preditivos (\textit{red flags}) para priorizar a investigação humana.
+
 Diante dessa problemática, formula-se a seguinte \textbf{Pergunta de Pesquisa} que orienta este trabalho:\begin{quote}
 \textit{Em que medida a aplicação de um pipeline de Ciência de Dados baseado em Aprendizado Não Supervisionado (\textit{Isolation Forest}, \textit{Local Outlier Factor} e \textit{DBSCAN}), testes estatísticos descritivos (Lei de Benford e $Z$-Score) e Processamento de Linguagem Natural permite identificar, filtrar e interpretar anomalias e padrões socioadministrativos nos microdados abertos do Portal da Transparência do Estado do Acre (2020--2025), sem a necessidade de dados previamente rotulados?}
 \end{quote}
