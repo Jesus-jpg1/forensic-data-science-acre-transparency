@@ -684,6 +684,56 @@ O processo de escrita desta monografia seguirá o cronograma explicitado no Quad
     \fonte{Elaboração própria.}
 \end{quadro}
 
+\chapter{ESBOÇO DOS CAPÍTULOS E SEÇÕES}\label{sec:esboco_capitulos}
+A monografia final resultante deste projeto de pesquisa será estruturada em cinco capítulos principais, organizados de forma lógica e sequencial para apresentar o desenvolvimento da esteira de Ciência de Dados Forense e a análise dos microdados de despesas públicas do Estado do Acre. O esboço da estrutura do trabalho definitivo é apresentado a seguir:
+
+\begin{enumerate}
+    \item \textbf{INTRODUÇÃO}
+    \begin{itemize}
+        \item \textbf{1.1. Problema da Pesquisa:} Apresentação do gargalo da fiscalização tradicional por amostragem e o fenômeno da opacidade por excesso nos portais de transparência.
+        \item \textbf{1.2. Objetivos:}
+        \begin{itemize}
+            \item \textbf{1.2.1. Geral:} Proposição e validação do pipeline computacional automatizado para auditoria contínua de despesas públicas.
+            \item \textbf{1.2.2. Específicos:} Etapas detalhadas da coleta populacional, pré-processamento, filtragem estatística, aprendizado não supervisionado, NLP e redes complexas.
+        \end{itemize}
+        \item \textbf{1.3. Justificativa:} Relevância social, científica e tecnológica do estudo, destacando o ineditismo da análise populacional no Estado do Acre.
+        \item \textbf{1.4. Metodologia Resumida:} Síntese da abordagem quantitativa aplicada e do ecossistema computacional em Python.
+        \item \textbf{1.5. Organização do Trabalho:} Descrição da estrutura geral e encadeamento dos capítulos do documento.
+    \end{itemize}
+    \item \textbf{FUNDAMENTAÇÃO TEÓRICA}
+    \begin{itemize}
+        \item \textbf{2.1. Transparência Pública, Dados Abertos e Controle Social:} Evolução normativa (LRF, LAI) e o desafio da \textit{Information Overload}.
+        \item \textbf{2.2. O Processo KDD e a Análise Populacional:} O ciclo de descoberta de conhecimento em bases de dados e a transição da amostragem para a análise de 100\% dos registros.
+        \item \textbf{2.3. Filtros Estatísticos de Distribuição:} Fundamentos da Lei de Newcomb-Benford, Teste Qui-Quadrado ($\chi^2$) e o $Z$-Score.
+        \item \textbf{2.4. Aprendizado de Máquina Não Supervisionado:} Funcionamento dos algoritmos \textit{Isolation Forest} (ISO) e \textit{Local Outlier Factor} (LOF).
+        \item \textbf{2.5. Mineração de Texto em Históricos Contábeis:} Vetorização TF-IDF e agrupamento denso via DBSCAN para filtragem contextual de falsos positivos.
+        \item \textbf{2.6. Trabalhos Relacionados:} Mapeamento do estado da arte e lacunas na literatura nacional.
+    \end{itemize}
+    \item \textbf{PROCEDIMENTOS METODOLÓGICOS}
+    \begin{itemize}
+        \item \textbf{3.1. Caracterização da Pesquisa:} Classificação metodológica (pesquisa aplicada, quantitativa e estudo de caso).
+        \item \textbf{3.2. Fonte de Dados, Recorte Populacional e Atributos:} Caracterização da base populacional do Estado do Acre (2020--2025, +429 mil registros) e dicionário de variáveis.
+        \item \textbf{3.3. A Esteira de Processamento de Dados (Pipeline KDD):} Detalhamento das rotinas de limpeza, engenharia de atributos e parametrização dos modelos em Python.
+        \item \textbf{3.4. Análise de Redes Complexas e Topologia de Grafos:} Modelagem bipartida e métricas de centralidade via \texttt{NetworkX}.
+        \item \textbf{3.5. Ambiente Computacional e Ferramentas:} Mapeamento do ecossistema de software livre e bibliotecas especializadas.
+        \item \textbf{3.6. Escore Integrado de Risco e Validação dos Resultados:} Formulação da matriz de concordância multialgorítmica e auditoria de falsos positivos.
+    \end{itemize}
+    \item \textbf{RESULTADOS E DISCUSSÃO}
+    \begin{itemize}
+        \item \textbf{4.1. Análise Exploratória e Diagnóstico Populacional:} Mapeamento quantitativo e temporal da execução orçamentária do Estado do Acre.
+        \item \textbf{4.2. Triagem Estatística Descritiva:} Resultados da aderência à Lei de Benford, testes $\chi^2$ e identificação de picos de $Z$-Score.
+        \item \textbf{4.3. Detecção por Aprendizado Não Supervisionado:} Mapeamento de anomalias globais (ISO) e locais de densidade (LOF).
+        \item \textbf{4.4. Agrupamento Semântico e Filtro de Falsos Positivos:} Resultados do TF-IDF/DBSCAN no isolamento de despesas normativas tabeladas (diárias e auxílios).
+        \item \textbf{4.5. Estrutura de Redes e Oligopólios:} Projeção de grafos de fornecedores e diagnóstico do uso de Atas de Registro de Preço.
+        \item \textbf{4.6. Desempenho do Escore Integrado de Risco:} Validação do ranking final de \textit{red flags} para suporte à decisão auditiva.
+    \end{itemize}
+    \item \textbf{CONSIDERAÇÕES FINAIS}
+    \begin{itemize}
+        \item \textbf{5.1. Contribuições do Estudo:} Impactos práticos para os órgãos de controle e avanços científicos para a Ciência de Dados Cívica.
+        \item \textbf{5.2. Limitações da Pesquisa:} Restrições da base de dados abertos (como ausência de metadados de quantidade e unidade) e desafios de infraestrutura.
+        \item \textbf{5.3. Trabalhos Futuros:} Propostas de expansão do modelo (integração de chamadas de API do CNPJ/RFB e modelos de LLM para análise textual).
+    \end{itemize}
+\end{enumerate}
 
 % ----------------------------------------------------------
 % ELEMENTOS PÓS-TEXTUAIS
