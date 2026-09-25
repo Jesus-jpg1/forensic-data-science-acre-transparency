@@ -194,6 +194,70 @@ A crescente digitalização da administração pública e a consolidação dos p
 \end{enumerate}
 Dessa forma, esta pesquisa contribui para a literatura de Ciência de Dados Aplicada ao demonstrar como técnicas computacionais não supervisionadas podem servir como instrumentos de inteligência institucional, revelando dinâmicas organizacionais, gargalos normativos e padrões de alocação de recursos no Estado do Acre.
 
+A transparência na administração pública brasileira passou por avanços institucionais significativos nas últimas décadas, impulsionada por marcos regulatórios fundamentais como a Lei de Responsabilidade Fiscal (Lei Complementar nº 101/2000) e a Lei de Acesso à Informação (Lei nº 12.527/2011 -- LAI). A promulgação dessas legislações consolidou o paradigma da transparência ativa, obrigando os órgãos governamentais de todas as esferas federativas a disponibilizarem, em meio eletrônico de amplo acesso público, dados em tempo real sobre a execução orçamentária e financeira do Estado.
+
+Entretanto, a simples disponibilização bruta de microdados orçamentários nos portais de transparência não assegura, por si só, a efetividade do controle social e da fiscalização contábil. Na prática, a sociedade civil, jornalistas de dados e até mesmo auditores de órgãos de controle enfrentam o desafio da opacidade administrativa derivada do volume e da desestruturação das informações disponibilizadas.
+
+\section{Estrutura do Pipeline Analítico}\label{sec:estrutura_pipeline}
+
+Para superar os gargalos da fiscalização analógica e converter grandes massas de dados orçamentários em inteligência fiscal, este trabalho propõe um pipeline computacional estruturado nas etapas do processo de Descoberta de Conhecimento em Bases de Dados (\textit{Knowledge Discovery in Databases} -- KDD). A Figura \ref{fig:fluxograma_kdd} ilustra a arquitetura geral do fluxo de processamento analítico desenvolvido.
+
+\begin{figure}[htbp]
+    \centering
+    \caption{Fluxograma geral da esteira de Ciência de Dados Forense baseada no ciclo KDD.}
+    \label{fig:fluxograma_kdd}
+    \begin{tikzpicture}[
+        node distance=0.6cm and 1.0cm,
+        box/.style={
+            rectangle,
+            draw=black!75,
+            fill=blue!5,
+            thick,
+            rounded corners=3pt,
+            align=center,
+            font=\small\sffamily,
+            minimum width=12cm,
+            minimum height=0.8cm
+        },
+        boxfinal/.style={
+            rectangle,
+            draw=orange!80!black,
+            fill=orange!10,
+            thick,
+            rounded corners=3pt,
+            align=center,
+            font=\small\sffamily,
+            minimum width=12cm,
+            minimum height=0.8cm
+        },
+        arrow/.style={
+            -{Stealth[scale=1.1]},
+            thick,
+            draw=black!70
+        }
+    ]
+        \node (fase1) [box] {\textbf{1. Entendimento do Negócio e do Domínio} \\ {\footnotesize Mapeamento das regras de despesa pública, normas da LAI e gargalos de fiscalização}};
+        \node (fase2) [box, below=of fase1] {\textbf{2. Coleta e Ingestão dos Microdados} \\ {\footnotesize Extração populacional integral do Portal do Acre (2020--2025, +429 mil registros)}};
+        \node (fase3) [box, below=of fase2] {\textbf{3. Análise Exploratória de Dados (EDA)} \\ {\footnotesize Mapeamento de volume por órgão, qualidade de atributos e consistência das séries}};
+        \node (fase4) [box, below=of fase3] {\textbf{4. Pré-processamento e Higienização (KDD)} \\ {\footnotesize Tratamento de nulos/estornos, normalização cadastral e extração do $1^{\circ}$ Dígito}};
+        \node (fase5) [box, below=of fase4] {\textbf{5. Triagem Estatística Descritiva} \\ {\footnotesize Lei de Newcomb-Benford, Teste Qui-Quadrado ($\chi^2$) e desvios por $Z$-Score}};
+        \node (fase6) [box, below=of fase5] {\textbf{6. Modelagem Não Supervisionada, NLP e Redes} \\ {\footnotesize Isolation Forest, LOF, TF-IDF + DBSCAN e Grafos Bipartidos (NetworkX)}};
+        \node (fase7) [boxfinal, below=of fase6] {\textbf{7. Interpretação de Anomalias e Geração de Conhecimento} \\ {\footnotesize Conversão de insights em informação e compreensão dos fenômenos sociais e normativos}};
+
+        \draw [arrow] (fase1) -- (fase2);
+        \draw [arrow] (fase2) -- (fase3);
+        \draw [arrow] (fase3) -- (fase4);
+        \draw [arrow] (fase4) -- (fase5);
+        \draw [arrow] (fase5) -- (fase6);
+        \draw [arrow] (fase6) -- (fase7);
+    \end{tikzpicture}
+    \fonte{Elaborado pelo autor (2026).}
+\end{figure}
+
+A execução da esteira inicia-se pela compreensão das normas de execução orçamentária do setor público (Fase 1), seguida da coleta da totalidade dos microdados de despesa do Estado do Acre no período de 2020 a 2025 (Fase 2). Após a verificação exploratória de consistência (Fase 3) e o pré-processamento para limpeza de ruídos e extração de atributos numéricos (Fase 4), os dados passam pela filtragem estatística paramétrica da Lei de Benford e do $Z$-Score (Fase 5).
+
+Na sequência, aplicam-se modelos não supervisionados de isolamento e densidade (\textit{Isolation Forest} e LOF), técnicas de mineração de texto (TF-IDF e DBSCAN) e modelagem de redes complexas para identificar atipicidades quantitativas, semânticas e relacionais (Fase 6). Por fim, a Fase 7 dedica-se à conversão dos outputs algorítmicos em conhecimento estruturado, promovendo a interpretação contextual dos resultados para compreender os fenômenos sociais, econômicos e normativos subjacentes às anomalias detectadas.
+
 \chapter{PROBLEMA DA PESQUISA}\label{sec:problema}
 A garantia da transparência pública e o fortalecimento do controle social no Brasil foram impulsionados pela promulgação da Lei de Acesso à Informação (Lei nº 12.527/2011) e pela Lei de Responsabilidade Fiscal (Lei Complementar nº 101/2000). Esses marcos normativos obrigaram os entes federativos a disponibilizarem, em meios eletrônicos, informações detalhadas sobre a execução orçamentária em tempo real. No entanto, os portais de transparência governamentais abrigam bases dinâmicas com milhões de lançamentos contínuos acumulados ao longo dos anos. Essa escala massiva frequentemente resulta no fenômeno da "opacidade por excesso" (\textit{information overload}), no qual a simples publicação bruta de dados não estruturados cria barreiras para a interpretação pública \cite{cavalcanti2014, pereira2025}. No âmbito do controle institucional, órgãos formais como a Controladoria-Geral da União (CGU) e os Tribunais de Contas Estaduais (TCE) dispõem de auditores especializados e sistemas proprietários de inteligência para fiscalização interna. Contudo, essas ferramentas restritas não estão acessíveis à sociedade civil, a jornalistas de dados e à comunidade acadêmica, que dependem exclusivamente dos microdados abertos publicados nos portais. Para este público, a análise manual de bases massivas mostra-se inviável, demandando metodologias abertas de Ciência de Dados para a automação da triagem e extração de conhecimento \cite{nunes2021}. No contexto da pesquisa \textbf{"Ciência de Dados Aplicada na Detecção de Anomalias em Portais de Transparência: Um Estudo de Caso do Governo do Estado do Acre"}, a análise foca no recorte populacional de mais de 429 mil registros financeiros referentes ao período de 2020 a 2025. A partir desse ecossistema de dados abertos, emergem desafios centrais de Ciência de Dados e Aprendizado de Máquina (\textit{Machine Learning}):\begin{enumerate}
     \item \textbf{Ausência de Rotulagem (\textit{Unlabelled Data}):} Os dados abertos dos portais de transparência não possuem rotulação prévia (\textit{ground truth}) que identifique empenhos normais ou anômalos. A inexistência de um gabarito inviabiliza o uso direto de modelos supervisionados (como SVM e Árvores de Decisão), exigindo o emprego de algoritmos de \textbf{Aprendizado Não Supervisionado} (\textit{Isolation Forest} -- ISO, \textit{Local Outlier Factor} -- LOF e \textit{DBSCAN}) aliados a testes de distribuição estatística (Lei de Benford e $Z$-Score) \cite{nunes2021, goldschmidt2005};
