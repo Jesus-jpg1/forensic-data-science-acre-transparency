@@ -20,12 +20,12 @@
 \contentsline {section}{\numberline {5.5}Mineração de Texto em Históricos Contábeis (NLP e DBSCAN)}{20}{section.5.5}%
 \contentsline {section}{\numberline {5.6}Trabalhos Relacionados}{21}{section.5.6}%
 \contentsline {chapter}{\chapternumberline {6}PROCEDIMENTOS METODOLÓGICOS}{23}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Estrutura do Pipeline Analítico}{23}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Caracterização da Pesquisa}{24}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Fonte de Dados, Recorte Populacional e Atributos}{25}{section.6.3}%
-\contentsline {subsection}{\numberline {6.3.1}Origem e Acesso aos Dados}{25}{subsection.6.3.1}%
-\contentsline {subsection}{\numberline {6.3.2}Recorte Populacional e Temporal}{25}{subsection.6.3.2}%
-\contentsline {subsection}{\numberline {6.3.3}Dicionário de Atributos e Seleção de Variáveis}{26}{subsection.6.3.3}%
+\contentsline {section}{\numberline {6.1}Caracterização da Pesquisa}{23}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Fonte de Dados, Recorte Populacional e Atributos}{23}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Origem e Acesso aos Dados}{24}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}Recorte Populacional e Temporal}{24}{subsection.6.2.2}%
+\contentsline {subsection}{\numberline {6.2.3}Dicionário de Atributos e Seleção de Variáveis}{24}{subsection.6.2.3}%
+\contentsline {section}{\numberline {6.3}Estrutura do Pipeline Analítico}{24}{section.6.3}%
 \contentsline {section}{\numberline {6.4}A Esteira de Processamento de Dados (Pipeline KDD)}{26}{section.6.4}%
 \contentsline {subsection}{\numberline {6.4.1}Pré-processamento e Higienização de Dados (\textit {Data Cleaning})}{27}{subsection.6.4.1}%
 \contentsline {subsection}{\numberline {6.4.2}Engenharia de Atributos (\textit {Feature Engineering})}{27}{subsection.6.4.2}%

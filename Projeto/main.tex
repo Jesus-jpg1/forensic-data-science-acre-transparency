@@ -412,6 +412,56 @@ A despeito desse panorama consolidado, constata-se uma lacuna no que tange à in
 
 Neste capítulo, apresentam-se os procedimentos metodológicos, a caracterização da pesquisa, o ambiente computacional, as fontes de dados e o detalhamento do pipeline de Ciência de Dados desenvolvido para a execução do estudo de caso no Governo do Estado do Acre.
 
+\section{Caracterização da Pesquisa}\label{sec:caracterizacao_pesquisa}
+
+A condução deste trabalho fundamenta-se nas diretrizes da metodologia científica aplicada aos Sistemas de Informação e à Ciência de Dados, sendo classificada segundo quatro dimensões principais:
+
+\begin{enumerate}
+    \item \textbf{Quanto à Natureza:} Classifica-se como uma \textbf{pesquisa aplicada}, pois visa produzir conhecimento direcionado à solução de um problema prático e concreto da gestão pública: a automação da triagem de despesas atípicas e a mitigação da "opacidade por excesso" nos dados abertos governamentais \cite{cavalcanti2014, pereira2025};
+
+    \item \textbf{Quanto à Abordagem do Problema:} Trata-se de uma \textbf{pesquisa quantitativa e computacional}. A análise apoia-se na extração de métricas numéricas, testes estatísticos de aderência (Lei de Benford, $Z$-Score e Qui-Quadrado) e algoritmos de Aprendizado de Máquina Não Supervisionado para o mapeamento de anomalias sobre bases de dados estruturadas \cite{goldschmidt2005, nunes2021};
+
+    \item \textbf{Quanto aos Objetivos:} Caracteriza-se como uma \textbf{pesquisa exploratória e descritiva}. Exploratória ao investigar padrões não rotulados nos microdados orçamentários do Estado do Acre, e descritiva ao caracterizar detalhadamente a distribuição temporal, institucional e categórica das despesas e dos desvios identificados;
+
+    \item \textbf{Quanto aos Procedimentos Análiticos:} Configura-se como um \textbf{estudo de caso computacional}, focado na infraestrutura de dados abertos e na execução orçamentária do Poder Executivo do Estado do Acre no período de 2020 a 2025.
+\end{enumerate}
+
+\section{Fonte de Dados, Recorte Populacional e Atributos}\label{sec:fonte_dados_atributos}
+
+A execução do estudo de caso fundamenta-se na extração e estruturação dos microdados financeiros abertos disponibilizados pelo Poder Executivo do Estado do Acre, por meio do seu Portal da Transparência.
+
+\subsection{Origem e Acesso aos Dados}\label{subsec:origem_dados}
+
+Os dados foram obtidos via requisições diretas e rotinas de \textit{web scraping}/ingestão de arquivos tabulares disponibilizados publicamente pela Controladoria-Geral do Estado do Acre (CGE-AC). Por se tratar de uma base de dados abertos governamentais submetida aos ditames da Lei de Acesso à Informação (Lei nº 12.527/2011), o acesso não exige credenciais restritas nem autorizações éticas específicas, garantindo a reprodutibilidade integral da coleta por órgãos de controle ou pela comunidade acadêmica.
+
+\subsection{Recorte Populacional e Temporal}\label{subsec:recorte_populacional}
+
+Diferentemente de abordagens auditivas convencionais que operam por amostragem probabilística ou seletiva, este trabalho adota o princípio da \textbf{Análise Populacional Integral}. O recorte temporal estipulado abrange os exercícios orçamentários de \textbf{2020 a 2025}, compreendendo um volume superior a \textbf{429 mil registros financeiros} (fases de empenho, liquidação e pagamento). Essa delimitação de 6 anos permite capturar ciclos orçamentários completos, incluindo períodos atípicos de gastos emergenciais (como o contexto da pandemia da COVID-19) e transições de gestão administrativa na esfera estadual.
+
+\subsection{Dicionário de Atributos e Seleção de Variáveis}\label{subsec:dicionario_attributos}
+
+Os microdados originais contêm múltiplas variáveis de natureza orçamentária, financeira e cadastral. Para a construção da esteira analítica e modelagem de anomalias, selecionou-se um conjunto prioritário de atributos, categorizados no Quadro \ref{tab:atributos_dados}:
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Dicionário de atributos selecionados da base de despesas públicas do Estado do Acre.}
+\label{tab:atributos_dados}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|p{3.5cm}|p{3.2cm}|p{4.0cm}|p{4.5cm}|}
+\hline
+\textbf{Categoria} & \textbf{Nome da Variável} & \textbf{Tipo de Dado} & \textbf{Descrição e Aplicação no Pipeline} \\ \hline
+\textbf{Financeira} & \texttt{valor\_empenho} / \texttt{valor\_pago} & Numérico Contínuo (\textit{float}) & Montante financeiro da transação. Base para extração do primeiro dígito (Benford), $Z$-Score e Isolation Forest. \\ \hline
+\textbf{Temporal} & \texttt{data\_emissao} / \texttt{exercicio} & Temporal (\textit{datetime}) / Inteiro & Data e ano do registro contábil. Permite análise de evolução temporal, sazonalidade e frequência de empenhos. \\ \hline
+\textbf{Institucional} & \texttt{orgao\_codigo} / \texttt{orgao\_nome} & Categórico (\textit{string}) & Identificação da Secretaria ou Órgão Estadual responsável pelo gasto. Utilizado em agrupamentos e no algoritmo LOF. \\ \hline
+\textbf{Cadastral} & \texttt{cpf\_cnpj\_credor} / \texttt{credor\_nome} & Categórico (\textit{string}) & Registro de identificação do fornecedor/favorecido. Base para grafos de rede, identificação de oligopólios e concentração. \\ \hline
+\textbf{Categorização} & \texttt{elemento\_despesa} / \texttt{modalidade} & Categórico (\textit{string}) & Classificação orçamentária da despesa e modalidade de licitação. Essencial para isolar falsos positivos de diárias e auxílios. \\ \hline
+\textbf{Textual} & \texttt{historico\_empenho} & Texto Livre (\textit{string}) & Descrição textual da finalidade do gasto. Processado via NLP (TF-IDF) e agrupado por densidade via DBSCAN. \\ \hline
+\end{tabular}%
+}
+\fonte{Elaborado pelo autor com base nos dados do Portal da Transparência do Estado do Acre (2026).}
+\end{table}
+
 \section{Estrutura do Pipeline Analítico}\label{sec:estrutura_pipeline}
 
 Para a fase de execução e implementação da proposta, a metodologia do trabalho integrará os seguintes pilares analíticos:\begin{enumerate}
@@ -479,56 +529,6 @@ Para superar os gargalos da fiscalização analógica e converter grandes massas
 A execução da esteira inicia-se pela compreensão das normas de execução orçamentária do setor público (Fase 1), seguida da coleta da totalidade dos microdados de despesa do Estado do Acre no período de 2020 a 2025 (Fase 2). Após a verificação exploratória de consistência (Fase 3) e o pré-processamento para limpeza de ruídos e extração de atributos numéricos (Fase 4), os dados passam pela filtragem estatística paramétrica da Lei de Benford e do $Z$-Score (Fase 5).
 
 Na sequência, aplicam-se modelos não supervisionados de isolamento e densidade (\textit{Isolation Forest} e LOF), técnicas de mineração de texto (TF-IDF e DBSCAN) e modelagem de redes complexas para identificar atipicidades quantitativas, semânticas e relacionais (Fase 6). Por fim, a Fase 7 dedica-se à conversão dos outputs algorítmicos em conhecimento estruturado, promovendo a interpretação contextual dos resultados para compreender os fenômenos sociais, econômicos e normativos subjacentes às anomalias detectadas.
-
-\section{Caracterização da Pesquisa}\label{sec:caracterizacao_pesquisa}
-
-A condução deste trabalho fundamenta-se nas diretrizes da metodologia científica aplicada aos Sistemas de Informação e à Ciência de Dados, sendo classificada segundo quatro dimensões principais:
-
-\begin{enumerate}
-    \item \textbf{Quanto à Natureza:} Classifica-se como uma \textbf{pesquisa aplicada}, pois visa produzir conhecimento direcionado à solução de um problema prático e concreto da gestão pública: a automação da triagem de despesas atípicas e a mitigação da "opacidade por excesso" nos dados abertos governamentais \cite{cavalcanti2014, pereira2025};
-
-    \item \textbf{Quanto à Abordagem do Problema:} Trata-se de uma \textbf{pesquisa quantitativa e computacional}. A análise apoia-se na extração de métricas numéricas, testes estatísticos de aderência (Lei de Benford, $Z$-Score e Qui-Quadrado) e algoritmos de Aprendizado de Máquina Não Supervisionado para o mapeamento de anomalias sobre bases de dados estruturadas \cite{goldschmidt2005, nunes2021};
-
-    \item \textbf{Quanto aos Objetivos:} Caracteriza-se como uma \textbf{pesquisa exploratória e descritiva}. Exploratória ao investigar padrões não rotulados nos microdados orçamentários do Estado do Acre, e descritiva ao caracterizar detalhadamente a distribuição temporal, institucional e categórica das despesas e dos desvios identificados;
-
-    \item \textbf{Quanto aos Procedimentos Análiticos:} Configura-se como um \textbf{estudo de caso computacional}, focado na infraestrutura de dados abertos e na execução orçamentária do Poder Executivo do Estado do Acre no período de 2020 a 2025.
-\end{enumerate}
-
-\section{Fonte de Dados, Recorte Populacional e Atributos}\label{sec:fonte_dados_atributos}
-
-A execução do estudo de caso fundamenta-se na extração e estruturação dos microdados financeiros abertos disponibilizados pelo Poder Executivo do Estado do Acre, por meio do seu Portal da Transparência.
-
-\subsection{Origem e Acesso aos Dados}\label{subsec:origem_dados}
-
-Os dados foram obtidos via requisições diretas e rotinas de \textit{web scraping}/ingestão de arquivos tabulares disponibilizados publicamente pela Controladoria-Geral do Estado do Acre (CGE-AC). Por se tratar de uma base de dados abertos governamentais submetida aos ditames da Lei de Acesso à Informação (Lei nº 12.527/2011), o acesso não exige credenciais restritas nem autorizações éticas específicas, garantindo a reprodutibilidade integral da coleta por órgãos de controle ou pela comunidade acadêmica.
-
-\subsection{Recorte Populacional e Temporal}\label{subsec:recorte_populacional}
-
-Diferentemente de abordagens auditivas convencionais que operam por amostragem probabilística ou seletiva, este trabalho adota o princípio da \textbf{Análise Populacional Integral}. O recorte temporal estipulado abrange os exercícios orçamentários de \textbf{2020 a 2025}, compreendendo um volume superior a \textbf{429 mil registros financeiros} (fases de empenho, liquidação e pagamento). Essa delimitação de 6 anos permite capturar ciclos orçamentários completos, incluindo períodos atípicos de gastos emergenciais (como o contexto da pandemia da COVID-19) e transições de gestão administrativa na esfera estadual.
-
-\subsection{Dicionário de Atributos e Seleção de Variáveis}\label{subsec:dicionario_attributos}
-
-Os microdados originais contêm múltiplas variáveis de natureza orçamentária, financeira e cadastral. Para a construção da esteira analítica e modelagem de anomalias, selecionou-se um conjunto prioritário de atributos, categorizados no Quadro \ref{tab:atributos_dados}:
-
-\begin{table}[htbp]
-\centering
-\small
-\caption{Dicionário de atributos selecionados da base de despesas públicas do Estado do Acre.}
-\label{tab:atributos_dados}
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{|p{3.5cm}|p{3.2cm}|p{4.0cm}|p{4.5cm}|}
-\hline
-\textbf{Categoria} & \textbf{Nome da Variável} & \textbf{Tipo de Dado} & \textbf{Descrição e Aplicação no Pipeline} \\ \hline
-\textbf{Financeira} & \texttt{valor\_empenho} / \texttt{valor\_pago} & Numérico Contínuo (\textit{float}) & Montante financeiro da transação. Base para extração do primeiro dígito (Benford), $Z$-Score e Isolation Forest. \\ \hline
-\textbf{Temporal} & \texttt{data\_emissao} / \texttt{exercicio} & Temporal (\textit{datetime}) / Inteiro & Data e ano do registro contábil. Permite análise de evolução temporal, sazonalidade e frequência de empenhos. \\ \hline
-\textbf{Institucional} & \texttt{orgao\_codigo} / \texttt{orgao\_nome} & Categórico (\textit{string}) & Identificação da Secretaria ou Órgão Estadual responsável pelo gasto. Utilizado em agrupamentos e no algoritmo LOF. \\ \hline
-\textbf{Cadastral} & \texttt{cpf\_cnpj\_credor} / \texttt{credor\_nome} & Categórico (\textit{string}) & Registro de identificação do fornecedor/favorecido. Base para grafos de rede, identificação de oligopólios e concentração. \\ \hline
-\textbf{Categorização} & \texttt{elemento\_despesa} / \texttt{modalidade} & Categórico (\textit{string}) & Classificação orçamentária da despesa e modalidade de licitação. Essencial para isolar falsos positivos de diárias e auxílios. \\ \hline
-\textbf{Textual} & \texttt{historico\_empenho} & Texto Livre (\textit{string}) & Descrição textual da finalidade do gasto. Processado via NLP (TF-IDF) e agrupado por densidade via DBSCAN. \\ \hline
-\end{tabular}%
-}
-\fonte{Elaborado pelo autor com base nos dados do Portal da Transparência do Estado do Acre (2026).}
-\end{table}
 
 \section{A Esteira de Processamento de Dados (Pipeline KDD)}\label{sec:pipeline_kdd}
 
@@ -655,30 +655,27 @@ Em que $S(i) \in \{0, 1\}$ indica a presença ou ausência de sinalização em c
 A etapa final do procedimento metodológico consiste na \textbf{validação qualitativa do topo do escore de risco}. As despesas classificadas como de alto risco são submetidas a uma checagem contextual contra o arcabouço normativo governamental (decretos de diárias, tabelas de repasse e contratos públicos), verificando se a atipicidade identificada decorre de uma regra de negócio legítima (falso positivo) ou se constitui uma anomalia operacional que exige apuração pelos órgãos de controle \cite{cavalcanti2014, nunes2021}.
 
 \chapter{CRONOGRAMA}\label{sec:cronograma}
-O processo de escrita desta monografia seguirá o cronograma explicitado no Quadro 1.
+O processo de execução da pesquisa e escrita da monografia final (TCC 2) seguirá o cronograma explicitado no Quadro \ref{qua:cronograma}, devidamente alinhado ao calendário acadêmico do semestre 2026.2.
 
 \begin{quadro}[!ht]
     \centering
-    \caption{Cronograma de execução da pesquisa.}
+    \caption{Cronograma de execução da pesquisa (Semestre 2026.2).}
     \label{qua:cronograma}
-    
-    \begin{tabular}{|p{2.2cm}|l|p{1.2cm}|p{7cm}|} \hline
-        % Títulos
+    \begin{tabular}{|p{2.5cm}|l|p{1.2cm}|p{7.8cm}|} \hline
         \textbf{Mês} & \textbf{Data} & \textbf{Dias} & \textbf{Atividade} \\ \hline
-        % Linhas do cronograma
-        Novembro & 03-11-2025 até 17-11-2025 & 15 & Escrita do \textbf{Capítulo 1 - Introdução}. \\ \hline
-        Novembro & 18-11-2025 até 30-11-2025 & 13 & Início da escrita do \textbf{Capítulo 2 - Fundamentação Teórica}. \\ \hline
-        Dezembro & 01-12-2025 até 15-12-2025 & 15 & Conclusão da escrita do \textbf{Capítulo 2 - Fundamentação Teórica}. \\ \hline
-        Dezembro & 16-12-2025 até 23-12-2025 & 8 & \textbf{Etapa 1 e 2 (Planejamento e Identificação):} Início da busca/seleção de estudos e redação do \textbf{Capítulo 3 - Metodologia}. \\ \hline
-        Janeiro & 03-01-2026 até 12-01-2026 & 10 & Conclusão da \textbf{Etapa 1 e 2} e da redação do \textbf{Capítulo 3}. \\ \hline
-        Janeiro & 13-01-2026 até 31-01-2026 & 19 & \textbf{Etapa 3 e 4 (Extração e Visualização):} Análise dos dados e início da redação do \textbf{Capítulo 4 - Resultados}. \\ \hline
-        Fevereiro & 01-02-2026 até 06-02-2026 & 6 & Conclusão da redação do \textbf{Capítulo 4 - Resultados}. \\ \hline
-        Fevereiro & 07-02-2026 até 15-02-2026 & 9 & \textbf{Etapa 5 (Relatório):} Redação do \textbf{Capítulo 5 - Considerações Finais} e entrega da versão completa para a orientadora. \\ \hline
-        Fevereiro & 16-02-2026 até 28-02-2026 & 13 & Período de revisão e aplicação dos ajustes finais. \\ \hline
-        Março & A definir em 03/2026 & - & Preparação da apresentação e \textbf{Defesa do Trabalho de Conclusão de Curso}. \\ \hline
+        Outubro & 21-10-2026 até 31-10-2026 & 11 & Início do semestre: ajustes finais no projeto e consolidação do ambiente em Python. \\ \hline
+        Novembro & 01-11-2026 até 15-11-2026 & 15 & Expansão da revisão bibliográfica e redação final do \textbf{Capítulo 2 - Fundamentação Teórica}. \\ \hline
+        Novembro & 16-11-2026 até 30-11-2026 & 15 & Consolidação do \textbf{Capítulo 3 - Procedimentos Metodológicos} e preparação das bases de dados (2020--2025). \\ \hline
+        Dezembro & 01-12-2026 até 20-12-2026 & 20 & Execução dos experimentos computacionais (Lei de Benford, $Z$-Score, ISO, LOF, DBSCAN e Grafos). \\ \hline
+        Dezembro & 21-12-2026 até 31-12-2026 & 11 & Tabulação, filtragem dos resultados brutos e estruturação das visualizações gráficas. \\ \hline
+        Janeiro & 02-01-2027 até 20-01-2027 & 19 & Redação do \textbf{Capítulo 4 - Resultados e Discussão} (Análise de $Z$-Score, falsos positivos e redes). \\ \hline
+        Janeiro & 21-01-2027 até 31-01-2027 & 11 & Redação do \textbf{Capítulo 5 - Considerações Finais} e consolidação da versão preliminar da monografia. \\ \hline
+        Fevereiro & 01-02-2027 até 12-02-2027 & 12 & Submissão do texto completo para revisão da orientadora e aplicação de correções. \\ \hline
+        Fevereiro & 13-02-2027 até 25-02-2027 & 13 & Envio do trabalho definitivo para a banca e elaboração da apresentação em slides. \\ \hline
+        Fevereiro/Março & 26-02-2027 até 10-03-2027 & 13 & Período de bancas e ensaios para a \textbf{defesa do TCC 2}. \\ \hline
+        Março & 11-03-2027 até 30-03-2027 & 20 & Ajustes pós-banca, homologação da versão final e encerramento do semestre letivo. \\ \hline
     \end{tabular}
-    
-    \fonte{Elaboração própria.}
+    \fonte{Elaboração própria (2026).}
 \end{quadro}
 
 \chapter{ESBOÇO DOS CAPÍTULOS E SEÇÕES}\label{sec:esboco_capitulos}
