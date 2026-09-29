@@ -655,28 +655,50 @@ Em que $S(i) \in \{0, 1\}$ indica a presença ou ausência de sinalização em c
 A etapa final do procedimento metodológico consiste na \textbf{validação qualitativa do topo do escore de risco}. As despesas classificadas como de alto risco são submetidas a uma checagem contextual contra o arcabouço normativo governamental (decretos de diárias, tabelas de repasse e contratos públicos), verificando se a atipicidade identificada decorre de uma regra de negócio legítima (falso positivo) ou se constitui uma anomalia operacional que exige apuração pelos órgãos de controle \cite{cavalcanti2014, nunes2021}.
 
 \chapter{CRONOGRAMA}\label{sec:cronograma}
-O processo de execução da pesquisa e escrita da monografia final (TCC 2) seguirá o cronograma explicitado no Quadro \ref{qua:cronograma}, devidamente alinhado ao calendário acadêmico do semestre 2026.2.
+O processo de execução da pesquisa e escrita da monografia final (TCC 2) seguirá o cronograma explicitado na Figura \ref{fig:gantt_cronograma}, devidamente alinhado ao calendário acadêmico do semestre 2026.2.
 
-\begin{quadro}[!ht]
+\begin{figure}[htbp]
     \centering
     \caption{Cronograma de execução da pesquisa (Semestre 2026.2).}
-    \label{qua:cronograma}
+    \label{fig:gantt_cronograma}
+
     \resizebox{\textwidth}{!}{%
-    \begin{tabular}{|p{2.5cm}|l|p{1.2cm}|p{7.8cm}|} \hline
-        \textbf{Mês} & \textbf{Data} & \textbf{Dias} & \textbf{Atividade} \\ \hline
-        Outubro & 21-10-2026 até 31-10-2026 & 11 & Início do semestre: ajustes finais no projeto e consolidação do ambiente em Python. \\ \hline
-        Novembro & 01-11-2026 até 15-11-2026 & 15 & Expansão da revisão bibliográfica e redação final do \textbf{Capítulo 2 - Fundamentação Teórica}. \\ \hline
-        Novembro & 16-11-2026 até 30-11-2026 & 15 & Consolidação do \textbf{Capítulo 3 - Procedimentos Metodológicos} e preparação das bases de dados (2020--2025). \\ \hline
-        Dezembro & 01-12-2026 até 20-12-2026 & 20 & Execução dos experimentos computacionais (Lei de Benford, $Z$-Score, ISO, LOF, DBSCAN e Grafos). \\ \hline
-        Dezembro & 21-12-2026 até 31-12-2026 & 11 & Tabulação, filtragem dos resultados brutos e estruturação das visualizações gráficas. \\ \hline
-        Janeiro & 02-01-2027 até 20-01-2027 & 19 & Redação do \textbf{Capítulo 4 - Resultados e Discussão} (Análise de $Z$-Score, falsos positivos e redes). \\ \hline
-        Janeiro & 21-01-2027 até 31-01-2027 & 11 & Redação do \textbf{Capítulo 5 - Considerações Finais} e consolidação da versão preliminar da monografia. \\ \hline
-        Fevereiro & 01-02-2027 até 10-02-2027 & 10 & Submissão do texto completo para revisão da orientadora e aplicação de correções. \\ \hline
-        Fevereiro & 11-02-2027 até 17-02-2027 & 7 & Envio do trabalho definitivo para a banca, elaboração da apresentação e encerramento do semestre letivo. \\ \hline
-    \end{tabular}%
+    \begin{ganttchart}[
+        time slot format=isodate,
+        x unit=1.2mm,
+        y unit title=0.6cm,
+        y unit chart=0.7cm,
+        vgrid,
+        hgrid,
+        title label font=\bfseries\footnotesize,
+        bar label font=\footnotesize,
+        bar/.style={fill=blue!20, draw=blue!70, line width=1pt, rounded corners=2pt},
+        bar height=0.5,
+        progress label text={},
+        group right shift=0,
+        group top shift=.6,
+        group height=.3
+    ]{2026-10-21}{2027-02-17}
+
+    \gantttitlecalendar{year} \\
+    \gantttitle{Outubro}{11}\gantttitle{Novembro}{30}\gantttitle{Dezembro}{31}\gantttitle{Janeiro}{31}\gantttitle{Fevereiro}{17} \\
+
+    \ganttbar{Ajustes e ambiente Python}{2026-10-21}{2026-10-31} \\
+    \ganttbar{Expansão bibl. e Cap. 2}{2026-11-01}{2026-11-15} \\
+    \ganttbar{Cap. 3 e base de dados}{2026-11-16}{2026-11-30} \\
+    \ganttbar{Experimentos computacionais}{2026-12-01}{2026-12-20} \\
+    \ganttbar{Tabulação e visualizações}{2026-12-21}{2026-12-31} \\
+    \ganttbar{Redação do Cap. 4}{2027-01-02}{2027-01-20} \\
+    \ganttbar{Cap. 5 e versão preliminar}{2027-01-21}{2027-01-31} \\
+    \ganttbar{Revisão da orientadora}{2027-02-01}{2027-02-10} \\
+    \ganttbar{Envio final e banca}{2027-02-11}{2027-02-17}
+
+    \end{ganttchart}%
     }
+
+    \vspace{0.2cm}
     \fonte{Elaboração própria (2026).}
-\end{quadro}
+\end{figure}
 
 \chapter{ESBOÇO DOS CAPÍTULOS E SEÇÕES}\label{sec:esboco_capitulos}
 A monografia final resultante deste projeto de pesquisa será estruturada em cinco capítulos principais, organizados de forma lógica e sequencial para apresentar o desenvolvimento da esteira de Ciência de Dados Forense e a análise dos microdados de despesas públicas do Estado do Acre. O esboço da estrutura do trabalho definitivo é apresentado a seguir:

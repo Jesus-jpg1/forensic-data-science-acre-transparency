@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex main"] 1790636048.69277 "main.aux" "main.bbl" "main" 1790636054.20124 0
+["bibtex main"] 1790687920.09362 "main.aux" "main.bbl" "main" 1790688025.97091 0
   "./abntex2-alf.bst" 1789853822 60150 114f283331031e72b33b71f76c514223 ""
   "./referencias.bib" 1790195358 4204 6a75ab209f15daa73f4ce47bd79d8978 ""
   "C:/Users/guilh/AppData/Local/Programs/MiKTeX/bibtex/bib/abntex2/abntex2-options.bib" 1543103229 5396 4eb260dac60f150ae608d45252853090 ""
-  "main.aux" 1790636052 39781 3e8387e7d4c6a7e3433efdf104d7536e "pdflatex"
+  "main.aux" 1790688023 39871 44b283133a5714fbb48d5cdd5c9ae38c "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1790636049.12843 "c:/Users/guilh/forensic-data-science-acre-transparency/Projeto/main.tex" "main.pdf" "main" 1790636054.20233 0
+["pdflatex"] 1790688016.33863 "c:/Users/guilh/forensic-data-science-acre-transparency/Projeto/main.tex" "main.pdf" "main" 1790688025.97213 0
   "C:/Users/guilh/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1789954625 82507 a9eef8696c92627b87e9975edea03b2a ""
   "C:/Users/guilh/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs10.tfm" 1790194476 688 37338d6ab346c2f1466b29e195316aa4 ""
   "C:/Users/guilh/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1789844928 13333528 9cc26080e4a3aef9a300fb8de79ed79b ""
@@ -301,15 +301,15 @@
   "C:/Users/guilh/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/guilh/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
   "C:/Users/guilh/AppData/Local/Programs/MiKTeX/tex/latex/xpatch/xpatch.sty" 1585221260 8510 7803f78066c4f9d008405191a4b43073 ""
-  "c:/Users/guilh/forensic-data-science-acre-transparency/Projeto/main.tex" 1790636041 79509 79e7e13c81e9e5c2150f55ea9223f772 ""
+  "c:/Users/guilh/forensic-data-science-acre-transparency/Projeto/main.tex" 1790688014 79207 6d7e9273e914d0a7eee586ff742a8c49 ""
   "figures/PTGV.png" 1790280161 91798 2d476b5fc441c39900a8ac28881e907e ""
   "figures/brasaoufac.png" 1789773269 234135 1bba90a765826bdb71c98afb8815e3ea ""
-  "main.aux" 1790636052 39781 3e8387e7d4c6a7e3433efdf104d7536e "pdflatex"
-  "main.bbl" 1790636049 4291 bf6358a451c9b891435b4f15d259c30f "bibtex main"
-  "main.lof" 1790636052 372 e7c450f860f382b5b5ffa1f42d2e5fc4 "pdflatex"
-  "main.loq" 1790636052 126 25b0c52e847b0310d511e350d4c1c82c "pdflatex"
-  "main.tex" 1790636041 79509 79e7e13c81e9e5c2150f55ea9223f772 ""
-  "main.toc" 1790636052 4450 de0f1bdc3b948ae8bec1cc6caca73602 "pdflatex"
+  "main.aux" 1790688023 39871 44b283133a5714fbb48d5cdd5c9ae38c "pdflatex"
+  "main.bbl" 1790687920 4291 bf6358a451c9b891435b4f15d259c30f "bibtex main"
+  "main.lof" 1790688023 500 f603901c624dc5da81603dccb5a914fa "pdflatex"
+  "main.loq" 1790688023 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "main.tex" 1790688014 79207 6d7e9273e914d0a7eee586ff742a8c49 ""
+  "main.toc" 1790688023 4450 de0f1bdc3b948ae8bec1cc6caca73602 "pdflatex"
   (generated)
   "main.aux"
   "main.lof"

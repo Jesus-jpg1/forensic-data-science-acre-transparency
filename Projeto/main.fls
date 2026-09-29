@@ -642,6 +642,9 @@ INPUT C:\Users\guilh\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\symbol\psyr.t
 INPUT C:\Users\guilh\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmr8r.tfm
 INPUT C:\Users\guilh\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr10.tfm
 INPUT C:\Users\guilh\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\ptmr8t.vf
+INPUT C:\Users\guilh\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmb8t.tfm
+INPUT C:\Users\guilh\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\ptmb8t.vf
+INPUT C:\Users\guilh\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmb8r.tfm
 INPUT .\main.bbl
 INPUT .\main.bbl
 INPUT main.bbl
