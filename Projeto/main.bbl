@@ -5,12 +5,33 @@
 \providecommand{\abntbstabout}[1]{}
 \abntbstabout{v<VERSION> }
 
+\bibitem[Aggarwal e Sathe 2017]{aggarwal_sathe2017}
+\abntrefinfo{Aggarwal e Sathe}{Aggarwal; Sathe}{2017}
+{AGGARWAL, C.~C.; SATHE, S. An introduction to outlier ensembles. In:
+  \textbf{Outlier Ensembles}. Cham: Springer International Publishing, 2017. p.
+  1--34.}
+
 \bibitem[Asensi, Santos e Costa 2020]{asensi2020}
 \abntrefinfo{Asensi, Santos e Costa}{Asensi; Santos; Costa}{2020}
 {ASENSI, F.; SANTOS, A.; COSTA, B. Mineração de dados aplicada à detecção
   de padrões atípicos em despesas públicas municipais.
 \textbf{Revista de Gestão Pública e Transparência}, v.~8, n.~2, p. 88--113,
   2020.}
+
+\bibitem[{Brasil} 2000]{lrf2000}
+\abntrefinfo{{Brasil}}{{Brasil}}{2000}
+{{Brasil}. \textbf{Lei Complementar nº 101, de 4 de maio de 2000}. 2000.
+  Estabelece normas de finanças públicas voltadas para a responsabilidade na
+  gestão fiscal.
+Dispon{\'\i}vel em:
+  \url{https://www.planalto.gov.br/ccivil\_03/leis/lcp/lcp101.htm}.}
+
+\bibitem[{Brasil} 2011]{lai2011}
+\abntrefinfo{{Brasil}}{{Brasil}}{2011}
+{{Brasil}. \textbf{Lei nº 12.527, de 18 de novembro de 2011}. 2011. Regula o
+  acesso a informações previsto na Constituição Federal.
+Dispon{\'\i}vel em:
+  \url{https://www.planalto.gov.br/ccivil\_03/\_ato2011-2014/2011/lei/l12527.htm}.}
 
 \bibitem[Breunig \textit{et al.} 2000]{breunig2000lof}
 \abntrefinfo{Breunig \textit{et al.}}{Breunig \textit{et al.}}{2000}
@@ -32,6 +53,14 @@ Tese (Doutorado) --- Controladoria-Geral da União (CGU), Brasília, 2014.}
 \textbf{Revista Brasileira de Finanças Públicas}, v.~12, n.~1, p. 45--68,
   2018.}
 
+\bibitem[{Cordova Junior} 2025]{cordova2025}
+\abntrefinfo{{Cordova Junior}}{{Cordova Junior}}{2025}
+{{Cordova Junior}, C.~A. \textbf{Ciência de Dados e Controle Interno nos
+  Estados Brasileiros: Aplicações, Trilhas de Auditoria e Desafios de
+  Implementação}. Porto Alegre: [s.n.], 2025. Trabalho acadêmico, Escola de
+  Administração, Departamento de Ciências Administrativas, Universidade
+  Federal do Rio Grande do Sul.}
+
 \bibitem[Ester \textit{et al.} 1996]{ester1996dbscan}
 \abntrefinfo{Ester \textit{et al.}}{Ester \textit{et al.}}{1996}
 {ESTER, M. \textit{et al.} A density-based algorithm for discovering clusters
@@ -39,17 +68,17 @@ Tese (Doutorado) --- Controladoria-Geral da União (CGU), Brasília, 2014.}
   International Conference on Knowledge Discovery and Data Mining}. [S.l.]:
   AAAI Press, 1996.}
 
-\bibitem[Goldschmidt 2005]{goldschmidt2005}
-\abntrefinfo{Goldschmidt}{Goldschmidt}{2005}
-{GOLDSCHMIDT, R. \textbf{Data Mining e Gestão Pública}. São Paulo: Editora
-  XYZ, 2005.}
+\bibitem[Goldschmidt e Passos 2005]{goldschmidt2005}
+\abntrefinfo{Goldschmidt e Passos}{Goldschmidt; Passos}{2005}
+{GOLDSCHMIDT, R.; PASSOS, E. \textbf{Data Mining: um guia prático}. Rio de
+  Janeiro: Campus, 2005.}
 
-\bibitem[Interno 2023]{controle_interno2023}
-\abntrefinfo{Interno}{Interno}{2023}
-{INTERNO, S. de~Estado da Administração~e C. \textbf{Diagnóstico de
-  Maturidade em Controle Interno e Uso de Dados Abertos em Entes Estaduais
-  Brasileiros}.
-[S.l.], 2023.}
+\bibitem[{Governo do Estado do Acre} 2026]{portal_despesas_acre2026}
+\abntrefinfo{{Governo do Estado do Acre}}{{Governo do Estado do Acre}}{2026}
+{{Governo do Estado do Acre}. \textbf{Despesa Geral -- Série Histórica}.
+  2026. Portal da Transparência do Estado do Acre.
+Acesso em: 1 out. 2026.
+Dispon{\'\i}vel em: \url{https://transparencia.ac.gov.br/despesas/?ano=2025}.}
 
 \bibitem[Liu, Ting e Zhou 2008]{liu2008isolation}
 \abntrefinfo{Liu, Ting e Zhou}{Liu; Ting; Zhou}{2008}
@@ -74,16 +103,21 @@ Tese (Doutorado) --- Controladoria-Geral da União (CGU), Brasília, 2014.}
   em Demonstrações Financeiras}. Goiânia: [s.n.], 2025. Trabalho de
   Conclusão de Curso -- PUC Goiás.}
 
-\bibitem[Silva e Pereira 2023]{estudo_cd_dados2023}
-\abntrefinfo{Silva e Pereira}{Silva; Pereira}{2023}
-{SILVA, A.; PEREIRA, J. \textbf{Pipeline de Ciência de Dados em Bases Abertas
-  de Despesas Governamentais}. 2023. Relatório Técnico Interno.}
+\bibitem[Schiavon 2019]{schiavon2019}
+\abntrefinfo{Schiavon}{Schiavon}{2019}
+{SCHIAVON, J.~P. \textbf{Estudo de Ciência de Dados Aplicada a Dados Abertos
+  Governamentais}. Bauru: [s.n.], 2019. Trabalho acadêmico, Bacharelado em
+  Ciência da Computação, Faculdade de Ciências, Universidade Estadual
+  Paulista "Júlio de Mesquita Filho".}
 
-\bibitem[Souza e Nascimento 2024]{analise_anomalias2024}
-\abntrefinfo{Souza e Nascimento}{Souza; Nascimento}{2024}
-{SOUZA, M.; NASCIMENTO, P. \textbf{Análise de Anomalias Administrativas em
-  Despesas de Execução Orçamentária}. 2024. Nota Técnica de Monitoramento
-  Governamental.}
+\bibitem[Silva e Souza 2021]{silva_souza2021}
+\abntrefinfo{Silva e Souza}{Silva; Souza}{2021}
+{SILVA, F. H. d.~S.; SOUZA, D. \textbf{Uma Análise de Possíveis Anomalias em
+  Dados da Administração para Gastos Públicos}. João Pessoa: [s.n.], 2021.
+  Relatório técnico datado de 16 de março de 2021, Programa de
+  Pós-Graduação em Tecnologia da Informação, Mestrado Profissional em
+  Tecnologia da Informação, Instituto Federal de Educação, Ciência e
+  Tecnologia da Paraíba.}
 
 \bibitem[Vieira \textit{et al.} 2019]{vieira2019}
 \abntrefinfo{Vieira \textit{et al.}}{Vieira \textit{et al.}}{2019}

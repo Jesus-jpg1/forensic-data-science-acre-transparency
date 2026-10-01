@@ -492,6 +492,9 @@ INPUT C:\Users\guilh\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmri7t
 INPUT C:\Users\guilh\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmri7t.tfm
 INPUT C:\Users\guilh\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\ptmb8t.vf
 INPUT C:\Users\guilh\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmb8r.tfm
+INPUT .\main.lot
+INPUT .\main.lot
+INPUT main.lot
 INPUT .\main.loq
 INPUT .\main.loq
 INPUT main.loq
@@ -610,6 +613,7 @@ INPUT C:\Users\guilh\AppData\Local\Programs\MiKTeX\tex\latex\lm\t1lmtt.fd
 INPUT C:\Users\guilh\AppData\Local\Programs\MiKTeX\tex\latex\lm\t1lmtt.fd
 INPUT C:\Users\guilh\AppData\Local\Programs\MiKTeX\tex\latex\lm\t1lmtt.fd
 INPUT C:\Users\guilh\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmtt10.tfm
+INPUT C:\Users\guilh\AppData\Local\Programs\MiKTeX\fonts\enc\dvips\lm\lm-ec.enc
 INPUT C:\Users\guilh\AppData\Local\Programs\MiKTeX\tex\latex\lm\t1lmss.fd
 INPUT C:\Users\guilh\AppData\Local\Programs\MiKTeX\tex\latex\lm\t1lmss.fd
 INPUT C:\Users\guilh\AppData\Local\Programs\MiKTeX\tex\latex\lm\t1lmss.fd
@@ -622,7 +626,6 @@ INPUT C:\Users\guilh\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\zptmcm7
 INPUT C:\Users\guilh\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\zptmcm7v.tfm
 INPUT C:\Users\guilh\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmb7t.tfm
 INPUT C:\Users\guilh\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmri7t.tfm
-INPUT C:\Users\guilh\AppData\Local\Programs\MiKTeX\fonts\enc\dvips\lm\lm-ec.enc
 INPUT C:\Users\guilh\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\zptmcm7t.vf
 INPUT C:\Users\guilh\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\symbol\psyr.tfm
 INPUT C:\Users\guilh\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\zptmcm7y.vf
@@ -648,7 +651,10 @@ INPUT C:\Users\guilh\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmb8r.
 INPUT .\main.bbl
 INPUT .\main.bbl
 INPUT main.bbl
+INPUT C:\Users\guilh\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmb8c.tfm
+INPUT C:\Users\guilh\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\ptmb8c.vf
 OUTPUT main.lof
+OUTPUT main.lot
 OUTPUT main.loq
 OUTPUT main.toc
 INPUT main.aux

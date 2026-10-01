@@ -162,6 +162,16 @@
 \listoffigures*
 \cleardoublepage
 
+%% Lista de tabelas
+\pdfbookmark[0]{\listtablename}{lot}
+\listoftables*
+\cleardoublepage
+
+%% Lista de quadros
+\pdfbookmark[0]{\listofquadrosname}{loq}
+\listofquadros
+\cleardoublepage
+
 %% Sumário
 \pdfbookmark[0]{\contentsname}{toc}
 \tableofcontents*
@@ -181,11 +191,11 @@
 
 %% Introdução
 \chapter{APRESENTAÇÃO}\label{sec:introducao}
-A crescente digitalização da administração pública e a consolidação dos portais de transparência governamentais têm disponibilizado volumes massivos de microdados sobre a execução orçamentária e financeira do setor público no Brasil. Contudo, a simples publicação bruta desses dados em tabelas e relatórios nem sempre se traduz em conhecimento acessível para a sociedade ou em insights estratégicos para a Gestão Pública, dada a elevada complexidade e assimetria das transações financeiras \cite{cavalcanti2014, pereira2025}. Neste cenário, a Ciência de Dados e o processo de Descoberta de Conhecimento em Bases de Dados (\textit{Knowledge Discovery in Databases} -- KDD) emergem como campos interdisciplinares fundamentais para transformar grandes volumes de dados não estruturados em conhecimento útil e interpretável \cite{goldschmidt2005}. Em vez de recorrer a técnicas tradicionais de amostragem restrita, a aplicação de algoritmos computacionais permite o processamento populacional integral (100\% dos registros), garantindo uma análise holística da dinâmica dos gastos públicos \cite{pereira2025}. Como a base de dados do Portal da Transparência é composta por dados abertos não rotulados (\textit{unlabelled data}) --- isto é, sem a indicação prévia do que constitui um lançamento regular ou uma anomalia ---, a aplicação de modelos de aprendizado de máquina supervisionado (como SVM e algoritmos de classificação) torna-se inviável na prática. Por essa razão, este projeto de pesquisa adota rigorosamente a abordagem de \textbf{Aprendizado de Máquina Não Supervisionado} (\textit{Unsupervised Machine Learning}) e estatística descritiva, permitindo a descoberta de padrões ocultos e agrupamentos sem a necessidade de um gabarito prévio \cite{nunes2021}. O presente projeto de Trabalho de Conclusão de Curso (TCC) propõe o desenvolvimento de um pipeline computacional aplicado sobre a base populacional de despesas do Portal da Transparência do Estado do Acre, englobando mais de 429 mil registros financeiros referentes ao período de 2020 a 2025. O objetivo central deste estudo não reside na acusação criminal ou auditoria investigativa de ilícitos, mas sim no uso da Ciência de Dados para mapear, visualizar e compreender os fenômenos socioadministrativos reais que moldam a gestão pública acreana. 
+A crescente digitalização da administração pública e a consolidação dos portais de transparência governamentais têm disponibilizado volumes massivos de microdados sobre a execução orçamentária e financeira do setor público no Brasil. Contudo, a simples publicação bruta desses dados em tabelas e relatórios nem sempre se traduz em conhecimento acessível para a sociedade ou em insights estratégicos para a Gestão Pública, dada a elevada complexidade e assimetria das transações financeiras \cite{cavalcanti2014, pereira2025}. Neste cenário, a Ciência de Dados e o processo de Descoberta de Conhecimento em Bases de Dados (\textit{Knowledge Discovery in Databases} -- KDD) emergem como campos interdisciplinares fundamentais para transformar grandes volumes de dados em conhecimento útil e interpretável \cite{goldschmidt2005}. Em vez de recorrer a técnicas tradicionais de amostragem restrita, a análise integral dos registros disponibilizados permite examinar a dinâmica dos gastos públicos, desde que a extração da base seja completa \cite{pereira2025}. Como a base de dados do Portal da Transparência é composta por dados abertos não rotulados (\textit{unlabelled data}) --- isto é, sem a indicação prévia do que constitui um lançamento regular ou atípico ---, modelos supervisionados não podem ser treinados diretamente sem a obtenção de rótulos. Por essa razão, este projeto de pesquisa adota métodos de \textbf{Aprendizado de Máquina Não Supervisionado} (\textit{Unsupervised Machine Learning}) e estatística descritiva para explorar padrões e agrupamentos sem um gabarito prévio \cite{nunes2021}. O presente Trabalho de Conclusão de Curso (TCC) propõe o desenvolvimento de um pipeline computacional aplicado aos arquivos de despesas do Portal da Transparência do Estado do Acre, englobando mais de 429 mil registros referentes ao período de 2020 a 2025. Os resultados serão apresentados como sinalizações e candidatos a anomalia para análise contextual, não como conclusões sobre a ocorrência de condutas indevidas. O objetivo é mapear, visualizar e compreender padrões socioadministrativos da gestão pública acreana.
 \chapter{PROBLEMA DA PESQUISA}\label{sec:problema}
 A garantia da transparência pública e o fortalecimento do controle social no Brasil foram impulsionados pela promulgação da Lei de Acesso à Informação (Lei nº 12.527/2011) e pela Lei de Responsabilidade Fiscal (Lei Complementar nº 101/2000). Esses marcos normativos obrigaram os entes federativos a disponibilizarem, em meios eletrônicos, informações detalhadas sobre a execução orçamentária em tempo real. No entanto, os portais de transparência governamentais abrigam bases dinâmicas com milhões de lançamentos contínuos acumulados ao longo dos anos. Essa escala massiva frequentemente resulta no fenômeno da "opacidade por excesso" (\textit{information overload}), no qual a simples publicação bruta de dados não estruturados cria barreiras para a interpretação pública \cite{cavalcanti2014, pereira2025}. No âmbito do controle institucional, órgãos formais como a Controladoria-Geral da União (CGU) e os Tribunais de Contas Estaduais (TCE) dispõem de auditores especializados e sistemas proprietários de inteligência para fiscalização interna. Contudo, essas ferramentas restritas não estão acessíveis à sociedade civil, a jornalistas de dados e à comunidade acadêmica, que dependem exclusivamente dos microdados abertos publicados nos portais. Para este público, a análise manual de bases massivas mostra-se inviável, demandando metodologias abertas de Ciência de Dados para a automação da triagem e extração de conhecimento \cite{nunes2021}. No contexto da pesquisa \textbf{"Ciência de Dados Aplicada na Detecção de Anomalias em Portais de Transparência: Um Estudo de Caso do Governo do Estado do Acre"}, a análise foca no recorte populacional de mais de 429 mil registros financeiros referentes ao período de 2020 a 2025. A partir desse ecossistema de dados abertos, emergem desafios centrais de Ciência de Dados e Aprendizado de Máquina (\textit{Machine Learning}):\begin{enumerate}
-    \item \textbf{Ausência de Rotulagem (\textit{Unlabelled Data}):} Os dados abertos dos portais de transparência não possuem rotulação prévia (\textit{ground truth}) que identifique empenhos normais ou anômalos. A inexistência de um gabarito inviabiliza o uso direto de modelos supervisionados (como SVM e Árvores de Decisão), exigindo o emprego de algoritmos de \textbf{Aprendizado Não Supervisionado} (\textit{Isolation Forest} -- ISO, \textit{Local Outlier Factor} -- LOF e \textit{DBSCAN}) aliados a testes de distribuição estatística (Lei de Benford e $Z$-Score) \cite{nunes2021, goldschmidt2005};
-    \item \textbf{Complexidade Normativa e Falsos Positivos:} O uso isolado de testes estatísticos pode gerar falsos positivos ao identificar concentrações de pagamentos perfeitamente legítimos, mas tabelados por decretos (como diárias e auxílios operacionais). A superação desse gargalo exige a integração de técnicas de Processamento de Linguagem Natural (NLP) sobre os históricos contábeis para contextualizar o texto livre das despesas \cite{cavalcanti2014};
+    \item \textbf{Ausência de Rotulagem (\textit{Unlabelled Data}):} Os arquivos utilizados não contêm rótulos de auditoria que classifiquem previamente os empenhos como regulares ou atípicos. Assim, não é possível treinar diretamente um classificador supervisionado sem obter dados rotulados; por isso, o estudo empregará métodos não supervisionados (\textit{Isolation Forest} -- ISO, \textit{Local Outlier Factor} -- LOF e \textit{DBSCAN}) e testes de aderência estatística, sem tratar seus resultados como rótulos confirmados \cite{nunes2021, goldschmidt2005};
+    \item \textbf{Complexidade Normativa e Contextualização das Sinalizações:} Testes estatísticos podem destacar concentrações de pagamentos que decorrem de regras normativas, como diárias e auxílios tabelados. Por isso, as sinalizações precisam ser interpretadas junto aos históricos contábeis e ao contexto administrativo, inclusive com apoio de técnicas de Processamento de Linguagem Natural (NLP) \cite{cavalcanti2014};
     \item \textbf{Ineditismo e Lacuna de Pesquisa na Região Acreana:} A literatura nacional sobre Ciência de Dados e transparência pública concentra suas aplicações predominantemente na esfera federal ou em estados do Sul e Sudeste \cite{cavalcanti2014, nunes2021}. O levantamento exploratório confirma a escassez de estudos computacionais dedicados à infraestrutura e aos microdados do Portal da Transparência do Estado do Acre, evidenciando uma lacuna científica regional que justifica a realização deste estudo de caso.
 \end{enumerate}
 Um dos principais obstáculos para o controle social moderno reside no fenômeno denominado na literatura como \textbf{"Opacidade por Excesso"} (\textit{Information Overload}). Diferentemente do cenário histórico de escassez ou sigilo de dados públicos, o cenário contemporâneo é marcado pela publicação de tabelas com centenas de milhares de registros tabulares sem qualquer tipo de agregação analítica ou filtragem preditiva de risco \cite{cavalcanti2014, nunes2021}. A Figura \ref{fig:portal_transparencia_excesso} exemplifica essa problemática a partir da interface de consulta do Portal da Transparência.
@@ -199,15 +209,15 @@ Um dos principais obstáculos para o controle social moderno reside no fenômeno
     }
     \caption{Interface do Portal da Transparência evidenciando a disponibilização de microdados brutos de despesas governamentais.}
     \label{fig:portal_transparencia_excesso}
-    \fonte{Portal da Transparência do Governo (2026).}
+    \fonte{Governo do Estado do Acre (2026). Acesso em: 1 out. 2026 \cite{portal_despesas_acre2026}.}
 \end{figure}
 
-Como observado na Figura \ref{fig:portal_transparencia_excesso}, a consulta disponibiliza milhares de linhas contendo códigos orçamentários, favorecidos e históricos contábeis preenchidos em texto livre. Para um cidadão ou analista humano, a tentativa de identificar manualmente fracionamentos ilícitos de licitação (\textit{smurfing}), superfaturamentos ou concentrações de mercado em uma base com mais de 429 mil registros (como no caso do Estado do Acre entre 2020 e 2025) torna-se uma tarefa operacionalmente inviável.
+Como observado na Figura \ref{fig:portal_transparencia_excesso}, a consulta disponibiliza linhas com códigos orçamentários, favorecidos e históricos contábeis em texto livre. Examinar manualmente mais de 429 mil registros para localizar padrões que mereçam análise contextual — como pagamentos recorrentes, valores atípicos ou concentração de fornecedores — é operacionalmente inviável.
 
 Nesse contexto, justifica-se a aplicação da \textbf{Ciência de Dados Forense} e do aprendizado de máquina não supervisionado. Em vez de exigir que o usuário navegue manualmente por tabelas extensas, a construção de um pipeline computacional automatizado atua como uma camada de inteligência analítica, capaz de triar a base populacional integral, reduzir o universo amostral de risco e apresentar sinalizadores preditivos (\textit{red flags}) para priorizar a investigação humana.
 
 Diante dessa problemática, formula-se a seguinte \textbf{Pergunta de Pesquisa} que orienta este trabalho:\begin{quote}
-\textit{Em que medida a aplicação de um pipeline de Ciência de Dados baseado em Aprendizado Não Supervisionado (\textit{Isolation Forest}, \textit{Local Outlier Factor} e \textit{DBSCAN}), testes estatísticos descritivos (Lei de Benford e $Z$-Score) e Processamento de Linguagem Natural permite identificar, filtrar e interpretar anomalias e padrões socioadministrativos nos microdados abertos do Portal da Transparência do Estado do Acre (2020--2025), sem a necessidade de dados previamente rotulados?}
+\textit{Em que medida a aplicação de um pipeline de Ciência de Dados baseado em Aprendizado Não Supervisionado (\textit{Isolation Forest}, \textit{Local Outlier Factor} e \textit{DBSCAN}), testes de aderência à Lei de Benford e análise por $Z$-Score, combinados ao Processamento de Linguagem Natural, permite sinalizar e caracterizar padrões atípicos nos arquivos de despesas do Portal da Transparência do Estado do Acre (2020--2025), sem dados previamente rotulados?}
 \end{quote}
 
 \chapter{OBJETIVOS DA PESQUISA}\label{sec:objetivos}
@@ -220,10 +230,10 @@ Desenvolver e avaliar uma metodologia baseada em técnicas de Ciência de Dados 
 Para o alcance do objetivo geral, estabelecem-se os seguintes objetivos específicos:
 \begin{enumerate}
     \item Coletar, integrar e organizar os dados de despesas públicas do Portal da Transparência do Acre, construindo o subconjunto de dados do estudo;
-    \item Caracterizar estatisticamente o comportamento das despesas, avaliando sua distribuição, concentração, variabilidade e evolução temporal segundo órgão, unidade gestora, favorecido e natureza da despesa;
+    \item Caracterizar estatisticamente o comportamento das despesas, avaliando sua distribuição, concentração, variabilidade e evolução temporal segundo órgão, favorecido e classificação da despesa;
     \item Mapear indicadores e atributos que expressem padrões potencialmente anômalos nas despesas, considerando valor, frequência, recorrência, concentração por favorecido e variação temporal;
     \item Aplicar métodos de análise não supervisionada para identificar observações ou padrões anômalos nas despesas analisadas;
-    \item Comparar o desempenho e a concordância entre diferentes procedimentos de detecção de anomalias, identificando despesas classificadas como atípicas por uma ou mais abordagens;
+    \item Comparar a concordância e a sensibilidade dos resultados a diferentes configurações dos procedimentos de detecção, identificando registros sinalizados por uma ou mais abordagens;
     \item Investigar a distribuição das anomalias identificadas segundo órgãos, favorecidos, categorias de despesa e períodos de execução, buscando reconhecer padrões socioadministrativos recorrentes;
     \item Desenvolver um escore ou classificação de prioridade das observações detectadas, de forma a auxiliar na seleção das despesas que mereçam atenção analítica;
     \item Avaliar a aplicabilidade da metodologia proposta como instrumento complementar de transparência e controle dos gastos públicos.
@@ -247,15 +257,15 @@ O ineditismo regional desta pesquisa reside justamente na aplicação e validaç
 
 \section{Relevância Técnica e Tecnológica}\label{sec:relevancia_tecnica}
 
-Do ponto de vista tecnológico e computacional, a justificativa deste trabalho assenta-se na superação dos limites impostos pelas abordagens analógicas e amostrais tradicionais de fiscalização. A análise populacional integral — que abrange 100\% dos mais de 429 mil registros do recorte temporal estipulado — garante que nenhum evento atípico seja omitido por viés de seleção ou corte arbitrário de dados, aumentando a confiabilidade da triagem \cite{pereira2025}.
+Do ponto de vista tecnológico e computacional, a justificativa deste trabalho assenta-se na aplicação dos procedimentos analíticos a todas as linhas dos arquivos obtidos para o recorte temporal. Essa cobertura evita a seleção de uma amostra dentro dos arquivos reunidos, mas não garante que os arquivos representem todos os registros publicados pelo órgão nem que os métodos detectem todos os padrões atípicos. A completude será delimitada aos arquivos disponíveis e às regras de inclusão e exclusão descritas na metodologia.
 
-Ademais, a arquitetura metodológica proposta responde a um desafio técnico central na mineração de dados abertos governamentais: a ausência de rótulos prévios (\textit{unlabelled data}). Ao integrar modelos de Aprendizado de Máquina Não Supervisionado (\textit{Isolation Forest}, \textit{Local Outlier Factor} e \textit{DBSCAN}) a testes estatísticos de distribuição (Lei de Benford e $Z$-Score) e técnicas de Processamento de Linguagem Natural (NLP), a pesquisa estabelece um pipeline computacional capaz de identificar anomalias estruturais e isolar falsos positivos decorrentes de regras normativas da administração pública \cite{cavalcanti2014, nunes2021, goldschmidt2005}. Trata-se de uma solução tecnológica reprodutível e orientada à automação do processo de triagem contábil.
+Ademais, a arquitetura metodológica proposta responde a um desafio técnico central na mineração de dados abertos governamentais: a ausência de rótulos prévios (\textit{unlabelled data}). Ao integrar modelos de Aprendizado de Máquina Não Supervisionado (\textit{Isolation Forest}, \textit{Local Outlier Factor} e \textit{DBSCAN}) a testes estatísticos de distribuição (Lei de Benford e $Z$-Score) e técnicas de Processamento de Linguagem Natural (NLP), a pesquisa propõe um pipeline para sinalizar padrões atípicos e contextualizá-los à luz de regras normativas da administração pública \cite{cavalcanti2014, nunes2021, goldschmidt2005}. Trata-se de uma proposta metodológica orientada à triagem e à análise contextual dos dados.
 
 \section{Viabilidade da Pesquisa}\label{sec:viabilidade}
 
 A viabilidade técnica, operacional e temporal deste projeto de pesquisa é plenamente assegurada pela conjugação de três fatores fundamentais: a disponibilidade de dados públicos abertos, o uso de ecossistemas computacionais de código aberto (\textit{open-source}) e o avanço prévio do pipeline de dados.
 
-Em primeiro lugar, a garantia de acesso aos microdados é respaldada pela legislação nacional de transparência (Lei nº 12.527/2011), uma vez que a totalidade das informações necessárias provém do Portal da Transparência do Estado do Acre, um ecossistema de dados abertos e de livre acesso que não impõe barreiras legais ou restrições de sigilo à extração de dados orçamentários.
+Em primeiro lugar, o acesso aos arquivos públicos utilizados é compatível com a Lei de Acesso à Informação (Lei nº 12.527/2011) \cite{lai2011}. A transparência fiscal também é disciplinada pela Lei de Responsabilidade Fiscal (Lei Complementar nº 101/2000) \cite{lrf2000}. O estudo analisa os arquivos disponibilizados pelo Portal da Transparência do Estado do Acre, sem inferir que a publicidade dos dados dispense outras avaliações institucionais eventualmente aplicáveis.
 
 Em segundo lugar, a exequibilidade computacional do trabalho apoia-se no uso da linguagem de programação Python e do seu ecossistema científico especializado (\textit{pandas}, \textit{numpy}, \textit{scikit-learn}, \textit{seaborn} e \textit{networkx}). A opção por bibliotecas abertas e consolidadas elimina a dependência de licenças de software proprietário de alto custo e assegura a transparência e a reprodutibilidade integral do pipeline analítico \cite{pereira2025}.
 
@@ -288,9 +298,9 @@ O ciclo KDD caracteriza-se por ser uma abordagem iterativa e sequencial, compost
     \item \textbf{Pós-processamento e Interpretação:} Validação, visualização e consolidação dos padrões descobertos em conhecimento útil e compreensível para o domínio de aplicação.
 \end{enumerate}
 
-No contexto da gestão pública e do controle de gastos, a adoção do arcabouço KDD viabiliza uma mudança paradigmática fundamental: a transição das revisões analógicas baseadas em amostragem estatística restrita para a \textbf{Análise Populacional Integral (100\% da base de dados)} \cite{pereira2025}. As abordagens tradicionais de auditoria contábil frequentemente dependem de cortes amostrais arbitrários, o que cria pontos cegos e aumenta o risco de omissão de eventos atípicos pulverizados ou fracionados.
+No contexto desta pesquisa, o arcabouço KDD será aplicado a todas as linhas dos arquivos reunidos para o recorte definido. Essa análise cobre integralmente os arquivos utilizados, mas não permite afirmar que eles contenham todos os registros publicados pelo órgão. O processamento de todas as linhas evita a seleção de uma amostra dentro do conjunto coletado, sem eliminar limitações de cobertura, qualidade dos dados ou capacidade de detecção dos métodos \cite{pereira2025}.
 
-Por outro lado, o processamento da totalidade dos registros financeiros disponibilizados no Portal da Transparência elimina o viés de seleção amostral, assegurando que todas as transações passem pelo mesmo crivo analítico. Conforme demonstrado por Pereira (2025), a combinação da análise populacional com o pipeline KDD otimiza a alocação de esforços humanos de fiscalização, atuando como um filtro prévio automatizado que direciona a atenção dos analistas estritamente para as observações com elevados indicadores de atipicidade \cite{pereira2025}.
+O processamento uniforme das linhas dos arquivos coletados reduz a dependência de uma seleção amostral definida pelo pesquisador. O pipeline será usado como etapa de triagem para organizar registros com sinalizações de atipicidade e apoiar sua análise contextual; não assegura a identificação de todas as ocorrências relevantes nem substitui procedimentos de auditoria \cite{pereira2025}.
 
 \section{Filtros Estatísticos de Distribuição: Lei de Benford e $Z$-Score}\label{sec:benford_zscore}
 
@@ -310,7 +320,7 @@ Para avaliar a conformidade de uma base de dados pública frente à Lei de Benfo
     \item \textbf{Teste $Z$-Score:} Empregado para avaliar o desvio atômico e localizado de cada dígito individualmente, medindo quantos desvios-padrão a frequência observada dista da frequência teórica de Benford.
 \end{enumerate}
 
-No entanto, a aplicação da Lei de Benford sobre microdados abertos da administração pública exige cautela analítica para evitar interpretações equivocadas. Como ressaltado por Cavalcanti (2014), picos de frequência observados em dígitos específicos (medidos por $Z$-Scores elevados) nem sempre sinalizam irregularidades ou fraudes intencionais. No setor público, desvios estatísticos severos frequentemente decorrem de regras de negócio rígidas e padronizações normativas — tais como concessões de diárias operacionais com valores fixados por decreto, reembolsos padronizados e tabelamento de auxílios. Portanto, o filtro estatístico de Benford deve ser compreendido como um mecanismo descritivo de sinalização de atipicidade (\textit{red flag}), cuja validação requer a integração com técnicas contextuais de mineração de texto e aprendizado de máquina \cite{cavalcanti2014, nunes2021}.
+No entanto, a aplicação da Lei de Benford sobre microdados abertos da administração pública exige cautela analítica. Como ressalta Cavalcanti (2014), picos de frequência observados em dígitos específicos (medidos por $Z$-Scores elevados) não são suficientes, por si sós, para classificar transações como anômalas. No setor público, desvios estatísticos podem decorrer de regras de negócio e padronizações normativas — tais como concessões de diárias com valores fixados por decreto, reembolsos padronizados e tabelamento de auxílios. Portanto, Benford deve ser tratado como uma sinalização descritiva aplicada a um conjunto de valores, a ser interpretada em conjunto com o contexto administrativo; não identifica individualmente uma transação anômala \cite{cavalcanti2014, nunes2021}.
 
 \section{Aprendizado de Máquina Não Supervisionado na Detecção de Anomalias}\label{sec:aprendizado_nao_supervisionado}
 
@@ -370,17 +380,17 @@ Uma vez obtida a matriz esparsa de vetores TF-IDF, emprega-se o algoritmo de agr
     \item Isola autonomamente pontos de ruído (\textit{noise}), isto é, históricos atípicos que não possuem densidade similar a nenhum grupo.
 \end{enumerate}
 
-O DBSCAN é parametrizado pelo raio de vizinhança ($\varepsilon$) e pelo número mínimo de pontos ($MinPts$). Na auditoria contábil, a integração de TF-IDF com DBSCAN permite agrupar históricos de empenho com redações semanticamente equivalentes, viabilizando a identificação de variações atípicas de preços unitários em contratos similares, bem como a varredura automatizada de fracionamentos de licitação (\textit{smurfing}) \cite{nunes2021}.
+O DBSCAN é parametrizado pelo raio de vizinhança ($\varepsilon$) e pelo número mínimo de pontos ($MinPts$). Neste estudo, a integração de TF-IDF com DBSCAN será usada para agrupar históricos com vocabulário semelhante e sinalizar descrições pouco próximas dos grupos encontrados. Como os arquivos não incluem quantidade contratada nem preço unitário, essa etapa não permitirá calcular variações de preço unitário ou concluir a ocorrência de fracionamento de licitação; poderá apenas orientar investigação contextual de recorrências e descrições relacionadas \cite{nunes2021}.
 
 \section{Trabalhos Relacionados}\label{sec:trabalhos_relacionados}
 
-A consolidação da Ciência de Dados Forense aplicada ao setor público é evidenciada por um conjunto crescente de estudos que investigam a detecção de anomalias em bases orçamentárias brasileiras. O Quadro \ref{tab:trabalhos_relacionados} sintetiza os principais trabalhos correlatos da literatura, destacando seus objetivos, métodos e a lacuna preenchida pelo presente TCC.
+A consolidação da Ciência de Dados Forense aplicada ao setor público é evidenciada por um conjunto crescente de estudos que investigam a detecção de anomalias em bases orçamentárias brasileiras. O Quadro \ref{qua:trabalhos_relacionados} sintetiza os principais trabalhos correlatos da literatura, destacando seus objetivos, métodos e a lacuna preenchida pelo presente TCC.
 
-\begin{table}[htbp]
+\begin{quadro}[htbp]
 \centering
 \small
-\caption{Quadro comparativo dos trabalhos relacionados na literatura nacional.}
-\label{tab:trabalhos_relacionados}
+\caption{Trabalhos relacionados na literatura nacional.}
+\label{qua:trabalhos_relacionados}
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{|p{3.2cm}|p{3.5cm}|p{4.2cm}|p{4.5cm}|}
 \hline
@@ -391,15 +401,15 @@ Vieira (2019) \cite{vieira2019} & Gastos Municipais -- SICONFI / DATASUS / FIRJA
 Asensi (2020) \cite{asensi2020} & Despesas Públicas Municipais & Mineração de Dados e Parametrização de Gastos & Parametrização de custos públicos e mapeamento de padrões atípicos de execução orçamentária. \\ \hline
 Nunes \textit{et al.} (2021) \cite{nunes2021} & Cartão Corporativo (CPGF) -- Exercícios 2018--2019 & K-Means, Agrupamento Hierárquico e Redes Complexas & Detecção de anomalias sem rotulagem prévia em gastos federais via topologia de redes. \\ \hline
 Pereira (2025) \cite{pereira2025} & Desembolsos Extraorçamentários -- Estado de Goiás (2024) & Pipeline KDD, Lei de Benford, $Z$-Score e Qui-Quadrado em Python & Validação populacional (100\% da base) do desvio no Dígito 1 como filtro inicial de triagem. \\ \hline
-Estudo de Controle Interno Estadual \cite{controle_interno2023} & Gestão e Controle Interno nos Estados Brasileiros & Levantamento de Práticas e Ciência de Dados & Mapeamento do nível de maturidade computacional e uso de dados abertos nas controladorias estaduais. \\ \hline
-Estudo de CD em Dados Públicos \cite{estudo_cd_dados2023} & Bases Abertas de Despesas Governamentais & Mineração Exploratória e Estatística Desritiva & Aplicação de pipelines de limpeza e transformação sobre bases orçamentárias heterogêneas. \\ \hline
-Análise de Anomalias Administrativas \cite{analise_anomalias2024} & Dados de Execução Orçamentária e Financeira & Detecção Estatística de Atipicidades & Mapeamento de desvios em empenhos e liquidações na administração pública subnacional. \\ \hline
+\citeonline{cordova2025} & Ciência de Dados e controle interno nos estados brasileiros & Aplicações de Ciência de Dados e trilhas de auditoria & Desafios de implementação nos estados brasileiros. \\ \hline
+\citeonline{schiavon2019} & Dados abertos governamentais & Estudo aplicado de Ciência de Dados & Aplicação de Ciência de Dados a dados abertos governamentais. \\ \hline
+\citeonline{silva_souza2021} & Dados da administração pública sobre gastos & Análise de possíveis anomalias & Estudo de possíveis anomalias em dados administrativos de gastos públicos. \\ \hline
 \end{tabular}%
 }
 \fonte{Elaborado pelo autor com base na literatura correlata (2026).}
-\end{table}
+\end{quadro}
 
-A análise conjunta dos nove trabalhos relacionados sintetizados no Quadro \ref{tab:trabalhos_relacionados} evidencia uma evolução metodológica clara: enquanto os estudos seminais (como Cavalcanti, 2014 e Cella, 2018) focaram prioritariamente na validação da estatística descritiva de Benford, pesquisas subsequentes avançaram para a integração de algoritmos não supervisionados de densidade (Vieira, 2019) e topologia de redes (Nunes \textit{et al.}, 2021), culminando na adoção de pipelines populacionais integrais em ambiente Python (Pereira, 2025) e no diagnóstico da maturidade do controle interno estadual.
+A análise conjunta dos nove trabalhos relacionados sintetizados no Quadro \ref{qua:trabalhos_relacionados} evidencia uma evolução metodológica clara: enquanto os estudos seminais (como Cavalcanti, 2014 e Cella, 2018) analisaram a distribuição dos dígitos segundo a Lei de Benford e aplicaram testes de aderência, pesquisas subsequentes avançaram para a integração de algoritmos não supervisionados de densidade (Vieira, 2019) e topologia de redes (Nunes \textit{et al.}, 2021), culminando na adoção de pipelines populacionais integrais em ambiente Python (Pereira, 2025) e no diagnóstico da maturidade do controle interno estadual.
 
 A despeito desse panorama consolidado, constata-se uma lacuna no que tange à integração conjunta dessas técnicas (Benford, ISO, LOF e NLP) aplicada a bases populacionais subnacionais da Amazônia Sul-Ocidental, cenário que fundamenta a oportunidade e o ineditismo do presente estudo de caso no Estado do Acre.
 
@@ -418,7 +428,7 @@ A condução deste trabalho fundamenta-se nas diretrizes da metodologia científ
 
     \item \textbf{Quanto aos Objetivos:} Caracteriza-se como uma \textbf{pesquisa exploratória e descritiva}. Exploratória ao investigar padrões não rotulados nos microdados orçamentários do Estado do Acre, e descritiva ao caracterizar detalhadamente a distribuição temporal, institucional e categórica das despesas e dos desvios identificados;
 
-    \item \textbf{Quanto aos Procedimentos Análiticos:} Configura-se como um \textbf{estudo de caso computacional}, focado na infraestrutura de dados abertos e na execução orçamentária do Poder Executivo do Estado do Acre no período de 2020 a 2025.
+    \item \textbf{Quanto aos Procedimentos Analíticos:} Configura-se como um \textbf{estudo de caso computacional}, focado na infraestrutura de dados abertos e na execução orçamentária do Poder Executivo do Estado do Acre no período de 2020 a 2025.
 \end{enumerate}
 
 \section{Fonte de Dados, Recorte Populacional e Atributos}\label{sec:fonte_dados_atributos}
@@ -427,35 +437,36 @@ A execução do estudo de caso fundamenta-se na extração e estruturação dos 
 
 \subsection{Origem e Acesso aos Dados}\label{subsec:origem_dados}
 
-Os dados foram obtidos via requisições diretas e rotinas de \textit{web scraping}/ingestão de arquivos tabulares disponibilizados publicamente pela Controladoria-Geral do Estado do Acre (CGE-AC). Por se tratar de uma base de dados abertos governamentais submetida aos ditames da Lei de Acesso à Informação (Lei nº 12.527/2011), o acesso não exige credenciais restritas nem autorizações éticas específicas, garantindo a reprodutibilidade integral da coleta por órgãos de controle ou pela comunidade acadêmica.
+Os arquivos tabulares foram baixados manualmente da página de despesas do Portal da Transparência do Estado do Acre, disponível em \url{https://transparencia.ac.gov.br/despesas/?ano=2025}, em 1º de outubro de 2026. O conjunto utilizado reúne os arquivos referentes aos exercícios de 2020 a 2025, disponibilizados publicamente pelo Governo do Estado do Acre. A coleta consistiu no download dos arquivos, sem uso de \textit{web scraping}. Para permitir a conferência do recorte, serão mantidos os arquivos originais utilizados e descritas as etapas de integração, limpeza e exclusão de registros. A Lei de Acesso à Informação estabelece o acesso público a informações de interesse coletivo, observadas as hipóteses legais de restrição \cite{lai2011}; a Lei de Responsabilidade Fiscal também disciplina a transparência da gestão fiscal \cite{lrf2000}. Os identificadores de pessoas físicas, quando presentes, serão usados apenas para vincular registros e não serão divulgados integralmente nos resultados; tabelas e gráficos apresentarão dados agregados ou identificadores mascarados. O estudo utiliza arquivos disponibilizados publicamente e não substitui eventual avaliação institucional ou ética aplicável ao trabalho.
 
 \subsection{Recorte Populacional e Temporal}\label{subsec:recorte_populacional}
 
-Diferentemente de abordagens auditivas convencionais que operam por amostragem probabilística ou seletiva, este trabalho adota o princípio da \textbf{Análise Populacional Integral}. O recorte temporal estipulado abrange os exercícios orçamentários de \textbf{2020 a 2025}, compreendendo um volume superior a \textbf{429 mil registros financeiros} (fases de empenho, liquidação e pagamento). Essa delimitação de 6 anos permite capturar ciclos orçamentários completos, incluindo períodos atípicos de gastos emergenciais (como o contexto da pandemia da COVID-19) e transições de gestão administrativa na esfera estadual.
+Diferentemente de abordagens que selecionam uma amostra dos arquivos reunidos, este trabalho processa as linhas dos arquivos baixados para os exercícios de \textbf{2020 a 2025}, que totalizam \textbf{430.067 registros} na versão atualmente analisada. Os valores empenhados, liquidados e pagos aparecem em colunas distintas de cada registro, não como três registros separados. O total descreve os arquivos obtidos e não deve ser interpretado como prova de que representam todos os registros existentes no Portal. Essa delimitação permite observar a evolução temporal das despesas, incluindo o período da pandemia da COVID-19 e transições de gestão administrativa na esfera estadual.
 
 \subsection{Dicionário de Atributos e Seleção de Variáveis}\label{subsec:dicionario_attributos}
 
-Os microdados originais contêm múltiplas variáveis de natureza orçamentária, financeira e cadastral. Para a construção da esteira analítica e modelagem de anomalias, selecionou-se um conjunto prioritário de atributos, categorizados no Quadro \ref{tab:atributos_dados}:
+Os arquivos CSV contêm os campos originais listados no Quadro \ref{qua:atributos_dados}. Atributos como primeiro dígito, frequência por credor e razão de concentração são calculados posteriormente pelo pipeline a partir desses campos.
 
-\begin{table}[htbp]
+\begin{quadro}[htbp]
 \centering
 \small
 \caption{Dicionário de atributos selecionados da base de despesas públicas do Estado do Acre.}
-\label{tab:atributos_dados}
+\label{qua:atributos_dados}
 \resizebox{\textwidth}{!}{%
-\begin{tabular}{|p{3.5cm}|p{3.2cm}|p{4.0cm}|p{4.5cm}|}
+\begin{tabular}{|p{3.5cm}|p{4.0cm}|p{3.2cm}|p{4.5cm}|}
 \hline
 \textbf{Categoria} & \textbf{Nome da Variável} & \textbf{Tipo de Dado} & \textbf{Descrição e Aplicação no Pipeline} \\ \hline
-\textbf{Financeira} & \texttt{valor\_empenho} / \texttt{valor\_pago} & Numérico Contínuo (\textit{float}) & Montante financeiro da transação. Base para extração do primeiro dígito (Benford), $Z$-Score e Isolation Forest. \\ \hline
-\textbf{Temporal} & \texttt{data\_emissao} / \texttt{exercicio} & Temporal (\textit{datetime}) / Inteiro & Data e ano do registro contábil. Permite análise de evolução temporal, sazonalidade e frequência de empenhos. \\ \hline
-\textbf{Institucional} & \texttt{orgao\_codigo} / \texttt{orgao\_nome} & Categórico (\textit{string}) & Identificação da Secretaria ou Órgão Estadual responsável pelo gasto. Utilizado em agrupamentos e no algoritmo LOF. \\ \hline
-\textbf{Cadastral} & \texttt{cpf\_cnpj\_credor} / \texttt{credor\_nome} & Categórico (\textit{string}) & Registro de identificação do fornecedor/favorecido. Base para grafos de rede, identificação de oligopólios e concentração. \\ \hline
-\textbf{Categorização} & \texttt{elemento\_despesa} / \texttt{modalidade} & Categórico (\textit{string}) & Classificação orçamentária da despesa e modalidade de licitação. Essencial para isolar falsos positivos de diárias e auxílios. \\ \hline
-\textbf{Textual} & \texttt{historico\_empenho} & Texto Livre (\textit{string}) & Descrição textual da finalidade do gasto. Processado via NLP (TF-IDF) e agrupado por densidade via DBSCAN. \\ \hline
+\textbf{Financeira} & \texttt{valor\_empenho}, \texttt{valor\_liquidado}, \texttt{valor\_pago} & Numérico (valores monetários) & Valores registrados nas etapas de empenho, liquidação e pagamento. O primeiro dígito e as medidas estatísticas são derivados do campo analisado. \\ \hline
+\textbf{Temporal} & \texttt{ano}, \texttt{data\_empenho} & Inteiro e data & Exercício e data do empenho; permitem ordenar os registros e analisar sua evolução temporal. \\ \hline
+\textbf{Institucional} & \texttt{orgao} & Categórico (texto) & Órgão associado ao registro; usado para agrupar despesas por órgão. O arquivo não apresenta campo separado de unidade gestora ou código do órgão. \\ \hline
+\textbf{Credor} & \texttt{nome\_credor}, \texttt{cnpj\_cpf}, \texttt{classe\_credor} & Texto e identificador & Nome, documento e classe do credor; permitem agrupar registros por favorecido e analisar recorrência e concentração. \\ \hline
+\textbf{Identificação} & \texttt{numero\_empenho} & Identificador (texto) & Número do empenho, utilizado para identificar ou rastrear o registro. \\ \hline
+\textbf{Classificação orçamentária} & \texttt{elemento\_\allowbreak{}despesa}, \texttt{elemento\_\allowbreak{}despesa\_\allowbreak{}descricao}, \texttt{fonte}, \texttt{funcao}, \texttt{funcao\_\allowbreak{}descricao}, \texttt{subfuncao}, \texttt{subfuncao\_\allowbreak{}descricao} & Códigos e descrições & Classificações e descrições orçamentárias disponíveis nos arquivos; podem apoiar agrupamentos comparáveis de despesas. \\ \hline
+\textbf{Textual} & \texttt{historico} & Texto livre & Histórico descritivo do empenho; pode ser processado por técnicas de NLP, como TF-IDF. \\ \hline
 \end{tabular}%
 }
 \fonte{Elaborado pelo autor com base nos dados do Portal da Transparência do Estado do Acre (2026).}
-\end{table}
+\end{quadro}
 
 \section{Estrutura do Pipeline Analítico}\label{sec:estrutura_pipeline}
 
@@ -463,7 +474,7 @@ Para a fase de execução e implementação da proposta, a metodologia do trabal
     \item \textbf{Filtro Estatístico Paramétrico (Lei de Benford e $Z$-Score):} Utilizado como linha de base estatística para analisar a distribuição natural dos dígitos financeiros e identificar padronizações normativas, tais como a concentração de valores tabelados em diárias operacionais e auxílios institucionais \cite{cavalcanti2014, nigrini2012};
     \item \textbf{Algoritmos Não Supervisionados de Detecção de Anomalias:} Aplicação planejada dos algoritmos \textit{Isolation Forest} (ISO) \cite{liu2008isolation} e \textit{Local Outlier Factor} (LOF) \cite{breunig2000lof} para o isolamento computacional de desvios e pontos discrepantes na distribuição dos gastos;
     \item \textbf{Mineração de Texto e Agrupamento (NLP e DBSCAN):} Emprego de técnicas de Processamento de Linguagem Natural combinadas com algoritmos de agrupamento baseados em densidade para analisar os históricos contábeis e identificar contratos continuados em serviços essenciais;
-    \item \textbf{Representação Relacional Complementar:} Uso secundário de estruturas de redes para a representação visual da topologia de fornecedores e secretarias estaduais \cite{nunes2021}.
+    \item \textbf{Representação Relacional Complementar:} Uso exploratório de redes para descrever relações observadas entre órgãos e credores; padrões de conexão serão tratados como hipóteses para análise contextual, não como evidência de coordenação entre fornecedores \cite{nunes2021}.
 \end{enumerate}
 Dessa forma, esta pesquisa contribui para a literatura de Ciência de Dados Aplicada ao demonstrar como técnicas computacionais não supervisionadas podem servir como instrumentos de inteligência institucional, revelando dinâmicas organizacionais, gargalos normativos e padrões de alocação de recursos no Estado do Acre.
 
@@ -504,10 +515,10 @@ Para superar os gargalos da fiscalização analógica e converter grandes massas
         }
     ]
         \node (fase1) [box] {\textbf{1. Entendimento do Negócio e do Domínio} \\ {\footnotesize Mapeamento das regras de despesa pública, normas da LAI e gargalos de fiscalização}};
-        \node (fase2) [box, below=of fase1] {\textbf{2. Coleta e Ingestão dos Microdados} \\ {\footnotesize Extração populacional integral do Portal do Acre (2020--2025, +429 mil registros)}};
+        \node (fase2) [box, below=of fase1] {\textbf{2. Coleta e Ingestão dos Microdados} \\ {\footnotesize Download manual e processamento integral dos arquivos obtidos (2020--2025, +429 mil registros)}};
         \node (fase3) [box, below=of fase2] {\textbf{3. Análise Exploratória de Dados (EDA)} \\ {\footnotesize Mapeamento de volume por órgão, qualidade de atributos e consistência das séries}};
         \node (fase4) [box, below=of fase3] {\textbf{4. Pré-processamento e Higienização (KDD)} \\ {\footnotesize Tratamento de nulos/estornos, normalização cadastral e extração do $1^{\circ}$ Dígito}};
-        \node (fase5) [box, below=of fase4] {\textbf{5. Triagem Estatística Descritiva} \\ {\footnotesize Lei de Newcomb-Benford, Teste Qui-Quadrado ($\chi^2$) e desvios por $Z$-Score}};
+        \node (fase5) [box, below=of fase4] {\textbf{5. Triagem Estatística e Testes de Aderência} \\ {\footnotesize Lei de Newcomb-Benford, teste Qui-Quadrado ($\chi^2$) e desvios por $Z$-Score}};
         \node (fase6) [box, below=of fase5] {\textbf{6. Modelagem Não Supervisionada, NLP e Redes} \\ {\footnotesize Isolation Forest, LOF, TF-IDF + DBSCAN e Grafos Bipartidos (NetworkX)}};
         \node (fase7) [boxfinal, below=of fase6] {\textbf{7. Interpretação de Anomalias e Geração de Conhecimento} \\ {\footnotesize Conversão de insights em informação e compreensão dos fenômenos sociais e normativos}};
 
@@ -521,7 +532,7 @@ Para superar os gargalos da fiscalização analógica e converter grandes massas
     \fonte{Elaborado pelo autor (2026).}
 \end{figure}
 
-A execução da esteira inicia-se pela compreensão das normas de execução orçamentária do setor público (Fase 1), seguida da coleta da totalidade dos microdados de despesa do Estado do Acre no período de 2020 a 2025 (Fase 2). Após a verificação exploratória de consistência (Fase 3) e o pré-processamento para limpeza de ruídos e extração de atributos numéricos (Fase 4), os dados passam pela filtragem estatística paramétrica da Lei de Benford e do $Z$-Score (Fase 5).
+A execução da esteira inicia-se pela compreensão das normas de execução orçamentária do setor público (Fase 1), seguida do download manual dos arquivos de despesas disponibilizados pelo Estado do Acre para 2020 a 2025 e do processamento integral das linhas contidas nesses arquivos (Fase 2). Essa etapa não pressupõe que os arquivos obtidos correspondam à totalidade dos registros publicados pelo Portal. Após a verificação exploratória de consistência (Fase 3) e o pré-processamento para limpeza de ruídos e extração de atributos numéricos (Fase 4), os dados passam pela análise da distribuição dos dígitos e por testes de aderência relacionados à Lei de Benford e ao $Z$-Score (Fase 5).
 
 Na sequência, aplicam-se modelos não supervisionados de isolamento e densidade (\textit{Isolation Forest} e LOF), técnicas de mineração de texto (TF-IDF e DBSCAN) e modelagem de redes complexas para identificar atipicidades quantitativas, semânticas e relacionais (Fase 6). Por fim, a Fase 7 dedica-se à conversão dos outputs algorítmicos em conhecimento estruturado, promovendo a interpretação contextual dos resultados para compreender os fenômenos sociais, econômicos e normativos subjacentes às anomalias detectadas.
 
@@ -545,23 +556,23 @@ A etapa inicial de pré-processamento foca na transformação dos arquivos bruto
 Nesta fase, constroem-se novas variáveis sintéticas a partir dos atributos brutos, com o objetivo de capturar comportamentos atípicos e fornecer insumos específicos para os modelos quantitativos e qualitativos \cite{pereira2025}:
 
 \begin{enumerate}
-    \item \textbf{Extração do Primeiro Dígito Significativo (\texttt{primeiro\_digito}):} Isolamento do primeiro algoritmo diferente de zero do valor numérico do empenho, variável indispensável para a aplicação da Lei de Benford;
+    \item \textbf{Extração do Primeiro Dígito Significativo (\texttt{primeiro\_digito}):} Isolamento do primeiro dígito diferente de zero de cada valor financeiro positivo selecionado, variável derivada para a análise de Benford;
     \item \textbf{Frequência Recorrente por Favorecido (\texttt{freq\_credor}):} Contagem automatizada do número de empenhos e liquidações emitidos para um mesmo CNPJ/CPF em janelas temporais de 30, 60 e 90 dias;
-    \item \textbf{Razão de Concentração do Favorecido (\texttt{razao\_concentracao}):} Percentual do orçamento de uma determinada unidade gestora direcionado a um único credor no exercício financeiro;
+    \item \textbf{Razão de Concentração do Favorecido (\texttt{razao\_concentracao}):} Percentual do total registrado para um órgão direcionado a um único credor no exercício financeiro;
     \item \textbf{Variabilidade da Despesa (\texttt{desvio\_relativo}):} Razão entre o valor de uma transação específica e a média histórica de pagamentos do mesmo elemento de despesa no órgão.
 \end{enumerate}
 
 \subsection{Módulo Estatístico Paramétrico: Lei de Benford e $Z$-Score}\label{subsec:modulo_benford}
 
-O primeiro filtro analítico atua sobre a variável \texttt{primeiro\_digito} de 100\% dos registros da base. O pipeline computacional executa dois testes formais de aderência \cite{nigrini2012, cavalcanti2014}:
+O primeiro filtro analítico atua sobre o primeiro dígito significativo dos valores positivos de cada campo financeiro, analisado separadamente. Valores nulos e negativos não têm primeiro dígito significativo e serão excluídos desse teste; a quantidade considerada e excluída será informada nos resultados. A aderência da distribuição observada é avaliada pelos testes a seguir \cite{nigrini2012, cavalcanti2014}:
 
 \begin{enumerate}
-    \item \textbf{Teste Qui-Quadrado ($\chi^2$):} Avalia a conformidade global da curva observada frente à distribuição teórica logarítmica de Benford. A rejeição da hipótese nula ($H_0$) ocorre para um nível de significância $\alpha = 0,05$ caso a estatística $Q$ supere o valor crítico da distribuição;
-    \item \textbf{Teste $Z$-Score para Dígitos Individuais:} Identifica quais dígitos específicos de $1$ a $9$ apresentam frequências estatisticamente explodidas. O cálculo é regido pela Equação \ref{eq:z_score_formula}: 
+    \item \textbf{Teste Qui-Quadrado ($\chi^2$):} Avalia a aderência global da distribuição observada à distribuição teórica de Benford. Para nove categorias de dígitos, o teste utiliza oito graus de liberdade e nível de significância $\alpha = 0,05$;
+    \item \textbf{Teste $Z$-Score para Dígitos Individuais:} Avalia, para cada dígito de $1$ a $9$, o desvio entre a frequência observada e a esperada. O cálculo é regido pela Equação \ref{eq:z_score_formula}:
     \begin{equation}\label{eq:z_score_formula}
     Z_d = \frac{|p_o - p_e| - \frac{1}{2n}}{\sqrt{\frac{p_e (1 - p_e)}{n}}}
     \end{equation}
-    Em que $p_o$ é a proporção observada do dígito $d$, $p_e$ é a proporção esperada por Benford, $n$ é o total de observações e $\frac{1}{2n}$ representa a correção de continuidade de Yates \cite{nigrini2012}. Valores de $Z_d > 2,57$ sinalizam desvios atípicos ao nível de confiança de 99\%.
+    Em que $p_o$ é a proporção observada do dígito $d$, $p_e$ é a proporção esperada por Benford e $n$ é o total de valores válidos. O termo $\frac{1}{2n}$ corresponde à correção de continuidade. Valores de $Z_d > 2,57$ serão tratados como sinalizações nominais de desvio em teste bilateral. Para as conclusões inferenciais sobre os nove dígitos, os valores-$p$ serão ajustados pelo procedimento de Holm--Bonferroni, com nível familiar de $1\%$ \cite{nigrini2012}.
 \end{enumerate}
 
 \subsection{Módulo de Aprendizado de Máquina Não Supervisionado: ISO e LOF}\label{subsec:modulo_ml}
@@ -569,18 +580,25 @@ O primeiro filtro analítico atua sobre a variável \texttt{primeiro\_digito} de
 Para superar a dependência de análises unidimensionais e identificar anomalias multivariadas complexas em dados não rotulados, o pipeline aplica concorrentemente dois algoritmos de Aprendizado Não Supervisionado \cite{nunes2021}:
 
 \begin{enumerate}
-    \item \textbf{\textit{Isolation Forest} (ISO):} Treinado sobre o vetor de atributos quantitativos (valor, frequência, razão de concentração). Configura-se o parâmetro de contaminação (\textit{contamination}) em um limiar conservador de $0,01$ a $0,05$, isolando $1\%$ a $5\%$ das observações mais distantes na estrutura de árvores binárias \cite{liu2008isolation};
-    \item \textbf{\textit{Local Outlier Factor} (LOF):} Executado com hiperparâmetro de vizinhança $k = 20$, mensurando a densidade local de cada despesa em relação ao comportamento padrão do seu órgão de origem. Registros com escore $LOF > 1,5$ são formalmente rotulados como \textit{outliers} locais de densidade \cite{breunig2000lof}.
+    \item \textbf{\textit{Isolation Forest} (ISO):} Treinado sobre o vetor de atributos quantitativos (valor, frequência e razão de concentração), com \textit{contamination} igual a $0,01$ e \texttt{random\_state=42}. Uma observação recebe sinalização quando o modelo a classifica como outlier. O parâmetro \textit{contamination} define o limiar de decisão do modelo e não é uma probabilidade de que o registro seja anômalo \cite{liu2008isolation};
+    \item \textbf{\textit{Local Outlier Factor} (LOF):} Executado separadamente por órgão, com hiperparâmetro de vizinhança $k = 20$ e variáveis numéricas padronizadas. Registros com escore $LOF > 1,5$ recebem sinalização de baixa densidade local \cite{breunig2000lof}.
 \end{enumerate}
 
 \subsection{Módulo de NLP e Agrupamento Semântico (TF-IDF + DBSCAN)}\label{subsec:modulo_nlp}
 
-Como etapa de filtragem contextual e mitigação de falsos positivos causados por regras de negócio (como diárias e auxílios tabelados), o campo \texttt{historico\_empenho} passa por um pipeline de Processamento de Linguagem Natural \cite{goldschmidt2005, ester1996dbscan}:
+Como etapa de análise contextual, o campo original \texttt{historico} passa por um pipeline de Processamento de Linguagem Natural \cite{goldschmidt2005, ester1996dbscan}:
 
 \begin{enumerate}
     \item \textbf{Vetorização TF-IDF:} Remoção de \textit{stopwords} em português e construção da matriz esparsa de relevância de termos, limitando-se às 1.000 palavras mais discriminativas;
-    \item \textbf{Agrupamento com DBSCAN:} Aplicação do algoritmo DBSCAN sobre a matriz TF-IDF utilizando a métrica de distância do cosseno, com raio $\varepsilon = 0,3$ e $MinPts = 5$. O modelo agrupa automaticamente descrições padronizadas por decretos administrativos e isola observações rotuladas como ruído (\textit{label} $-1$), que indicam descrições atípicas ou suspeitas de fracionamento de licitação (\textit{smurfing}) \cite{ester1996dbscan, vieira2019}.
+    \item \textbf{Agrupamento com DBSCAN:} Aplicação do algoritmo DBSCAN sobre a matriz TF-IDF normalizada pela norma L2, utilizando distância do cosseno, raio $\varepsilon = 0,3$ e $MinPts = 5$. Observações rotuladas como ruído (\textit{label} $-1$) recebem uma sinalização de texto menos semelhante aos agrupamentos encontrados. Essa sinalização requer interpretação contextual e não caracteriza, por si só, uma anomalia administrativa \cite{ester1996dbscan, vieira2019}.
 \end{enumerate}
+
+\subsection{Análise de Sensibilidade dos Parâmetros}\label{subsec:analise_sensibilidade}
+
+
+Como não há rótulos de auditoria para medir acurácia, a robustez da triagem será examinada variando um parâmetro por vez em torno da configuração de referência. Para o \textit{Isolation Forest}, serão comparados valores de \textit{contamination} de $0,005$, $0,01$ e $0,02$; para o LOF, limites de sinalização de $1,5$ e $2,0$, mantendo $k=20$; e, para o DBSCAN, $\varepsilon$ de $0,2$, $0,3$ e $0,4$, mantendo $MinPts=5$. Também serão comparadas regras de consenso de um, dois e três métodos sinalizadores. Para cada configuração, serão apresentados o número e a proporção de registros sinalizados, a interseção entre os conjuntos de candidatos e o índice de Jaccard em relação à configuração de referência ($0,01$, $LOF>1,5$, $\varepsilon=0,3$ e consenso de dois métodos). Essa análise avalia a estabilidade das sinalizações em relação aos parâmetros, não a acurácia em relação a uma verdade de referência.
+
+Os parâmetros de referência são escolhas operacionais para a triagem, não limites universais nem estimativas da prevalência real de anomalias. O \textit{contamination} de $0,01$ fixa o limiar de decisão inicial do \textit{Isolation Forest}; no LOF, $1,5$ funciona como limiar heurístico para sinalizar densidade local suficientemente distinta da vizinhança; no DBSCAN, $\varepsilon=0,3$ define a distância máxima de cosseno entre observações vizinhas e $MinPts=5$ exige densidade mínima para formar um agrupamento. A regra de consenso de dois entre três métodos foi escolhida como critério intermediário: uma sinalização isolada é mais inclusiva, enquanto exigir unanimidade é mais restritivo.
 
 \section{Análise de Redes Complexas e Topologia de Grafos}\label{sec:redes_complexas}
 
@@ -588,27 +606,27 @@ Para além das abordagens estatísticas e algoritmos atômicos de amostragem, a 
 
 \subsection{Modelagem de Rede Bipartida e Projeção}\label{subsec:rede_bipartida}
 
-A relação orçamentária é modelada como um grafo não direcionado e ponderado $G = (V_{org}, V_{cred}, E)$, em que $V_{org}$ representa o conjunto de nós dos órgãos públicos, $V_{cred}$ denota o conjunto de nós dos credores/fornecedores e $E$ representa as arestas de transação financeira, ponderadas pelo volume financeiro acumulado ($W_{ij}$) ou pelo número de empenhos celebrados:
+A relação entre órgãos e credores é representada por um grafo bipartido $G = (V_{org}, V_{cred}, E)$, em que $V_{org}$ representa os nós dos órgãos, $V_{cred}$ os nós dos credores/fornecedores e $E$ as relações observadas nos registros. As arestas poderão ser ponderadas pelo valor financeiro agregado ou pela quantidade de empenhos, conforme a unidade de análise definida na implementação:
 
 \begin{enumerate}
     \item \textbf{Mapeamento Bipartido:} Construção da matriz de adjacência $A$, conectando cada secretaria aos seus respectivos fornecedores contratados;
-    \item \textbf{Projeção Unimodal de Credores:} Projeção do grafo sobre o conjunto $V_{cred}$, conectando fornecedores distintos que compartilham contratos simultâneos em duas ou mais secretarias estaduais. Essa projeção evidencia a formação de consórcios informais, matrizes de fornecimento cruzado e dependência administrativa.
+    \item \textbf{Projeção Unimodal de Credores:} Projeção do grafo sobre o conjunto $V_{cred}$, conectando credores associados aos mesmos órgãos no período analisado. A coocorrência poderá orientar hipóteses sobre padrões de fornecimento e dependência administrativa, mas não evidencia, por si só, consórcios, coordenação entre empresas ou compartilhamento de contratos.
 \end{enumerate}
 
-\subsection{Métricas de Centralidade e Mapeamento de Oligopólios}\label{subsec:metricas_centralidade}
+\subsection{Métricas de Centralidade e Concentração de Fornecedores}\label{subsec:metricas_centralidade}
 
-Para quantificar a relevância topológica e identificar a concentração de mercado no setor público do Acre, calculam-se duas métricas de rede via biblioteca \texttt{networkx} \cite{nunes2021}:
+Para descrever a estrutura relacional dos fornecedores nos arquivos do estudo, serão calculadas duas métricas de rede via biblioteca \texttt{networkx} \cite{nunes2021}:
 
 \begin{enumerate}
     \item \textbf{Centralidade de Grau (\textit{Degree Centrality}):} Mede o número de órgãos estaduais distintos atendidos por uma mesma empresa, identificando fornecedores hiperconectados na estrutura administrativa;
     \item \textbf{Centralidade de Intermediação (\textit{Betweenness Centrality}):} Quantifica a frequência com que um credor atua como ponte de conexão no fluxo de empenhos entre diferentes setores governamentais.
 \end{enumerate}
 
-Essa modelagem relacional permite isolar padrões de \textbf{oligopólio legal} decorrentes do uso intensivo de Atas de Registro de Preço ("caronas" interinstitucionais), separando empresas com forte penetração orçamentária legítima daquelas com indícios de direcionamento ou captura de mercado.
+Essa modelagem relacional permite descrever a concentração e a conectividade dos fornecedores, inclusive em situações de uso compartilhado de Atas de Registro de Preços ("caronas" interinstitucionais). Centralidade elevada é uma característica da rede e, isoladamente, não demonstra direcionamento ou captura de mercado.
 
 \section{Ambiente Computacional e Ferramentas}\label{sec:ambiente_computacional}
 
-A construção, validação e execução integral do pipeline analítico utilizam um ecossistema tecnológico baseado em linguagens, bibliotecas e plataformas de código aberto (\textit{open-source}), garantindo custo zero de licenciamento e auditabilidade total \cite{pereira2025}. A Tabela \ref{tab:ambiente_ferramentas} detalha a infraestrutura computacional empregada:
+A construção e execução do pipeline analítico utilizam linguagens e bibliotecas de código aberto (\textit{open-source}), reduzindo custos de licenciamento e favorecendo a inspeção e a reprodutibilidade do código. A Tabela \ref{tab:ambiente_ferramentas} detalha o ambiente computacional previsto:
 
 \begin{table}[htbp]
 \centering
@@ -631,23 +649,25 @@ A construção, validação e execução integral do pipeline analítico utiliza
 \fonte{Elaborado pelo autor (2026).}
 \end{table}
 
-\section{Escore Integrado de Risco e Validação dos Resultados}\label{sec:escore_risco_validacao}
+\section{Escore de Prioridade e Análise Contextual}\label{sec:escore_risco_validacao}
 
-Para evitar que os analistas do controle público precisem interpretar os outputs de múltiplos modelos isolados, o pipeline consolida os resultados em um \textbf{Escore Integrado de Risco Forense} ($R_i$), normalizado no intervalo $[0, 100]$ \cite{nunes2021, pereira2025}.
+O escore tem a finalidade de ordenar registros para análise, não de estimar a probabilidade de uma anomalia. Ele combina apenas sinalizações produzidas por métodos aplicados a registros individuais. A Lei de Benford, por avaliar distribuições de conjuntos de valores, e as métricas de rede, por descreverem relações entre órgãos e credores, são analisadas separadamente como contexto.
 
 \subsection{Composição do Escore Integrado}\label{subsec:composicao_escore}
 
-O escore composto para cada transação $i$ é calculado como a soma ponderada das sinalizações emitidas por cada filtro da esteira, conforme a Equação \ref{eq:escore_risco}:
+Combinar detectores de outliers com princípios distintos é uma estratégia discutida na literatura de ensembles para reunir sinais potencialmente complementares; seu desempenho, porém, depende dos dados e dos métodos escolhidos \cite{aggarwal_sathe2017}. Neste estudo, adota-se uma votação simples, com peso igual para os três detectores, como regra operacional de priorização, não como reprodução de um escore definido por essa fonte.
+
+Para cada registro $i$, cada um dos três métodos individuais produz uma sinalização binária: $S_{\text{ISO}}(i)=1$ quando o \textit{Isolation Forest} classifica o registro como outlier; $S_{\text{LOF}}(i)=1$ quando seu escore LOF é maior que $1,5$; e $S_{\text{DBSCAN}}(i)=1$ quando o histórico recebe o rótulo de ruído $-1$. Nos demais casos, o indicador vale zero. O escore é a proporção de métodos que sinalizaram o registro, convertida para a escala de 0 a 100:
 
 \begin{equation}\label{eq:escore_risco}
-R_i = w_1 \cdot S_{\text{Benford}}(i) + w_2 \cdot S_{\text{ISO}}(i) + w_3 \cdot S_{\text{LOF}}(i) + w_4 \cdot S_{\text{DBSCAN}}(i) + w_5 \cdot S_{\text{Grafo}}(i)
+R_i = \frac{100}{3}\left(S_{\text{ISO}}(i) + S_{\text{LOF}}(i) + S_{\text{DBSCAN}}(i)\right)
 \end{equation}
 
-Em que $S(i) \in \{0, 1\}$ indica a presença ou ausência de sinalização em cada módulo analítico, e $w_k$ representa o peso atribuído a cada modelo com base na sua especificidade discriminativa. Registros que apresentam concordância multialgorítmica (sinalizados simultaneamente por Benford, ISO, LOF e DBSCAN) recebem pontuações de risco elevadas ($R_i > 75$), constituindo a amostra priorizada de triagem (\textit{red flags}) \cite{nunes2021}.
+Assim, $R_i$ pode assumir os valores $0$, $33,3$, $66,7$ ou $100$. Um registro é definido operacionalmente como \textbf{candidato a anomalia} quando pelo menos dois dos três métodos o sinalizam ($R_i \geq 66,7$). Registros com apenas uma sinalização permanecem como alertas individuais para análise exploratória. Esses limiares são regras de triagem do estudo, não comprovam a ocorrência de uma anomalia nem medem a acurácia dos métodos.
 
-\subsection{Validação Qualitativa e Filtro de Falsos Positivos}\label{subsec:validacao_falsos_positivos}
+\subsection{Análise Contextual dos Candidatos}\label{subsec:validacao_falsos_positivos}
 
-A etapa final do procedimento metodológico consiste na \textbf{validação qualitativa do topo do escore de risco}. As despesas classificadas como de alto risco são submetidas a uma checagem contextual contra o arcabouço normativo governamental (decretos de diárias, tabelas de repasse e contratos públicos), verificando se a atipicidade identificada decorre de uma regra de negócio legítima (falso positivo) ou se constitui uma anomalia operacional que exige apuração pelos órgãos de controle \cite{cavalcanti2014, nunes2021}.
+A etapa contextual examina os candidatos a anomalia à luz das informações disponíveis nos históricos, classificações orçamentárias e documentos normativos ou contratuais que puderem ser consultados. Cada caso será registrado como (a) explicado por regra ou contexto identificado, (b) atipicidade sem explicação encontrada nas fontes consultadas, ou (c) inconclusivo por falta de informação. Essa análise descreve os resultados da triagem; não confirma a ocorrência de conduta indevida nem substitui a apuração dos órgãos de controle \cite{cavalcanti2014, nunes2021}.
 
 \chapter{CRONOGRAMA}\label{sec:cronograma}
 O processo de execução da pesquisa e escrita da monografia final (TCC 2) seguirá o cronograma explicitado na Figura \ref{fig:gantt_cronograma}, devidamente alinhado ao calendário acadêmico do semestre 2026.2.
@@ -699,7 +719,7 @@ O processo de execução da pesquisa e escrita da monografia final (TCC 2) segui
 A monografia final resultante deste projeto de pesquisa será estruturada em cinco capítulos principais, organizados de forma lógica e sequencial para apresentar o desenvolvimento da esteira de Ciência de Dados Forense e a análise dos microdados de despesas públicas do Estado do Acre. O esboço da estrutura do trabalho definitivo é apresentado a seguir:
 
 \begin{enumerate}
-    \item \textbf{INTRODUÇÃO}
+    \item \textbf{APRESENTAÇÃO}
     \begin{itemize}
         \item \textbf{1.1. Problema da Pesquisa:} Apresentação do gargalo da fiscalização tradicional por amostragem e o fenômeno da opacidade por excesso nos portais de transparência.
         \item \textbf{1.2. Objetivos:}
@@ -717,7 +737,7 @@ A monografia final resultante deste projeto de pesquisa será estruturada em cin
         \item \textbf{2.2. O Processo KDD e a Análise Populacional:} O ciclo de descoberta de conhecimento em bases de dados e a transição da amostragem para a análise de 100\% dos registros.
         \item \textbf{2.3. Filtros Estatísticos de Distribuição:} Fundamentos da Lei de Newcomb-Benford, Teste Qui-Quadrado ($\chi^2$) e o $Z$-Score.
         \item \textbf{2.4. Aprendizado de Máquina Não Supervisionado:} Funcionamento dos algoritmos \textit{Isolation Forest} (ISO) e \textit{Local Outlier Factor} (LOF).
-        \item \textbf{2.5. Mineração de Texto em Históricos Contábeis:} Vetorização TF-IDF e agrupamento denso via DBSCAN para filtragem contextual de falsos positivos.
+        \item \textbf{2.5. Mineração de Texto em Históricos Contábeis:} Vetorização TF-IDF e agrupamento via DBSCAN para contextualizar sinalizações textuais.
         \item \textbf{2.6. Trabalhos Relacionados:} Mapeamento do estado da arte e lacunas na literatura nacional.
     \end{itemize}
     \item \textbf{PROCEDIMENTOS METODOLÓGICOS}
@@ -727,16 +747,16 @@ A monografia final resultante deste projeto de pesquisa será estruturada em cin
         \item \textbf{3.3. A Esteira de Processamento de Dados (Pipeline KDD):} Detalhamento das rotinas de limpeza, engenharia de atributos e parametrização dos modelos em Python.
         \item \textbf{3.4. Análise de Redes Complexas e Topologia de Grafos:} Modelagem bipartida e métricas de centralidade via \texttt{NetworkX}.
         \item \textbf{3.5. Ambiente Computacional e Ferramentas:} Mapeamento do ecossistema de software livre e bibliotecas especializadas.
-        \item \textbf{3.6. Escore Integrado de Risco e Validação dos Resultados:} Formulação da matriz de concordância multialgorítmica e auditoria de falsos positivos.
+        \item \textbf{3.6. Escore de Prioridade e Análise Contextual:} Regra de concordância dos métodos por registro e interpretação dos candidatos a anomalia.
     \end{itemize}
     \item \textbf{RESULTADOS E DISCUSSÃO}
     \begin{itemize}
         \item \textbf{4.1. Análise Exploratória e Diagnóstico Populacional:} Mapeamento quantitativo e temporal da execução orçamentária do Estado do Acre.
-        \item \textbf{4.2. Triagem Estatística Descritiva:} Resultados da aderência à Lei de Benford, testes $\chi^2$ e identificação de picos de $Z$-Score.
+        \item \textbf{4.2. Triagem Estatística e Testes de Aderência:} Resultados da aderência à Lei de Benford, testes $\chi^2$ e identificação de desvios de $Z$-Score.
         \item \textbf{4.3. Detecção por Aprendizado Não Supervisionado:} Mapeamento de anomalias globais (ISO) e locais de densidade (LOF).
-        \item \textbf{4.4. Agrupamento Semântico e Filtro de Falsos Positivos:} Resultados do TF-IDF/DBSCAN no isolamento de despesas normativas tabeladas (diárias e auxílios).
-        \item \textbf{4.5. Estrutura de Redes e Oligopólios:} Projeção de grafos de fornecedores e diagnóstico do uso de Atas de Registro de Preço.
-        \item \textbf{4.6. Desempenho do Escore Integrado de Risco:} Validação do ranking final de \textit{red flags} para suporte à decisão auditiva.
+        \item \textbf{4.4. Análise Textual e Contextual:} Resultados de TF-IDF/DBSCAN e interpretação das sinalizações.
+        \item \textbf{4.5. Estrutura de Redes e Concentração de Fornecedores:} Projeção de grafos e descrição das relações entre órgãos e credores.
+        \item \textbf{4.6. Escore de Prioridade e Candidatos a Anomalia:} Análise das sinalizações combinadas e dos resultados da interpretação contextual.
     \end{itemize}
     \item \textbf{CONSIDERAÇÕES FINAIS}
     \begin{itemize}
