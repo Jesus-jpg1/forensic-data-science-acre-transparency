@@ -670,43 +670,74 @@ Assim, $R_i$ pode assumir os valores $0$, $33,3$, $66,7$ ou $100$. Um registro �
 A etapa contextual examina os candidatos a anomalia à luz das informações disponíveis nos históricos, classificações orçamentárias e documentos normativos ou contratuais que puderem ser consultados. Cada caso será registrado como (a) explicado por regra ou contexto identificado, (b) atipicidade sem explicação encontrada nas fontes consultadas, ou (c) inconclusivo por falta de informação. Essa análise descreve os resultados da triagem; não confirma a ocorrência de conduta indevida nem substitui a apuração dos órgãos de controle \cite{cavalcanti2014, nunes2021}.
 
 \chapter{CRONOGRAMA}\label{sec:cronograma}
-O processo de execução da pesquisa e escrita da monografia final (TCC 2) seguirá o cronograma explicitado na Figura \ref{fig:gantt_cronograma}, devidamente alinhado ao calendário acadêmico do semestre 2026.2.
+O semestre letivo começa em 26 de outubro de 2026. Considerando o encerramento previsto, ainda não oficial, em 5 de maio de 2027, a defesa foi programada para 5 de abril de 2027, exatamente 30 dias antes. A Tabela \ref{tab:cronograma_atividades} apresenta as atividades em dias corridos; a Figura \ref{fig:gantt_cronograma} mostra sua distribuição no calendário, com o recesso acadêmico e a continuidade de atividades de pesquisa durante o período de férias acadêmicas. Se a data oficial de encerramento for diferente, a data da defesa deverá ser ajustada para manter esse intervalo.
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Cronograma de atividades do semestre letivo 2026.2, em dias corridos.}
+\label{tab:cronograma_atividades}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|p{2.5cm}|p{3.4cm}|c|p{8.0cm}|}
+\hline
+\textbf{Mês} & \textbf{Data} & \textbf{Dias} & \textbf{Atividade} \\ \hline
+Outubro/\allowbreak Novembro & 26/10/2026--08/11/2026 & 14 & Ajustes do projeto e preparação do ambiente computacional. \\ \hline
+Novembro & 09/11/2026--29/11/2026 & 21 & Expansão bibliográfica e desenvolvimento do Capítulo 2. \\ \hline
+Novembro/\allowbreak Dezembro & 30/11/2026--22/12/2026 & 23 & Desenvolvimento do Capítulo 3 e organização da base de dados. \\ \hline
+Dezembro/\allowbreak Janeiro & 23/12/2026--02/01/2027 & 11 & Recesso acadêmico. \\ \hline
+Janeiro & 04/01/2027--17/01/2027 & 14 & Revisão bibliográfica complementar e aprofundamento do referencial teórico. \\ \hline
+Janeiro & 18/01/2027--31/01/2027 & 14 & Documentação e validação da base, incluindo conferência de campos, nulos e duplicidades. \\ \hline
+Fevereiro & 01/02/2027--15/02/2027 & 15 & Ajustes do pipeline e testes piloto para preparar os experimentos computacionais. \\ \hline
+Fevereiro/\allowbreak Março & 16/02/2027--07/03/2027 & 20 & Execução dos experimentos computacionais. \\ \hline
+Março & 08/03/2027--19/03/2027 & 12 & Tabulação dos resultados e produção das visualizações. \\ \hline
+Março & 20/03/2027--29/03/2027 & 10 & Redação do Capítulo 4 e discussão dos resultados. \\ \hline
+Março/\allowbreak Abril & 30/03/2027--04/04/2027 & 6 & Revisão da orientadora, ajustes e preparação da defesa. \\ \hline
+Abril & 05/04/2027 & 1 & Defesa perante a banca. \\ \hline
+Abril/\allowbreak Maio & 06/04/2027--05/05/2027 & 30 & Correções pós-banca e entrega da versão final. \\ \hline
+\end{tabular}%
+}
+\fonte{Elaboração própria (2026).}
+\end{table}
 
 \begin{figure}[htbp]
     \centering
-    \caption{Cronograma de execução da pesquisa (Semestre 2026.2).}
+    \caption{Cronograma de execução da pesquisa, de 26 de outubro de 2026 a 5 de maio de 2027.}
     \label{fig:gantt_cronograma}
 
     \resizebox{\textwidth}{!}{%
     \begin{ganttchart}[
         time slot format=isodate,
-        x unit=1.2mm,
+        x unit=0.8mm,
         y unit title=0.6cm,
-        y unit chart=0.7cm,
+        y unit chart=0.55cm,
         vgrid,
         hgrid,
-        title label font=\bfseries\footnotesize,
-        bar label font=\footnotesize,
+        title label font=\bfseries\scriptsize,
+        bar label font=\scriptsize,
         bar/.style={fill=blue!20, draw=blue!70, line width=1pt, rounded corners=2pt},
         bar height=0.5,
         progress label text={},
         group right shift=0,
         group top shift=.6,
         group height=.3
-    ]{2026-10-21}{2027-02-17}
+    ]{2026-10-26}{2027-05-05}
 
     \gantttitlecalendar{year} \\
-    \gantttitle{Outubro}{11}\gantttitle{Novembro}{30}\gantttitle{Dezembro}{31}\gantttitle{Janeiro}{31}\gantttitle{Fevereiro}{17} \\
+    \gantttitle{Out.}{6}\gantttitle{Novembro}{30}\gantttitle{Dezembro}{31}\gantttitle{Janeiro}{31}\gantttitle{Fevereiro}{28}\gantttitle{Março}{31}\gantttitle{Abril}{30}\gantttitle{Mai}{5} \\
 
-    \ganttbar{Ajustes e ambiente Python (11 dias)}{2026-10-21}{2026-10-31} \\
-    \ganttbar{Expansão bibl. e Cap. 2 (15 dias)}{2026-11-01}{2026-11-15} \\
-    \ganttbar{Cap. 3 e base de dados (15 dias)}{2026-11-16}{2026-11-30} \\
-    \ganttbar{Experimentos computacionais (20 dias)}{2026-12-01}{2026-12-20} \\
-    \ganttbar{Tabulação e visualizações (11 dias)}{2026-12-21}{2026-12-31} \\
-    \ganttbar{Redação do Cap. 4 (19 dias)}{2027-01-02}{2027-01-20} \\
-    \ganttbar{Cap. 5 e versão preliminar (11 dias)}{2027-01-21}{2027-01-31} \\
-    \ganttbar{Revisão da orientadora (10 dias)}{2027-02-01}{2027-02-10} \\
-    \ganttbar{Envio final e banca (7 dias)}{2027-02-11}{2027-02-17}
+    \ganttbar{Ajustes do projeto e ambiente (14 dias)}{2026-10-26}{2026-11-08} \\
+    \ganttbar{Bibliografia e Capítulo 2 (21 dias)}{2026-11-09}{2026-11-29} \\
+    \ganttbar{Capítulo 3 e base de dados (23 dias)}{2026-11-30}{2026-12-22} \\
+    \ganttbar{Recesso acadêmico (11 dias)}{2026-12-23}{2027-01-02} \\
+    \ganttbar{Revisão bibliográfica complementar (14 dias)}{2027-01-04}{2027-01-17} \\
+    \ganttbar{Documentação e validação da base (14 dias)}{2027-01-18}{2027-01-31} \\
+    \ganttbar{Ajustes do pipeline e testes piloto (15 dias)}{2027-02-01}{2027-02-15} \\
+    \ganttbar{Experimentos computacionais (20 dias)}{2027-02-16}{2027-03-07} \\
+    \ganttbar{Tabulação e visualizações (12 dias)}{2027-03-08}{2027-03-19} \\
+    \ganttbar{Redação do Capítulo 4 (10 dias)}{2027-03-20}{2027-03-29} \\
+    \ganttbar{Revisão e preparação da defesa (6 dias)}{2027-03-30}{2027-04-04} \\
+    \ganttbar{Defesa perante a banca (1 dia)}{2027-04-05}{2027-04-05} \\
+    \ganttbar{Correções e entrega final (30 dias)}{2027-04-06}{2027-05-05}
 
     \end{ganttchart}%
     }

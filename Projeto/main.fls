@@ -1,6 +1,6 @@
-PWD c:\Users\guilh\forensic-data-science-acre-transparency\Projeto
+PWD C:\Users\guilh\forensic-data-science-acre-transparency\Projeto
 INPUT C:\Users\guilh\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
-INPUT c:\Users\guilh\forensic-data-science-acre-transparency\Projeto\main.tex
+INPUT main.tex
 OUTPUT main.log
 INPUT C:\Users\guilh\AppData\Local\Programs\MiKTeX\tex\latex\abntex2\abntex2.cls
 INPUT C:\Users\guilh\AppData\Local\Programs\MiKTeX\tex\latex\abntex2\abntex2.cls

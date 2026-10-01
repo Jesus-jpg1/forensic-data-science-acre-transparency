@@ -41,6 +41,6 @@
 \contentsline {subsection}{\numberline {6.7.1}Composição do Escore Integrado}{33}{subsection.6.7.1}%
 \contentsline {subsection}{\numberline {6.7.2}Análise Contextual dos Candidatos}{33}{subsection.6.7.2}%
 \contentsline {chapter}{\chapternumberline {7}CRONOGRAMA}{34}{chapter.7}%
-\contentsline {chapter}{\chapternumberline {8}ESBOÇO DOS CAPÍTULOS E SEÇÕES}{35}{chapter.8}%
+\contentsline {chapter}{\chapternumberline {8}ESBOÇO DOS CAPÍTULOS E SEÇÕES}{36}{chapter.8}%
 \vspace {\cftbeforepartskip }
-\contentsline {chapter}{Refer\^encias}{38}{chapter*.9}%
+\contentsline {chapter}{Refer\^encias}{39}{chapter*.9}%
